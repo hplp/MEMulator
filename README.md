@@ -1,7 +1,8 @@
-# DRAM Emulation
+# Memory Emulation
+This framework enables emulation of existing and emerging memories on FPGA boards.
 
 ## SystemVerilog Model
-The SystemVerilog model is located in the *DDRFSM* directory. It includes finite state machines for timing and emulation memory cache, a ddr interface, hierarchy, command decoding and testbenches.
+The SystemVerilog model is located in the *SysVerilog_Model* directory. It includes finite state machines for timing and emulation memory cache, a ddr interface, hierarchy, command decoding and testbenches.
 
 ## HLS DRAM Emulation Code: 
 
