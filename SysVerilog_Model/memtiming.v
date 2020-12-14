@@ -4,7 +4,7 @@ module memtiming
        #(parameter T_CL = 17,
          parameter T_RCD = 17,
          parameter T_RP = 17,
-         parameter T_RFC = 347
+         parameter T_RFC = 34
         )
        (
          output reg [4:0] state,
