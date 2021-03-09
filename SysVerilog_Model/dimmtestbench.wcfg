@@ -12,11 +12,11 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="45751fs"></ZoomEndTime>
+      <ZoomEndTime time="131556fs"></ZoomEndTime>
       <Cursor1Time time="45750fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <NameColumnWidth column_width="193"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="4" />
@@ -40,6 +40,10 @@
       <wvobject type="logic" fp_name="/dimmtestbench/dut/ck_t">
          <obj_property name="ElementShortName">ck_t</obj_property>
          <obj_property name="ObjectShortName">ck_t</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/dimmtestbench/dut/ck_c">
+         <obj_property name="ElementShortName">ck_c</obj_property>
+         <obj_property name="ObjectShortName">ck_c</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/dimmtestbench/dut/reset_n">
          <obj_property name="ElementShortName">reset_n</obj_property>

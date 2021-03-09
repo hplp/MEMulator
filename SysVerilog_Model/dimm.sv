@@ -58,6 +58,7 @@ module dimm
   input [BGWIDTH-1:0] bg, // bankgroup address, BG0-BG1 in x4/8 and BG0 in x16
   `endif
   input [BAWIDTH-1:0] ba, // bank address
+  input ck2x, // clock 2x the frequency of ck_t, ck_c, ck_p, ck_n to sample at DDR
   `ifdef DDR4
   input ck_c, // Differential clock input complement All address & control signals are sampled at the crossing of negedge of ck_c
   input ck_t, // Differential clock input true All address & control signals are sampled at the crossing of posedge of ck_t
@@ -123,7 +124,9 @@ module dimm
   output wire                       m_axi_rready
   );
   
-  wire clk = ck_t && cke; // clkd && cke; // todo: figurehow to use ck_c, if needed with the memory controller
+  wire clk = ck2x && cke; // clkd && cke;
+  // todo: do not create another clock but use cke directly at value update
+  // figurehow to use ck_c, if needed with the memory controller
   
   genvar ri, ci, bgi, bi; // rank, chip, bank group and bank identifiers
   

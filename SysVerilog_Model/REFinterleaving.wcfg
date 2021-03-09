@@ -13,13 +13,13 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="43501fs"></ZoomEndTime>
-      <Cursor1Time time="4500fs"></Cursor1Time>
+      <Cursor1Time time="43500fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="191"></NameColumnWidth>
+      <NameColumnWidth column_width="187"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="16" />
    <wvobject type="logic" fp_name="/refinterleavingtestbench/dut/act_n">
       <obj_property name="ElementShortName">act_n</obj_property>
       <obj_property name="ObjectShortName">act_n</obj_property>
@@ -28,9 +28,13 @@
       <obj_property name="ElementShortName">cke</obj_property>
       <obj_property name="ObjectShortName">cke</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/refinterleavingtestbench/dut/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <wvobject type="logic" fp_name="/refinterleavingtestbench/dut/ck_c">
+      <obj_property name="ElementShortName">ck_c</obj_property>
+      <obj_property name="ObjectShortName">ck_c</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/refinterleavingtestbench/dut/ck_t">
+      <obj_property name="ElementShortName">ck_t</obj_property>
+      <obj_property name="ObjectShortName">ck_t</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/refinterleavingtestbench/dut/A">
       <obj_property name="ElementShortName">A[16:0]</obj_property>

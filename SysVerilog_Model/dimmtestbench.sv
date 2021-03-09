@@ -30,6 +30,7 @@ module dimmtestbench(
        localparam tCK = 0.75;
        
        reg reset_n;
+       reg ck2x;
        `ifdef DDR4
        reg ck_c;
        reg ck_t;
@@ -89,6 +90,7 @@ module dimmtestbench(
        .CHWIDTH(CHWIDTH)
        ) dut (
        .reset_n(reset_n),
+       .ck2x(ck2x),
        `ifdef DDR4
        .ck_c(ck_c),
        .ck_t(ck_t),
@@ -126,8 +128,9 @@ module dimmtestbench(
        .sync(sync)
        );
        
-       always #(tCK*0.5) ck_t = ~ck_t;
-       always #(tCK*0.5) ck_c = ~ck_c;
+       always #(tCK) ck_t = ~ck_t;
+       always #(tCK) ck_c = ~ck_c;
+       always #(tCK*0.5) ck2x = ~ck2x;
        
        integer i, j; // loop variable
        
