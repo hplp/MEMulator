@@ -10,7 +10,7 @@
 
 module dimm
   #(parameter RANKS = 1,
-  parameter CHIPS = 18,
+  parameter CHIPS = 16,
   `ifdef DDR4
   parameter BGWIDTH = 2,
   `else
