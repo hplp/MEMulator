@@ -3,7 +3,7 @@
 `define DDR4
 // `define DDR3
 
-module bainterleavingtestbench(
+module refinterleavingtestbench(
        );
        
        parameter RANKS = 1;
@@ -161,9 +161,8 @@ module bainterleavingtestbench(
               cs_n = 1'b0;
               #(tCK*5);
               
-              // activating
-              act_n = 0;
-              A = 17'b00000000000000001;
+              // refreshing
+              A = 17'b00100000000000001;
               bg = 0;
               ba = 0;
               #tCK;
@@ -206,7 +205,7 @@ module bainterleavingtestbench(
               bg = 0;
               ba = 0;
               
-              #(20*tCK);
+              #(36*tCK);
               $stop;
        end;
        
