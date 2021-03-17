@@ -21,7 +21,7 @@ module dimm
   parameter COLWIDTH = 10,
   parameter DEVICE_WIDTH = 4, // x4, x8, x16 -> DQWIDTH = DEVICE_WIDTH x CHIPS
   parameter BL = 8, // Burst Length
-  parameter CHWIDTH = 5, // Emulation Memory Cache Width
+  parameter CHWIDTH = 6, // Emulation Memory Cache Width
   
   // Width of AXI data bus in bits
   parameter AXI_DATA_WIDTH = 32,
