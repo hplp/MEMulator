@@ -31,7 +31,7 @@ module Bank
   .i_data(dqin),
   .o_data(dqout)
   );
-
+  
 endmodule
 
 // old code that used to manage RAS and CAS for bursts
