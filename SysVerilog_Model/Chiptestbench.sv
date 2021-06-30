@@ -29,7 +29,6 @@ module Chiptestbench(
   .BAWIDTH(BAWIDTH),
   .COLWIDTH(COLWIDTH),
   .DEVICE_WIDTH(DEVICE_WIDTH),
-  .BL(BL),
   .CHWIDTH(CHWIDTH)) dut (
   .clk(clk),
   .rd_o_wr(rd_o_wr),

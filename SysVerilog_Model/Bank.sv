@@ -1,22 +1,30 @@
 `timescale 1ns / 1ps
 
+// this Bank module models the basics in terms of structure and data storage of a memory Bank
+// parameter DEVICE_WIDTH corresponds with the width of the memory Chip, Bank Group, Bank
+//     sets the number of bits addressed by one row-column address location
+// parameter COLWIDTH determines the number of columns in one row
+// parameter CHWIDTH determines the number of full rows to be modeled
+//     the number of full rows modeled will be much smaller than the real number of rows
+//     because of the limited BRAM available on the FPGA chip
+//     the small number of full rows modeled are then mapped to any rows in use
 module Bank
   #(parameter DEVICE_WIDTH = 4,
-  parameter COLS = 1024,
-  parameter BL = 8,
+  parameter COLWIDTH = 10,
   parameter CHWIDTH = 5,
-  localparam ROWSinSRAM = 2**CHWIDTH,
-  localparam BankBRAM = COLS*ROWSinSRAM) // amount of BRAM per bank as full rows (pages)
+  localparam COLS = 2**COLWIDTH, // number of columns
+  localparam CHROWS = 2**CHWIDTH, // number of full rows allocated to a Bank model
+  localparam DEPTH = COLS*CHROWS) // amount of BRAM per Bank as full rows
   (
   input  wire clk,
   input  wire [0:0]              rd_o_wr,
   input  wire [DEVICE_WIDTH-1:0] dqin,
   output wire [DEVICE_WIDTH-1:0] dqout,
   input  wire [CHWIDTH-1:0]      row,
-  input  wire [$clog2(COLS)-1:0] column
+  input  wire [COLWIDTH-1:0] column
   );
   
-  sram #(.WIDTH(DEVICE_WIDTH), .DEPTH(BankBRAM)) array (
+  sram #(.WIDTH(DEVICE_WIDTH), .DEPTH(DEPTH)) array (
   .clk(clk),
   .addr({row, column}),
   .rd_o_wr(rd_o_wr), // 0->rd, 1->wr
@@ -25,6 +33,8 @@ module Bank
   );
   
 endmodule
+
+// old code that used to manage RAS and CAS for bursts
 
 // CAS = Column Address Strobe plus BL column address increment
 // reg [$clog2(COLS)-1:0]colBL=0;
