@@ -39,3 +39,6 @@ module BankGroup
   endgenerate
   
 endmodule
+
+// References
+// https://www.verilogpro.com/systemverilog-arrays-synthesizable/
