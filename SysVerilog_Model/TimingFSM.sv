@@ -33,6 +33,7 @@ module TimingFSM
                 .tRCDct(),
                 .tRFCct(),
                 .tRPct(),
+                .BSTct(),
                 .state(BankFSM[bgi][bi]),
                 .ACT( ((bg==bgi)&&(ba==bi))? ACT  : 1'b0),
                 .BST( ((bg==bgi)&&(ba==bi))? BST  : 1'b0),
