@@ -2,6 +2,8 @@
 
 `define DDR4
 // `define DDR3
+// TODO: memory timings should be registers in this module that are
+// writeable by the memory controller and passed as inputs to the memtiming FSM
 
 module TimingFSM
     #(parameter BGWIDTH = 2,
@@ -31,6 +33,7 @@ module TimingFSM
                 .tRCDct(),
                 .tRFCct(),
                 .tRPct(),
+                .BSTct(),
                 .state(BankFSM[bgi][bi]),
                 .ACT( ((bg==bgi)&&(ba==bi))? ACT  : 1'b0),
                 .BST( ((bg==bgi)&&(ba==bi))? BST  : 1'b0),

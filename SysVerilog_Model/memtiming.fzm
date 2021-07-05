@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 3:22:55 PM on 7/23/20
+## File last modified by Fizzim: 7:36:30 PM on 7/5/21
 <version>
    14.02.26
 </version>
@@ -1688,6 +1688,62 @@
          -1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         regdp
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </BSTct[7:0]>
    </outputs>
    <state>
       <name>
@@ -1970,6 +2026,62 @@
          -1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </BSTct[7:0]>
    </state>
    <trans>
       <name>
@@ -2483,6 +2595,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    423
@@ -2790,6 +2958,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    440
@@ -3121,9 +3345,9 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         T_CL
+         tCLct
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
@@ -3340,6 +3564,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BSTct-1
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    650
@@ -3428,9 +3708,9 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         T_CL
+         tCLct
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
@@ -3647,6 +3927,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BSTct-1
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    242
@@ -4437,9 +4773,9 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         T_CL
+         tCLct
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
@@ -4656,6 +4992,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BSTct-1
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    225
@@ -5230,9 +5622,9 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         T_CL
+         tCLct
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
@@ -5449,6 +5841,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BSTct-1
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    647
@@ -6023,7 +6471,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         BST
+         BST||(BSTct==0)
             <status>
             LOCAL
             </status>
@@ -6065,10 +6513,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         23
+         15
          </x2Obj>
          <y2Obj>
-         -17
+         -15
          </y2Obj>
          <page>
          1
@@ -6266,7 +6714,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         BST
+         BST||(BSTct==0)
             <status>
             LOCAL
             </status>
@@ -6308,10 +6756,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -5
          </x2Obj>
          <y2Obj>
-         -16
+         -22
          </y2Obj>
          <page>
          1
@@ -6728,6 +7176,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    453
@@ -8250,6 +8754,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    734
@@ -9934,6 +10494,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    153
@@ -11402,6 +12018,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    93
@@ -11709,6 +12381,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    201
@@ -12016,6 +12744,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    35
@@ -12323,6 +13107,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    27
@@ -12630,6 +13470,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    610
@@ -12937,6 +13833,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    294
@@ -13244,6 +14196,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    507
@@ -13551,6 +14559,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    645
@@ -13858,6 +14922,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    300
@@ -18512,6 +19632,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    52
@@ -19764,6 +20940,62 @@ fzm_globalTable
          1
          </page>
       </tRFCct[7:0]>
+      <BSTct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         BL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </BSTct[7:0]>
    </attributes>
    <x0>
    215
