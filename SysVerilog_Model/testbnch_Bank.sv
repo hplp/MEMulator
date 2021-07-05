@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 // testbench for Bank module
-module Banktestbench(
+module testbnch_Bank(
   );
   
   // parameters for Bank module
