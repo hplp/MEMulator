@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Chiptestbench(
+module testbnch_Chip(
   );
   
   parameter BGWIDTH = 2;
