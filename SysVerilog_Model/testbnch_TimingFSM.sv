@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-//`define RowClone
+`define RowClone
 
 module testbnch_TimingFSM(
        );
@@ -108,8 +108,14 @@ module testbnch_TimingFSM(
               PR = 1;
               #tCK;
               PR = 0;
+              #(16*tCK)
 
-              #(15*tCK)
+              // refresh
+              REF = 1;
+              #tCK;
+              REF = 0;
+              #(34*tCK);
+
               bg = 0;
               ba = 0;
               #(4*tCK);
