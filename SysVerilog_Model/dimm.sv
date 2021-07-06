@@ -327,6 +327,22 @@ module dimm
     end
   endgenerate
   
+  `ifndef SYNTHESIS
+  // initialize RowId, Column, Burst to values 0 for simulation runs
+  integer i, j;
+  initial
+  begin
+    for (i=0;i<=BANKGROUPS;i=i+1) begin
+      for (j=0;j<=BANKSPERGROUP;j=j+1) begin
+        RowId[i][j] = {ADDRWIDTH{1'b0}};
+        Column[i][j] = {COLWIDTH{1'b0}};
+        Burst[i][j] = 0;
+        rd_o_wr[i][j] = 0;
+      end
+    end
+  end
+  `endif
+  
 endmodule
 
 
