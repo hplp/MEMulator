@@ -6,7 +6,6 @@ vivado_pid*.str
 
 vivado_hls.log
 *.log
-*.png
 
 NA/
 .Xil/

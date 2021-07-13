@@ -3,20 +3,20 @@
 `define DDR4
 // `define DDR3
 
-`define RowClone
+// `define RowClone
 
-module dimmtestbench(
+module testbnch_DIMM(
        );
        
        parameter RANKS = 1;
-       parameter CHIPS = 18;
+       parameter CHIPS = 16;
        parameter BGWIDTH = 2;
        parameter BAWIDTH = 2;
        parameter ADDRWIDTH = 17;
        parameter COLWIDTH = 10;
        parameter DEVICE_WIDTH = 4; // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
        parameter BL = 8; // Burst Length
-       parameter CHWIDTH = 5; // Emulation Memory Cache Width
+       parameter CHWIDTH = 6; // Emulation Memory Cache Width
        
        localparam DQWIDTH = DEVICE_WIDTH*CHIPS; // 64 bits + 8 bits for ECC
        localparam BANKGROUPS = 2**BGWIDTH;
@@ -140,6 +140,7 @@ module dimmtestbench(
               reset_n = 0;
               ck_t = 1;
               ck_c = 0;
+              ck2x = 1;
               cke = 1;
               cs_n = {RANKS{1'b1}};
               act_n = 1;
@@ -202,27 +203,27 @@ module dimmtestbench(
               #(tCK*15); // tRCD
               `endif
               
-              // // read
-              // for (i = 0; i < BL; i = i + 1)
-              // begin
-              //        #tCK;
-              //        A = (i==0)? 17'b10100000000000010 : 17'b00000000000000000;
-              //        dq_reg = {DQWIDTH{1'b0}};
-              //        dqs_t_reg = {CHIPS{1'b0}};
-              //        dqs_c_reg = {CHIPS{1'b1}};
-              //        writing = 0;
-              // end
+              // read
+              #tCK;
+              for (i = 0; i < BL; i = i + 1)
+              begin
+                     A = (i==0)? 17'b10100000000000010 : 17'b00000000000000000;
+                     dq_reg = {DQWIDTH{1'b0}};
+                     dqs_t_reg = {CHIPS{1'b0}};
+                     dqs_c_reg = {CHIPS{1'b1}};
+                     writing = 0;
+                     #tCK;
+              end
               
               // precharge and back to idle
               #tCK;
-              A = 17'b01000000000000000;
-              
               #tCK;
+              A = 17'b01000000000000000;
               #tCK;
               bg = 0;
               ba = 0;
               A = 17'b00000000000000000;
-              #(4*tCK);
+              #(16*tCK);
               $stop;
        end;
        
