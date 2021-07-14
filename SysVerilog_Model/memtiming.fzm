@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 3:03:08 PM on 7/13/21
+## File last modified by Fizzim: 6:58:24 PM on 7/13/21
 <version>
    14.02.26
 </version>
@@ -3351,9 +3351,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -3575,9 +3575,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -3614,7 +3614,7 @@ fzm_globalTable
          0
          </x2Obj>
          <y2Obj>
-         0
+         23
          </y2Obj>
          <page>
          1
@@ -3714,9 +3714,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -3938,9 +3938,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -3974,10 +3974,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -2
          </x2Obj>
          <y2Obj>
-         0
+         25
          </y2Obj>
          <page>
          1
@@ -4779,9 +4779,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -5003,9 +5003,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -5628,9 +5628,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -5852,9 +5852,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -7320,9 +7320,9 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         1
+         BSTct==0
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
@@ -7563,9 +7563,9 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         1
+         BSTct==0
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
