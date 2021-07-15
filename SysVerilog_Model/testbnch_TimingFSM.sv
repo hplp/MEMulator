@@ -88,6 +88,7 @@ module testbnch_TimingFSM(
                      #tCK;
               end
                #tCK;
+
               //`ifdef RowClone
               //#(tCK*5); // activating again for RowClone
               //ACT = 1;
@@ -102,7 +103,6 @@ module testbnch_TimingFSM(
                      #tCK;
                      RD = (i==0)? 1 : 0;
               end
-           
 
               // precharge and back to idle
               #tCK;
@@ -110,6 +110,7 @@ module testbnch_TimingFSM(
               #tCK;
               PR = 0;
               #(16*tCK)
+
               // refresh
               REF = 1;
               #tCK;
@@ -119,12 +120,14 @@ module testbnch_TimingFSM(
               bg = 0;
               ba = 0;
               #(4*tCK);
+
               // precharge and back to idle
               #tCK;
               PR = 1;
               #tCK;
               PR = 0;
               #(16*tCK)
+
               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
@@ -133,6 +136,7 @@ module testbnch_TimingFSM(
               ACT = 0;
               #(tCK*15); // tRCD
               #(tCK*18); // tCL
+
               // write Auto-Precharge
               #tCK;
               for (i = 0; i < BL; i = i + 1)
@@ -140,12 +144,14 @@ module testbnch_TimingFSM(
                      WRA = (i==0)? 1 : 0;
                      #tCK;
               end
+
               // precharge and back to idle
               #tCK;
               PR = 1;
               #tCK;
               PR = 0;
               #(16*tCK)
+
  	      // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
@@ -154,6 +160,7 @@ module testbnch_TimingFSM(
               ACT = 0;
               #(tCK*15); // tRCD
               #(tCK*18); // tCL
+
               // read Auto-Precharge
               for (i = 0; i < BL; i = i + 1)
               begin
