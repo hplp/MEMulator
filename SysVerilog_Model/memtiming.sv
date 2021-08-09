@@ -1,7 +1,7 @@
-// Created by fizzim.pl version 5.20 on 2021:07:06 at 14:34:52 (www.fizzim.com)
+// Created by fizzim.pl version 5.20 on 2021:07:13 at 19:15:53 (www.fizzim.com)
 
 module memtiming
-  #(parameter T_CL = 17,
+#(parameter T_CL = 17,
   parameter T_RCD = 17,
   parameter T_RP = 17,
   parameter T_RFC = 34,
@@ -58,8 +58,7 @@ module memtiming
     ResettingPD    = 5'b10000, 
     SelfRefreshing = 5'b10001, 
     Writing        = 5'b10010, 
-    WritingAPR     = 5'b10011, 
-    ZRowClone      = 5'b10100
+    WritingAPR     = 5'b10011
   } state, nextstate;
 
 
@@ -116,7 +115,6 @@ module memtiming
         end
       end
       BankActive    : begin
-        // Warning P4: State BankActive has multiple exit transitions, and transition BacAcPD has the same priority as transition BA2RC 
         if (WR&&(tCLct==8'd1)) begin
           nextstate = Writing;
         end
@@ -131,9 +129,6 @@ module memtiming
         end
         else if (PR||PRA) begin
           nextstate = Precharging;
-        end
-        else if (ACT) begin
-          nextstate = ZRowClone;
         end
         else if (CKEL) begin
           nextstate = ActivePD;
@@ -190,12 +185,15 @@ module memtiming
         else if (BST||(BSTct==0)) begin
           nextstate = BankActive;
         end
+        else if (WRA) begin
+          nextstate = WritingAPR;
+        end
         else if (RD) begin
           nextstate = Reading;
         end
       end
       ReadingAPR    : begin
-        begin
+        if (BSTct==0) begin
           nextstate = Precharging;
         end
       end
@@ -252,21 +250,16 @@ module memtiming
         else if (BST||(BSTct==0)) begin
           nextstate = BankActive;
         end
+        else if (RDA) begin
+          nextstate = ReadingAPR;
+        end
         else if (WR) begin
           nextstate = Writing;
         end
       end
       WritingAPR    : begin
-        begin
+        if (BSTct==0) begin
           nextstate = Precharging;
-        end
-      end
-      ZRowClone     : begin
-        if (tRCDct==8'd1) begin
-          nextstate = BankActive;
-        end
-        else begin
-          nextstate = ZRowClone;
         end
       end
     endcase
@@ -325,10 +318,6 @@ module memtiming
         WritingAPR    : begin
           BSTct[7:0] <= BSTct-1;
           tCLct[7:0] <= tCLct;
-        end
-        ZRowClone     : begin
-          tCLct[7:0] <= tCLct;
-          tRCDct[7:0] <= tRCDct-1;
         end
       endcase
     end
