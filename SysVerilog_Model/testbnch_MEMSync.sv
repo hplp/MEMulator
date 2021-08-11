@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module cachetestbench(
+module testbnch_MEMSync(
        );
        
        parameter CHWIDTH = 6;
