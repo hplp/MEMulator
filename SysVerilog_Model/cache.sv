@@ -1,17 +1,50 @@
-// Created by fizzim.pl version 5.20 on 2021:07:12 at 18:58:35 (www.fizzim.com)
+// Created by fizzim.pl version 5.20 on 2021:07:26 at 17:12:21 (www.fizzim.com)
 
-module cache (
-  output logic [4:0] cRowId,
-  output logic dummy,
-  output logic hold,
+module MEMSync #(
+  parameter CHWIDTH = 6,
+  parameter ADDRWIDTH = 17,
+  
+  localparam CHROWS = 2**CHWIDTH,
+  localparam ROWS = 2**ADDRWIDTH
+  )
+  (
+  output logic [CHWIDTH-1:0] LRU,
+  output logic [CHWIDTH-1:0] cRowId,
+  output logic dirty,
+  output logic hit,
+  output logic load,
   output logic ready,
+  output logic stall,
+  output logic store,
   input logic RD,
-  input logic [16:0] RowId,
+  input logic [ADDRWIDTH-1:0] RowId,
   input logic WR,
   input logic clk,
   input logic rst,
   input logic sync
 );
+
+typedef struct packed {
+  logic valid;
+  logic dirty;
+  logic [CHWIDTH-1:0] age; // for LRU
+  logic [CHWIDTH-1:0] tag;
+  logic [ADDRWIDTH-1:0] rowaddr;
+  logic [64-1:0] addr;
+} tag_table_type;
+
+tag_table_type tag_tbl [0:CHROWS-1];
+genvar idx;
+generate
+  for (idx=0; idx<CHROWS; idx++) begin
+    initial tag_tbl[idx].valid=0;
+    initial tag_tbl[idx].dirty=0;
+    initial tag_tbl[idx].age=(CHROWS-idx-1);
+    initial tag_tbl[idx].tag=idx;
+    initial tag_tbl[idx].rowaddr='0;
+    initial tag_tbl[idx].addr='0;
+  end
+endgenerate
 
   // state bits
   enum logic [2:0] {
@@ -28,20 +61,14 @@ module cache (
   always_comb begin
     nextstate = state; // default to hold value because implied_loopback is set
     case (state)
-      Idle      : begin // wait for request from BankFSM
+      Idle      : begin // wait for RD/WR request from BankFSM
         if (RD || WR) begin
           nextstate = CompareTag;
-        end
-        else begin
-          nextstate = Idle;
         end
       end
       Allocate  : begin // fetch block from memory
         if (sync) begin
           nextstate = CompareTag;
-        end
-        else if (!sync) begin
-          nextstate = Allocate;
         end
       end
       CompareTag: begin // determine hit or miss
@@ -51,10 +78,10 @@ module cache (
         else if (hit && WR) begin
           nextstate = hitWR;
         end
-        else if (miss && dirty) begin
+        else if (!hit && dirty) begin
           nextstate = WriteBack;
         end
-        else if (miss && !dirty) begin
+        else if (!hit && !dirty) begin
           nextstate = Allocate;
         end
       end
@@ -62,24 +89,15 @@ module cache (
         if (sync) begin
           nextstate = Allocate;
         end
-        else if (!sync) begin
-          nextstate = WriteBack;
-        end
       end
       hitRD     : begin // data read
         if (!RD) begin
           nextstate = Idle;
         end
-        else if (RD) begin
-          nextstate = hitRD;
-        end
       end
       hitWR     : begin // data write
         if (!WR) begin
           nextstate = Idle;
-        end
-        else if (WR) begin
-          nextstate = hitWR;
         end
       end
     endcase
@@ -98,41 +116,69 @@ module cache (
   // datapath sequential always block
   always_ff @(posedge clk or posedge rst) begin
     if (rst) begin
-      cRowId[4:0] <= 5'b0;
-      dummy <= 0;
-      hold <= 0;
+      LRU[CHWIDTH-1:0] <= 0;
+      cRowId[CHWIDTH-1:0] <= 0;
+      dirty <= 0;
+      hit <= 0;
+      load <= 0;
       ready <= 0;
+      stall <= 0;
+      store <= 0;
     end
     else begin
-      cRowId[4:0] <= 5'b0; // default
-      dummy <= 0; // default
-      hold <= 0; // default
+      // where to allocate? find LRU
+      for (int i = 0; i < CHROWS; i++) begin
+        if(tag_tbl[i].age>tag_tbl[cRowId].age) begin
+          LRU <= tag_tbl[i].tag;
+        end
+      end
+      cRowId <= cRowId; // default
+      dirty <= 0; // default
+      hit <= 0; // default
+      load <= 0; // default
       ready <= 0; // default
+      stall <= 0; // default
+      store <= 0; // default
       case (nextstate)
         Idle      : begin
-          dummy <= 1;
+          load <= RD;
+          store <= WR;
         end
         Allocate  : begin
-          dummy <= 1;
-          hold <= 1;
+          cRowId[CHWIDTH-1:0] <= LRU;
+          load <= load;
+          stall <= 1;
+          store <= store;
+          tag_tbl[cRowId].valid <= 1;
+          tag_tbl[cRowId].rowaddr <= RowId;
+          tag_tbl[cRowId].age <= 0;
         end
         CompareTag: begin
-          cRowId[4:0] <= RowID;
-          dummy <= 1;
+          load <= load;
+          for (int i = 0; i < CHROWS; i++) begin
+            // look for the RowId in the emulation memory cache
+            if((RowId == tag_tbl[i].rowaddr) && (tag_tbl[i].valid == 1)) begin
+              // this tag_tbl_i rowaddr equals RowId and is valid
+              cRowId <= tag_tbl[i].tag; // will focus on this row
+              tag_tbl[i].age <= 0; // using -> is Most Recently Used
+              hit <= 1;
+            end
+            // else begin // tag_tbl_i rowaddr =/= RowId or not valid
+            // end
+          end
+          store <= store;
         end
         WriteBack : begin
-          dummy <= 1;
-          hold <= 1;
+          load <= load;
+          stall <= 1;
+          store <= store;
         end
         hitRD     : begin
-          cRowId[4:0] <= cRowId;
-          dummy <= 1;
           ready <= 1;
         end
         hitWR     : begin
-          cRowId[4:0] <= cRowID;
-          dummy <= 1;
           ready <= 1;
+          tag_tbl[cRowId].dirty <= 1;
         end
       endcase
     end
