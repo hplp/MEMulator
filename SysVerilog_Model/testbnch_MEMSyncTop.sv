@@ -3,12 +3,12 @@
 `define DDR4
 // `define DDR3
 
-module CacheFSMtb(
+module testbnch_MEMSyncTop(
        );
        
        parameter BGWIDTH = 2;
        parameter BAWIDTH = 2;
-       parameter CHWIDTH = 5;
+       parameter CHWIDTH = 6;
        parameter ADDRWIDTH = 17;
        
        localparam BANKGROUPS = 2**BGWIDTH;
@@ -29,9 +29,9 @@ module CacheFSMtb(
        reg [4:0] BankFSM [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
        reg sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
        reg [CHWIDTH-1:0] cRowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
-       reg hold;
+       reg stall;
        
-       CacheFSM #(
+       MEMSyncTop #(
        .BGWIDTH(BGWIDTH),
        .BAWIDTH(BAWIDTH),
        .CHWIDTH(CHWIDTH),
@@ -48,7 +48,7 @@ module CacheFSMtb(
        .BankFSM(BankFSM),
        .sync(sync),
        .cRowId(cRowId),
-       .hold(hold)       
+       .stall(stall)       
        );
        
        always #(tCK*0.5) clk = ~clk;
