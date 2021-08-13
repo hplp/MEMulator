@@ -57,6 +57,7 @@ module testbnch_MEMSyncTop(
        
        initial
        begin
+              // initialize all values
               reset_n = 0;
               clk = 1;
               bg = 0;
@@ -78,52 +79,25 @@ module testbnch_MEMSyncTop(
               for (i=0; i<CHROWS; i=i+1) begin
                      BankFSM[bg][ba] = 5'b10010;
                      RowId[bg][ba]=$urandom;
-                     #tCK
-                     #tCK
-                     #tCK
+                     #(4*tCK)
+
+                     sync[bg][ba]=1;
+                     #tCK;
+                     sync[bg][ba]=0;
+                     #(3*tCK)
                      
                      BankFSM[bg][ba] = 0;
                      #tCK;
                      
                      BankFSM[bg][ba] = 5'b01011;
                      // RowId=RowId+i;
-                     #tCK
-                     #tCK
-                     #tCK
+                     #(3*tCK)
                      
                      BankFSM[bg][ba] = 0;
                      #tCK;
                      $display(i);
               end
-              
-              // induce a write miss followed by synq
-              BankFSM[bg][ba] = 5'b10010;
-              RowId[bg][ba]=$urandom;
-              #tCK
-              #tCK
-              #tCK
-              #tCK
-              sync[bg][ba] = 1;
-              #tCK;
-              
-              BankFSM[bg][ba] = 0;
-              sync[bg][ba] = 0;
-              #tCK;
-              
-              // induce a read miss followed by synq
-              BankFSM[bg][ba] = 5'b01011;
-              RowId[bg][ba]=$urandom;
-              #tCK
-              #tCK
-              #tCK
-              #tCK
-              sync[bg][ba] = 1;
-              #tCK;
-              
-              BankFSM[bg][ba] = 0;
-              sync[bg][ba] = 0;
-              #tCK;
-              
+
               #(4*tCK)
               $stop;
        end;

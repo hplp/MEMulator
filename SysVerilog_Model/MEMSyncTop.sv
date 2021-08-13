@@ -28,6 +28,8 @@ module MEMSyncTop #(
     output stall
     );
     
+    wire [BANKGROUPS-1:0][BANKSPERGROUP-1:0] ready; // or wire ready [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
+    
     // wire stalls [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
     wire [BANKGROUPS-1:0][BANKSPERGROUP-1:0] stalls;
     // wire stallsORs [BANKGROUPS*BANKSPERGROUP:0];
@@ -56,10 +58,11 @@ module MEMSyncTop #(
                 .ADDRWIDTH(ADDRWIDTH)
                 ) Mi (
                 .cRowId(cRowId[bgi][bi]),
+                .ready(ready[bgi][bi]),
                 .stall(stalls[bgi][bi]),
-                .RD((BankFSM[bgi][bi]==5'b01011)||(BankFSM[bgi][bi]==5'b01100)),
+                .RD((BankFSM[bgi][bi]==5'b01011)||(BankFSM[bgi][bi]==5'b01100)), // Read from memtiming FSM
                 .RowId(RowId[bgi][bi]),
-                .WR((BankFSM[bgi][bi]==5'b10010)||(BankFSM[bgi][bi]==5'b10011)),
+                .WR((BankFSM[bgi][bi]==5'b10010)||(BankFSM[bgi][bi]==5'b10011)), // Write from memtiming FSM
                 .clk(clk),
                 .rst(!reset_n),
                 .sync(sync[bgi][bi])
