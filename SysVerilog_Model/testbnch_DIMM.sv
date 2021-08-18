@@ -79,7 +79,7 @@ module testbnch_DIMM(
        assign dqs_c = (writing) ? dqs_c_reg:{CHIPS{1'bZ}};
        assign dqs_t = (writing) ? dqs_t_reg:{CHIPS{1'bZ}};
        
-       dimm #(.RANKS(RANKS),
+       DIMM #(.RANKS(RANKS),
        .CHIPS(CHIPS),
        .BGWIDTH(BGWIDTH),
        .BAWIDTH(BAWIDTH),

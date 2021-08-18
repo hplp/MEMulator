@@ -8,7 +8,7 @@
 // www.systemverilog.io
 // https://raw.githubusercontent.com/alexforencich/verilog-axi/master/rtl/
 
-module dimm
+module DIMM
   #(parameter RANKS = 1,
   parameter CHIPS = 16,
   `ifdef DDR4
@@ -82,6 +82,8 @@ module dimm
   `endif
   input reset_n, // DRAM is active only when this signal is HIGH
   
+  output stall, // signal to stall system while MEMSync in Allocate or WriteBack state
+  
   // AXI Port to Synchronize Emulation Memory Cache with Board Memory
   input sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
   /*
@@ -146,7 +148,6 @@ module dimm
   .A(A),
   .ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA)
   );
-  
   
   // RAS = Row Address Strobe
   reg [ADDRWIDTH-1:0] RowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
@@ -230,11 +231,11 @@ module dimm
   
   // Emulation Memory Cache
   wire [CHWIDTH-1:0] cRowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
-  CacheFSM #(.BGWIDTH(BGWIDTH),
+  MEMSyncTop #(.BGWIDTH(BGWIDTH),
   .BAWIDTH(BAWIDTH),
   .CHWIDTH(CHWIDTH),
   .ADDRWIDTH(ADDRWIDTH))
-  CacheFSMi(
+  MEMSyncTopi(
   .clk(clk),
   .reset_n(reset_n),
   `ifdef DDR4
@@ -245,7 +246,7 @@ module dimm
   .BankFSM(BankFSM),
   .sync(sync),
   .cRowId(cRowId),
-  .hold(hold)
+  .stall(stall)
   );
   
   // dq, dqs_t and dqs_c tristate split as inputs or outputs
