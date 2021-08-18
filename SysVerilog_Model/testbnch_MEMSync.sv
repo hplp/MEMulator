@@ -55,75 +55,72 @@ module testbnch_MEMSync(
               
               // repeatedly write, write then read it back
               for (i=0; i<CHROWS; i=i+1) begin
-                     WR=1;
-                     RowId=$urandom;
+                     WR=1; // write
+                     RowId=$urandom; // this row is not in the tag table
                      #(3*tCK)
                      
-                     sync=1;
+                     sync=1; // FSM is in allocate state and will now leave
                      #tCK;
                      sync=0;
                      #(3*tCK)
                      
-                     WR=0;
+                     WR=0; // writing completed
                      #tCK;
 
-                     WR=1;
+                     WR=1; // another write to the same row
                      #(3*tCK)
                      
-                     WR=0;
+                     WR=0; // this one was a hit
                      #tCK;
-                     RD=1;
+                     RD=1; // read the same row
                      #(3*tCK)
-                     RD=0;
+                     RD=0; // again, a hit
                      RowId=0;
                      #tCK;
               end
 
               // cache may be full now so test WriteBack
               for (i=0; i<8; i=i+1) begin
-                     WR=1;
-                     RowId=$urandom;
-                     #(3*tCK)
+                     WR=1; // write
+                     RowId=$urandom; // to a new row not in tag table
+                     #(3*tCK) // also, tag table is full and dirty
                      
-                     sync=1;
+                     sync=1; // to leave WriteBack
                      #tCK;
                      sync=0;
                      #(3*tCK)
 
-                     sync=1;
+                     sync=1; // to leave Allocate
                      #tCK;
                      sync=0;
                      #(3*tCK)
                      
-                     WR=0;
+                     WR=0; // done writing
                      #tCK;
-
-                     WR=0;
-                     #tCK;
-                     RD=1;
+                     RD=1; // read same row
                      #(3*tCK)
-                     RD=0;
+                     RD=0; // done reading
                      RowId=0;
                      #tCK;
               end
 
               // cache may be full now so test WriteBack with RD
               for (i=0; i<8; i=i+1) begin
-                     RD=1;
-                     RowId=$urandom;
+                     RD=1; // read a row
+                     RowId=$urandom; // that is not in tag table
                      #(3*tCK)
 
-                     sync=1;
+                     sync=1; // leave WriteBack
                      #tCK;
                      sync=0;
                      #(1*tCK)
 
-                     sync=1;
+                     sync=1; // leave Allocate
                      #tCK;
                      sync=0;
                      #(3*tCK)
 
-                     RD=0;
+                     RD=0; // done with the Read
                      RowId=0;
                      #tCK;
               end
