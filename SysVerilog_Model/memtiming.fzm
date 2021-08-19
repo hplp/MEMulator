@@ -1,3 +1,4 @@
+## File last modified by Fizzim: 2:55:21 PM on 8/19/21
 <version>
    14.02.26
 </version>
@@ -1486,7 +1487,7 @@
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1542,7 +1543,7 @@
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1598,7 +1599,7 @@
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1654,7 +1655,7 @@
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1698,7 +1699,7 @@
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -1710,7 +1711,7 @@
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1766,7 +1767,7 @@
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1784,7 +1785,7 @@
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
             <status>
             GLOBAL_VAR
             </status>
@@ -1799,6 +1800,230 @@
          -1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         regdp
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         regdp
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         regdp
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         regdp
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tRASct[7:0]>
    </outputs>
    <state>
       <name>
@@ -1880,7 +2105,7 @@
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1936,7 +2161,7 @@
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -1992,7 +2217,7 @@
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2048,7 +2273,7 @@
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2092,7 +2317,7 @@
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -2104,7 +2329,7 @@
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2160,7 +2385,7 @@
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2178,7 +2403,7 @@
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
             <status>
             GLOBAL_VAR
             </status>
@@ -2193,6 +2418,230 @@
          -1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </tRASct[7:0]>
    </state>
    <trans>
       <name>
@@ -2318,7 +2767,7 @@
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -2374,7 +2823,7 @@
 20
 </SCounter>
 <TCounter>
-59
+60
 </TCounter>
 <TableVis>
 true
@@ -2414,10 +2863,10 @@ false
 <textObj>
 fzm_globalTable
    <x>
-   -10
+   179
    </x>
    <y>
-   13
+   68
    </y>
    <page>
    2
@@ -2505,7 +2954,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2561,7 +3010,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2617,7 +3066,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2673,7 +3122,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2717,7 +3166,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -2729,7 +3178,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2785,7 +3234,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2803,7 +3252,7 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
             <status>
             GLOBAL_VAR
             </status>
@@ -2818,6 +3267,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    423
@@ -2892,10 +3565,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -3
          </x2Obj>
          <y2Obj>
-         0
+         -18
          </y2Obj>
          <page>
          1
@@ -2924,7 +3597,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -2948,10 +3621,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         46
+         18
          </x2Obj>
          <y2Obj>
-         0
+         -17
          </y2Obj>
          <page>
          1
@@ -2980,7 +3653,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3036,7 +3709,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3092,7 +3765,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3136,7 +3809,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -3148,7 +3821,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3204,7 +3877,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3228,6 +3901,62 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
+         27
+         </x2Obj>
+         <y2Obj>
+         -12
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
          0
          </x2Obj>
          <y2Obj>
@@ -3236,7 +3965,175 @@ fzm_globalTable
          <page>
          1
          </page>
-      </tCWLct[7:0]>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRASct>0)?tRASct-1:tRASct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         27
+         </x2Obj>
+         <y2Obj>
+         -8
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    440
@@ -3387,7 +4284,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -3574,9 +4471,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </vis>
          <type>
@@ -3586,7 +4483,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3610,10 +4507,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -1
          </x2Obj>
          <y2Obj>
-         0
+         1
          </y2Obj>
          <page>
          1
@@ -3642,7 +4539,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3698,7 +4595,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3754,7 +4651,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3792,15 +4689,15 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         BSTct-1
+         (BSTct>0)?BSTct-1:BSTct
             <status>
             LOCAL
             </status>
          </value>
          <vis>
-         1
+         2
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </vis>
          <type>
@@ -3810,7 +4707,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3834,10 +4731,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         51
          </x2Obj>
          <y2Obj>
-         23
+         31
          </y2Obj>
          <page>
          1
@@ -3866,7 +4763,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -3884,7 +4781,63 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         15
+         </x2Obj>
+         <y2Obj>
+         -13
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
             <status>
             GLOBAL_VAR
             </status>
@@ -3898,7 +4851,175 @@ fzm_globalTable
          <page>
          1
          </page>
-      </tCWLct[7:0]>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRTPct>0)?tRTPct-1:tRTPct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         62
+         </x2Obj>
+         <y2Obj>
+         34
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tABAct>0)?tABAct-1:tABAct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         58
+         </x2Obj>
+         <y2Obj>
+         -26
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRASct>0)?tRASct-1:tRASct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         59
+         </x2Obj>
+         <y2Obj>
+         -11
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    650
@@ -3993,9 +5114,9 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </vis>
          <type>
@@ -4005,7 +5126,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -4029,10 +5150,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -152
          </x2Obj>
          <y2Obj>
-         0
+         -1
          </y2Obj>
          <page>
          1
@@ -4061,7 +5182,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -4117,7 +5238,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -4173,7 +5294,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -4211,15 +5332,15 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         BSTct-1
+         (BSTct>0)?BSTct-1:BSTct
             <status>
             LOCAL
             </status>
          </value>
          <vis>
-         1
+         2
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </vis>
          <type>
@@ -4229,7 +5350,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -4253,10 +5374,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -2
+         -95
          </x2Obj>
          <y2Obj>
-         25
+         56
          </y2Obj>
          <page>
          1
@@ -4285,7 +5406,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -4309,6 +5430,118 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
+         -143
+         </x2Obj>
+         <y2Obj>
+         -14
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tWRct>0)?tWRct-1:tWRct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -98
+         </x2Obj>
+         <y2Obj>
+         -9
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
          0
          </x2Obj>
          <y2Obj>
@@ -4317,7 +5550,119 @@ fzm_globalTable
          <page>
          1
          </page>
-      </tCWLct[7:0]>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tABAct>0)?tABAct-1:tABAct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -87
+         </x2Obj>
+         <y2Obj>
+         -5
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRASct>0)?tRASct-1:tRASct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -90
+         </x2Obj>
+         <y2Obj>
+         19
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    242
@@ -4448,7 +5793,7 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -5
+         -9
          </x2Obj>
          <y2Obj>
          3
@@ -4468,7 +5813,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -4504,10 +5849,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         12
          </x2Obj>
          <y2Obj>
-         0
+         2
          </y2Obj>
          <page>
          1
@@ -4539,10 +5884,10 @@ fzm_globalTable
    503.0
    </startCtrlPtY>
    <endCtrlPtY>
-   645.0
+   639.0
    </endCtrlPtY>
    <endCtrlPtY>
-   511.0
+   517.0
    </endCtrlPtY>
    <startStateIndex>
    2
@@ -4711,7 +6056,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -4828,222 +6173,6 @@ fzm_globalTable
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
-## START LOOPBACK TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         RDRD
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         RD
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         -46
-         </x2Obj>
-         <y2Obj>
-         -2
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-      <priority>
-            <status>
-            GLOBAL_FIXED
-            </status>
-         <value>
-         1000
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         2
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </priority>
-   </attributes>
-   <startState>
-   Reading
-   </startState>
-   <endState>
-   Reading
-   </endState>
-   <startPtX>
-   780.0
-   </startPtX>
-   <startPtY>
-   573.0
-   </startPtY>
-   <endPtX>
-   756.0
-   </endPtX>
-   <endPtY>
-   622.0
-   </endPtY>
-   <startCtrlPtX>
-   864.0
-   </startCtrlPtX>
-   <startCtrlPtY>
-   573.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   807.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   686.0
-   </endCtrlPtY>
-   <startStateIndex>
-   0
-   </startStateIndex>
-   <endStateIndex>
-   5
-   </endStateIndex>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-</transition>
-## START LOOPBACK TRANSITION OBJECT
 ## START STATE OBJECT
 <state>
    <attributes>
@@ -5126,7 +6255,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -5182,7 +6311,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -5238,7 +6367,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -5294,7 +6423,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -5332,7 +6461,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         BSTct-1
+         (BSTct>0)?BSTct-1:BSTct
             <status>
             LOCAL
             </status>
@@ -5350,7 +6479,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -5374,10 +6503,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         4
          </x2Obj>
          <y2Obj>
-         0
+         20
          </y2Obj>
          <page>
          1
@@ -5388,9 +6517,9 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tCWLct
+         T_CWL
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </value>
          <vis>
@@ -5406,7 +6535,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -5424,7 +6553,119 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -41
+         </x2Obj>
+         <y2Obj>
+         -18
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tWRct>0)?tWRct-1:tWRct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -5
+         </x2Obj>
+         <y2Obj>
+         -8
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
             <status>
             GLOBAL_VAR
             </status>
@@ -5438,7 +6679,119 @@ fzm_globalTable
          <page>
          1
          </page>
-      </tCWLct[7:0]>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRASct>0)?tRASct-1:tRASct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         15
+         </x2Obj>
+         <y2Obj>
+         10
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    225
@@ -5589,7 +6942,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -5770,7 +7123,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         WRA&&(tCLct==8'd1)
+         WRA&&(tCWLct==8'd1)
             <status>
             LOCAL
             </status>
@@ -5812,10 +7165,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         48
+         -41
          </x2Obj>
          <y2Obj>
-         24
+         79
          </y2Obj>
          <page>
          1
@@ -5832,7 +7185,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -5868,10 +7221,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         28
+         -43
          </x2Obj>
          <y2Obj>
-         24
+         51
          </y2Obj>
          <page>
          1
@@ -5903,10 +7256,10 @@ fzm_globalTable
    591.0
    </startCtrlPtY>
    <endCtrlPtY>
-   399.0
+   410.0
    </endCtrlPtY>
    <endCtrlPtY>
-   642.0
+   649.0
    </endCtrlPtY>
    <startStateIndex>
    10
@@ -6013,15 +7366,15 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tCLct
+         T_CL
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </vis>
          <type>
@@ -6031,7 +7384,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -6049,7 +7402,7 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         8'd14
+         T_CL
             <status>
             GLOBAL_VAR
             </status>
@@ -6087,7 +7440,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -6143,7 +7496,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -6199,7 +7552,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -6237,15 +7590,15 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         BSTct-1
+         (BSTct>0)?BSTct-1:BSTct
             <status>
             LOCAL
             </status>
          </value>
          <vis>
-         1
+         2
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </vis>
          <type>
@@ -6255,7 +7608,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -6279,10 +7632,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -1
          </x2Obj>
          <y2Obj>
-         0
+         23
          </y2Obj>
          <page>
          1
@@ -6293,9 +7646,9 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tCWLct
+         T_CWL
             <status>
-            LOCAL
+            GLOBAL_VAR
             </status>
          </value>
          <vis>
@@ -6311,7 +7664,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -6329,7 +7682,7 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
             <status>
             GLOBAL_VAR
             </status>
@@ -6344,6 +7697,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRTPct>0)?tRTPct-1:tRTPct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         -10
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         (tRASct>0)?tRASct-1:tRASct
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         11
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    647
@@ -6494,7 +8071,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -6547,10 +8124,10 @@ fzm_globalTable
    ReadingAPR
    </endState>
    <startPtX>
-   737.0
+   726.0
    </startPtX>
    <startPtY>
-   634.0
+   637.0
    </startPtY>
    <endPtX>
    712.0
@@ -6571,7 +8148,7 @@ fzm_globalTable
    679.0
    </endCtrlPtY>
    <startStateIndex>
-   7
+   8
    </startStateIndex>
    <endStateIndex>
    27
@@ -6737,7 +8314,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -6960,10 +8537,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         15
+         86
          </x2Obj>
          <y2Obj>
-         -15
+         -5
          </y2Obj>
          <page>
          1
@@ -6980,7 +8557,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -7161,7 +8738,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         BST||(BSTct==0)
+         (tABAct==0)
             <status>
             LOCAL
             </status>
@@ -7223,7 +8800,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -7422,7 +8999,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -7478,7 +9055,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -7534,7 +9111,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -7590,7 +9167,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -7634,7 +9211,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -7646,7 +9223,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -7702,7 +9279,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -7720,7 +9297,7 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
             <status>
             GLOBAL_VAR
             </status>
@@ -7735,6 +9312,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    453
@@ -7823,7 +9624,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         BSTct==0
+         (BSTct==0)&&(tWRct==0)&&(tRASct==0)
             <status>
             LOCAL
             </status>
@@ -7865,10 +9666,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -17
+         -75
          </x2Obj>
          <y2Obj>
-         19
+         22
          </y2Obj>
          <page>
          1
@@ -7885,7 +9686,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -8066,7 +9867,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         BSTct==0
+         (BSTct==0)&&(tRTPct==0)&&(tRASct==0)
             <status>
             LOCAL
             </status>
@@ -8108,10 +9909,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         4
+         98
          </x2Obj>
          <y2Obj>
-         24
+         28
          </y2Obj>
          <page>
          1
@@ -8128,7 +9929,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -8309,7 +10110,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         PR||PRA
+         PR&&(tRASct==0)
             <status>
             LOCAL
             </status>
@@ -8351,10 +10152,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -19
+         12
          </x2Obj>
          <y2Obj>
-         51
+         -26
          </y2Obj>
          <page>
          1
@@ -8371,7 +10172,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -8407,10 +10208,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -25
+         -2
          </x2Obj>
          <y2Obj>
-         51
+         -26
          </y2Obj>
          <page>
          1
@@ -8552,7 +10353,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         PR||PRA
+         PR&&(tRTPct==0)&&(tRASct==0)
             <status>
             LOCAL
             </status>
@@ -8594,10 +10395,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -36
+         43
          </x2Obj>
          <y2Obj>
-         -8
+         -37
          </y2Obj>
          <page>
          1
@@ -8614,7 +10415,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -8795,7 +10596,7 @@ fzm_globalTable
             ABS
             </status>
          <value>
-         PR||PRA
+         PR&&(tWRct==0)&&(tRASct==0)
             <status>
             LOCAL
             </status>
@@ -8837,10 +10638,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -10
+         69
          </x2Obj>
          <y2Obj>
-         11
+         4
          </y2Obj>
          <page>
          1
@@ -8857,7 +10658,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -8893,10 +10694,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         6
+         7
          </x2Obj>
          <y2Obj>
-         10
+         2
          </y2Obj>
          <page>
          1
@@ -9056,7 +10857,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -9112,7 +10913,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -9168,7 +10969,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -9224,7 +11025,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -9268,7 +11069,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -9280,7 +11081,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -9336,7 +11137,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -9354,7 +11155,7 @@ fzm_globalTable
             </status>
          </useratts>
          <resetval>
-         T_WCL
+         T_CWL
             <status>
             GLOBAL_VAR
             </status>
@@ -9369,6 +11170,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    734
@@ -9519,7 +11544,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -9762,7 +11787,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -9929,10 +11954,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -384
          </x2Obj>
          <y2Obj>
-         0
+         100
          </y2Obj>
          <page>
          1
@@ -10005,7 +12030,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -10041,10 +12066,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -369
          </x2Obj>
          <y2Obj>
-         0
+         130
          </y2Obj>
          <page>
          1
@@ -10122,438 +12147,6 @@ fzm_globalTable
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
-## START LOOPBACK TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         IdlIdl
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         46
-         </x2Obj>
-         <y2Obj>
-         43
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-      <priority>
-            <status>
-            GLOBAL_FIXED
-            </status>
-         <value>
-         1000
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         2
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </priority>
-   </attributes>
-   <startState>
-   Idle
-   </startState>
-   <endState>
-   Idle
-   </endState>
-   <startPtX>
-   446.0
-   </startPtX>
-   <startPtY>
-   142.0
-   </startPtY>
-   <endPtX>
-   499.0
-   </endPtX>
-   <endPtY>
-   127.0
-   </endPtY>
-   <startCtrlPtX>
-   394.0
-   </startCtrlPtX>
-   <startCtrlPtY>
-   79.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   515.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   43.0
-   </endCtrlPtY>
-   <startStateIndex>
-   23
-   </startStateIndex>
-   <endStateIndex>
-   28
-   </endStateIndex>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-</transition>
-## START LOOPBACK TRANSITION OBJECT
-## START LOOPBACK TRANSITION OBJECT
-<transition>
-   <attributes>
-      <name>
-            <status>
-            ABS
-            </status>
-         <value>
-         WRWR
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         0
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </name>
-      <equation>
-            <status>
-            ABS
-            </status>
-         <value>
-         WR
-            <status>
-            LOCAL
-            </status>
-         </value>
-         <vis>
-         1
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         def_type
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         45
-         </x2Obj>
-         <y2Obj>
-         18
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </equation>
-      <priority>
-            <status>
-            GLOBAL_FIXED
-            </status>
-         <value>
-         1000
-            <status>
-            GLOBAL_VAR
-            </status>
-         </value>
-         <vis>
-         2
-            <status>
-            GLOBAL_VAR
-            </status>
-         </vis>
-         <type>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </type>
-         <comment>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </comment>
-         <color>
-         -16777216
-            <status>
-            GLOBAL_VAR
-            </status>
-         </color>
-         <useratts>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </useratts>
-         <resetval>
-         
-            <status>
-            GLOBAL_VAR
-            </status>
-         </resetval>
-         <x2Obj>
-         0
-         </x2Obj>
-         <y2Obj>
-         0
-         </y2Obj>
-         <page>
-         1
-         </page>
-      </priority>
-   </attributes>
-   <startState>
-   Writing
-   </startState>
-   <endState>
-   Writing
-   </endState>
-   <startPtX>
-   242.0
-   </startPtX>
-   <startPtY>
-   563.0
-   </startPtY>
-   <endPtX>
-   274.0
-   </endPtX>
-   <endPtY>
-   518.0
-   </endPtY>
-   <startCtrlPtX>
-   168.0
-   </startCtrlPtX>
-   <startCtrlPtY>
-   548.0
-   </startCtrlPtY>
-   <endCtrlPtY>
-   233.0
-   </endCtrlPtY>
-   <endCtrlPtY>
-   445.0
-   </endCtrlPtY>
-   <startStateIndex>
-   19
-   </startStateIndex>
-   <endStateIndex>
-   24
-   </endStateIndex>
-   <page>
-   1
-   </page>
-   <color>
-   -16777216
-   </color>
-</transition>
-## START LOOPBACK TRANSITION OBJECT
 ## START STATE OBJECT
 <state>
    <attributes>
@@ -10636,7 +12229,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -10692,7 +12285,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -10716,10 +12309,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -15
          </x2Obj>
          <y2Obj>
-         0
+         6
          </y2Obj>
          <page>
          1
@@ -10748,7 +12341,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -10804,7 +12397,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -10848,7 +12441,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -10860,7 +12453,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -10916,7 +12509,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -10949,6 +12542,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         tRASct-1
+            <status>
+            LOCAL
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         -16
+         </x2Obj>
+         <y2Obj>
+         10
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    153
@@ -11099,7 +12916,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -11342,7 +13159,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -11585,7 +13402,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -11784,7 +13601,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -11840,7 +13657,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -11896,7 +13713,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -11952,7 +13769,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -11996,7 +13813,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -12008,7 +13825,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12064,7 +13881,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12097,6 +13914,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    93
@@ -12203,7 +14244,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12259,7 +14300,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12315,7 +14356,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12371,7 +14412,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12415,7 +14456,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -12427,7 +14468,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12483,7 +14524,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12516,6 +14557,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    201
@@ -12622,7 +14887,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12678,7 +14943,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12734,7 +14999,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12790,7 +15055,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12834,7 +15099,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -12846,7 +15111,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12902,7 +15167,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -12935,6 +15200,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    35
@@ -13041,7 +15530,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13097,7 +15586,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13153,7 +15642,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13209,7 +15698,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13253,7 +15742,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -13265,7 +15754,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13321,7 +15810,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13354,6 +15843,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    27
@@ -13460,7 +16173,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13516,7 +16229,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13572,7 +16285,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13628,7 +16341,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13672,7 +16385,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -13684,7 +16397,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13740,7 +16453,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13773,6 +16486,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    610
@@ -13879,7 +16816,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13935,7 +16872,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -13991,7 +16928,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14047,7 +16984,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14091,7 +17028,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -14103,7 +17040,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14159,7 +17096,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14192,6 +17129,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    294
@@ -14298,7 +17459,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14354,7 +17515,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14410,7 +17571,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14466,7 +17627,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14510,7 +17671,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -14522,7 +17683,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14578,7 +17739,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14611,6 +17772,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    507
@@ -14717,7 +18102,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14773,7 +18158,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14829,7 +18214,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14885,7 +18270,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14929,7 +18314,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -14941,7 +18326,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -14997,7 +18382,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15030,6 +18415,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    645
@@ -15136,7 +18745,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15192,7 +18801,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15248,7 +18857,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15304,7 +18913,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15348,7 +18957,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -15360,7 +18969,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15416,7 +19025,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -15449,6 +19058,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    300
@@ -15599,7 +19432,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -15842,7 +19675,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -16085,7 +19918,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -16328,7 +20161,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -16571,7 +20404,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -16814,7 +20647,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -17057,7 +20890,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -17300,7 +21133,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -17543,7 +21376,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -17786,7 +21619,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -18029,7 +21862,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -18272,7 +22105,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -18515,7 +22348,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -18758,7 +22591,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -19001,7 +22834,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -19244,7 +23077,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -19460,7 +23293,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -19703,7 +23536,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -19902,7 +23735,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -19958,7 +23791,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -20014,7 +23847,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -20070,7 +23903,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -20114,7 +23947,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -20126,7 +23959,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -20182,7 +24015,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -20215,6 +24048,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    52
@@ -20365,7 +24422,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -20608,7 +24665,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -20647,7 +24704,7 @@ fzm_globalTable
          0
          </x2Obj>
          <y2Obj>
-         0
+         2
          </y2Obj>
          <page>
          1
@@ -20824,7 +24881,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -21067,7 +25124,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -21266,7 +25323,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -21322,7 +25379,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         RCD latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -21378,7 +25435,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Precharge counter
             <status>
             GLOBAL_VAR
             </status>
@@ -21434,7 +25491,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Refresh counter
             <status>
             GLOBAL_VAR
             </status>
@@ -21478,7 +25535,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         0
+         2
             <status>
             GLOBAL_VAR
             </status>
@@ -21490,7 +25547,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         Burst counter
             <status>
             GLOBAL_VAR
             </status>
@@ -21546,7 +25603,7 @@ fzm_globalTable
             </status>
          </type>
          <comment>
-         
+         CAS write latency counter
             <status>
             GLOBAL_VAR
             </status>
@@ -21579,6 +25636,230 @@ fzm_globalTable
          1
          </page>
       </tCWLct[7:0]>
+      <tWRct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Write to precharge delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_WR
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tWRct[7:0]>
+      <tRTPct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Reead to Precharge Delay counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RTP
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRTPct[7:0]>
+      <tABAct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         Automatic Bank Active latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_ABA
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tABAct[7:0]>
+      <tRASct[7:0]>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         2
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         output
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         RAS latency counter
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         T_RAS
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         1
+         </page>
+      </tRASct[7:0]>
    </attributes>
    <x0>
    215
@@ -21729,7 +26010,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -21972,7 +26253,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -22215,7 +26496,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>
@@ -22458,7 +26739,7 @@ fzm_globalTable
             </status>
          </value>
          <vis>
-         2
+         0
             <status>
             GLOBAL_VAR
             </status>

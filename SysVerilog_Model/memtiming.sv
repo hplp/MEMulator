@@ -1,3 +1,5 @@
+// Created by fizzim.pl version 5.20 on 2021:08:19 at 17:01:06 (www.fizzim.com)
+
 // Created by fizzim.pl version 5.20 on 2021:08:17 at 19:03:53 (www.fizzim.com)
 module memtiming
   #(parameter T_CL = 17,
@@ -8,11 +10,13 @@ module memtiming
     parameter T_RTP = 7,
     parameter T_CWL = 10,
     parameter T_ABA = 24,
+    parameter T_RAS =32,
     parameter BL = 8
     )
     (
     output state,
   output logic [7:0] BSTct,  // Burst counter
+  output logic [7:0] tRASct, // RAS counter
   output logic [7:0] tABAct, // Automatic Bank Active Counter
   output logic [7:0] tCLct,  // CAS latency counter
   output logic [7:0] tCWLct, // CAS write latency counter
@@ -43,7 +47,6 @@ module memtiming
   input logic clk,
   input logic rst
 );
-
   // state bits
   enum logic [4:0] {
     Idle           = 5'b00000, 
@@ -98,9 +101,6 @@ module memtiming
         else if (MRR) begin
           nextstate = IdleMRR;
         end
-        else begin
-          nextstate = Idle;
-        end
       end
       Activating    : begin
         if (tRCDct==8'd1) begin
@@ -131,7 +131,7 @@ module memtiming
         else if (RDA&&(tCLct==8'd1)) begin
           nextstate = ReadingAPR;
         end
-        else if (PR||PRA) begin
+        else if (PR&&(tRASct==0)) begin
           nextstate = Precharging;
         end
         else if (CKEL) begin
@@ -177,7 +177,7 @@ module memtiming
         if (RDA) begin
           nextstate = ReadingAPR;
         end
-        else if ((PR||PRA)&&(tRTPct==0)) begin
+        else if (PR&&(tRTPct==0)&&(tRASct==0)) begin
           nextstate = Precharging;
         end
         else if (WR) begin
@@ -191,7 +191,7 @@ module memtiming
         end
       end
       ReadingAPR    : begin
-        if ((BSTct==0)&&(tRTPct==0)) begin
+        if ((BSTct==0)&&(tRTPct==0)&&(tRASct==0)) begin
           nextstate = Precharging;
         end
       end
@@ -236,7 +236,7 @@ module memtiming
         if (WRA) begin
           nextstate = WritingAPR;
         end
-        else if ((PR||PRA)&&(tWRct==0)) begin
+        else if (PR&&(tWRct==0)&&(tRASct==0)) begin
           nextstate = Precharging;
         end
         else if (RD) begin
@@ -250,7 +250,7 @@ module memtiming
         end
       end
       WritingAPR    : begin
-        if ((BSTct==0)&&(tWRct==0)) begin
+        if ((BSTct==0)&&(tWRct==0)&&(tRASct==0)) begin
           nextstate = Precharging;
         end
       end
@@ -274,6 +274,7 @@ module memtiming
       tABAct[7:0] <= T_ABA;
       tCLct[7:0] <= T_CL;
       tCWLct[7:0] <= T_CWL;
+      tRASct[7:0] <= T_RAS;
       tRCDct[7:0] <= T_RCD;
       tRFCct[7:0] <= T_RFC;
       tRPct[7:0] <= T_RP;
@@ -285,6 +286,7 @@ module memtiming
       tABAct[7:0] <= T_ABA; // default
       tCLct[7:0] <= T_CL; // default
       tCWLct[7:0] <= T_CWL; // default
+      tRASct[7:0] <= T_RAS; // default
       tRCDct[7:0] <= T_RCD; // default
       tRFCct[7:0] <= T_RFC; // default
       tRPct[7:0] <= T_RP; // default
@@ -292,42 +294,45 @@ module memtiming
       tWRct[7:0] <= T_WR; // default
       case (nextstate)
         Activating    : begin
+          tRASct[7:0] <= tRASct-1;
           tRCDct[7:0] <= tRCDct-1;
         end
         BankActive    : begin
           tCLct[7:0] <= (tCLct>1)?tCLct-1:tCLct;
           tCWLct[7:0] <= (tCWLct>1)?tCWLct-1:tCWLct;
+          tRASct[7:0] <= (tRASct>0)?tRASct-1:tRASct;
         end
         Precharging   : begin
           tRPct[7:0] <= tRPct-8'd1;
         end
         Reading       : begin
-          BSTct[7:0] <= BSTct-1;
+          BSTct[7:0] <= (BSTct>0)?BSTct-1:BSTct;
           tABAct[7:0] <= (tABAct>0)?tABAct-1:tABAct;
           tCLct[7:0] <= tCLct;
           tCWLct[7:0] <= tCWLct;
+          tRASct[7:0] <= (tRASct>0)?tRASct-1:tRASct;
           tRTPct[7:0] <= (tRTPct>0)?tRTPct-1:tRTPct;
         end
         ReadingAPR    : begin
-          BSTct[7:0] <= BSTct-1;
-          tCLct[7:0] <= tCLct;
-          tCWLct[7:0] <= tCWLct;
+          BSTct[7:0] <= (BSTct>0)?BSTct-1:BSTct;
+          tRASct[7:0] <= (tRASct>0)?tRASct-1:tRASct;
           tRTPct[7:0] <= (tRTPct>0)?tRTPct-1:tRTPct;
         end
         Refreshing    : begin
           tRFCct[7:0] <= tRFCct-1;
         end
         Writing       : begin
-          BSTct[7:0] <= BSTct-1;
+          BSTct[7:0] <= (BSTct>0)?BSTct-1:BSTct;
           tABAct[7:0] <= (tABAct>0)?tABAct-1:tABAct;
           tCLct[7:0] <= tCLct;
           tCWLct[7:0] <= tCWLct;
+          tRASct[7:0] <= (tRASct>0)?tRASct-1:tRASct;
           tWRct[7:0] <= (tWRct>0)?tWRct-1:tWRct;
         end
         WritingAPR    : begin
           BSTct[7:0] <= (BSTct>0)?BSTct-1:BSTct;
           tCLct[7:0] <= tCLct;
-          tCWLct[7:0] <= tCWLct;
+          tRASct[7:0] <= (tRASct>0)?tRASct-1:tRASct;
           tWRct[7:0] <= (tWRct>0)?tWRct-1:tWRct;
         end
       endcase
