@@ -1,19 +1,26 @@
-// Created by fizzim.pl version 5.20 on 2021:07:13 at 19:15:53 (www.fizzim.com)
-
+// Created by fizzim.pl version 5.20 on 2021:08:17 at 19:03:53 (www.fizzim.com)
 module memtiming
-#(parameter T_CL = 17,
-  parameter T_RCD = 17,
-  parameter T_RP = 17,
-  parameter T_RFC = 34,
-  parameter BL = 8
-  )
-  (
-  output state,
-  output logic [7:0] BSTct,
-  output logic [7:0] tCLct,
+  #(parameter T_CL = 17,
+    parameter T_RCD = 17,
+    parameter T_RP = 17,
+    parameter T_RFC = 34,
+    parameter T_WR = 14,
+    parameter T_RTP = 7,
+    parameter T_CWL = 10,
+    parameter T_ABA = 24,
+    parameter BL = 8
+    )
+    (
+    output state,
+  output logic [7:0] BSTct,  // Burst counter
+  output logic [7:0] tABAct, // Automatic Bank Active Counter
+  output logic [7:0] tCLct,  // CAS latency counter
+  output logic [7:0] tCWLct, // CAS write latency counter
   output logic [7:0] tRCDct,
-  output logic [7:0] tRFCct,
-  output logic [7:0] tRPct,
+  output logic [7:0] tRFCct, // Refresh counter
+  output logic [7:0] tRPct,  // Precharge counter
+  output logic [7:0] tRTPct, // Reead to Precharge Delay counter
+  output logic [7:0] tWRct,  // Write to precharge delay counter
   input logic ACT,
   input logic BST,
   input logic CFG,
@@ -102,9 +109,6 @@ module memtiming
         else if (CKEL) begin
           nextstate = ActivePD;
         end
-        else begin
-          nextstate = Activating;
-        end
       end
       ActivePD      : begin
         if (CKEH) begin
@@ -115,10 +119,10 @@ module memtiming
         end
       end
       BankActive    : begin
-        if (WR&&(tCLct==8'd1)) begin
+        if (WR&&(tCWLct==8'd1)) begin
           nextstate = Writing;
         end
-        else if (WRA&&(tCLct==8'd1)) begin
+        else if (WRA&&(tCWLct==8'd1)) begin
           nextstate = WritingAPR;
         end
         else if (RD&&(tCLct==8'd1)) begin
@@ -132,9 +136,6 @@ module memtiming
         end
         else if (CKEL) begin
           nextstate = ActivePD;
-        end
-        else begin
-          nextstate = BankActive;
         end
       end
       Config        : begin
@@ -176,7 +177,7 @@ module memtiming
         if (RDA) begin
           nextstate = ReadingAPR;
         end
-        else if (PR||PRA) begin
+        else if ((PR||PRA)&&(tRTPct==0)) begin
           nextstate = Precharging;
         end
         else if (WR) begin
@@ -188,21 +189,15 @@ module memtiming
         else if (WRA) begin
           nextstate = WritingAPR;
         end
-        else if (RD) begin
-          nextstate = Reading;
-        end
       end
       ReadingAPR    : begin
-        if (BSTct==0) begin
+        if ((BSTct==0)&&(tRTPct==0)) begin
           nextstate = Precharging;
         end
       end
       Refreshing    : begin
         if (tRFCct==8'd1) begin
           nextstate = Idle;
-        end
-        else begin
-          nextstate = Refreshing;
         end
       end
       Resetting     : begin
@@ -241,24 +236,21 @@ module memtiming
         if (WRA) begin
           nextstate = WritingAPR;
         end
-        else if (PR||PRA) begin
+        else if ((PR||PRA)&&(tWRct==0)) begin
           nextstate = Precharging;
         end
         else if (RD) begin
           nextstate = Reading;
         end
-        else if (BST||(BSTct==0)) begin
+        else if ((tABAct==0)) begin
           nextstate = BankActive;
         end
         else if (RDA) begin
           nextstate = ReadingAPR;
         end
-        else if (WR) begin
-          nextstate = Writing;
-        end
       end
       WritingAPR    : begin
-        if (BSTct==0) begin
+        if ((BSTct==0)&&(tWRct==0)) begin
           nextstate = Precharging;
         end
       end
@@ -279,45 +271,64 @@ module memtiming
   always_ff @(posedge clk) begin
     if (rst) begin
       BSTct[7:0] <= BL;
+      tABAct[7:0] <= T_ABA;
       tCLct[7:0] <= T_CL;
+      tCWLct[7:0] <= T_CWL;
       tRCDct[7:0] <= T_RCD;
       tRFCct[7:0] <= T_RFC;
       tRPct[7:0] <= T_RP;
+      tRTPct[7:0] <= T_RTP;
+      tWRct[7:0] <= T_WR;
     end
     else begin
       BSTct[7:0] <= BL; // default
+      tABAct[7:0] <= T_ABA; // default
       tCLct[7:0] <= T_CL; // default
+      tCWLct[7:0] <= T_CWL; // default
       tRCDct[7:0] <= T_RCD; // default
       tRFCct[7:0] <= T_RFC; // default
       tRPct[7:0] <= T_RP; // default
+      tRTPct[7:0] <= T_RTP; // default
+      tWRct[7:0] <= T_WR; // default
       case (nextstate)
         Activating    : begin
           tRCDct[7:0] <= tRCDct-1;
         end
         BankActive    : begin
           tCLct[7:0] <= (tCLct>1)?tCLct-1:tCLct;
+          tCWLct[7:0] <= (tCWLct>1)?tCWLct-1:tCWLct;
         end
         Precharging   : begin
           tRPct[7:0] <= tRPct-8'd1;
         end
         Reading       : begin
           BSTct[7:0] <= BSTct-1;
+          tABAct[7:0] <= (tABAct>0)?tABAct-1:tABAct;
           tCLct[7:0] <= tCLct;
+          tCWLct[7:0] <= tCWLct;
+          tRTPct[7:0] <= (tRTPct>0)?tRTPct-1:tRTPct;
         end
         ReadingAPR    : begin
           BSTct[7:0] <= BSTct-1;
           tCLct[7:0] <= tCLct;
+          tCWLct[7:0] <= tCWLct;
+          tRTPct[7:0] <= (tRTPct>0)?tRTPct-1:tRTPct;
         end
         Refreshing    : begin
           tRFCct[7:0] <= tRFCct-1;
         end
         Writing       : begin
           BSTct[7:0] <= BSTct-1;
+          tABAct[7:0] <= (tABAct>0)?tABAct-1:tABAct;
           tCLct[7:0] <= tCLct;
+          tCWLct[7:0] <= tCWLct;
+          tWRct[7:0] <= (tWRct>0)?tWRct-1:tWRct;
         end
         WritingAPR    : begin
-          BSTct[7:0] <= BSTct-1;
+          BSTct[7:0] <= (BSTct>0)?BSTct-1:BSTct;
           tCLct[7:0] <= tCLct;
+          tCWLct[7:0] <= tCWLct;
+          tWRct[7:0] <= (tWRct>0)?tWRct-1:tWRct;
         end
       endcase
     end
