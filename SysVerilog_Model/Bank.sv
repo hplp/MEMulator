@@ -24,7 +24,7 @@ module Bank
   input  wire [COLWIDTH-1:0] column
   );
   
-  sram #(.WIDTH(DEVICE_WIDTH), .DEPTH(DEPTH)) array (
+  array #(.WIDTH(DEVICE_WIDTH), .DEPTH(DEPTH)) arrayi (
   .clk(clk),
   .addr({row, column}),
   .rd_o_wr(rd_o_wr), // 0->rd, 1->wr

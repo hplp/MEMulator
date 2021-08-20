@@ -13,13 +13,13 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="55501fs"></ZoomEndTime>
-      <Cursor1Time time="42000fs"></Cursor1Time>
+      <Cursor1Time time="33000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <NameColumnWidth column_width="185"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="34" />
+   <WVObjectSize size="32" />
    <wvobject type="logic" fp_name="/testbnch_DIMM/dut/ck_t">
       <obj_property name="ElementShortName">ck_t</obj_property>
       <obj_property name="ObjectShortName">ck_t</obj_property>
@@ -64,6 +64,10 @@
       <obj_property name="ElementShortName">cs_n[0:0]</obj_property>
       <obj_property name="ObjectShortName">cs_n[0:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/testbnch_DIMM/dut/sync">
+      <obj_property name="ElementShortName">sync[3:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">sync[3:0][3:0]</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/dq">
       <obj_property name="ElementShortName">dq[63:0]</obj_property>
       <obj_property name="ObjectShortName">dq[63:0]</obj_property>
@@ -82,7 +86,6 @@
    <wvobject type="group" fp_name="group352">
       <obj_property name="label">CMDs</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/testbnch_DIMM/dut/ACT">
          <obj_property name="ElementShortName">ACT</obj_property>
          <obj_property name="ObjectShortName">ACT</obj_property>
@@ -108,40 +111,229 @@
       <obj_property name="ElementShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="ObjectShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbnch_DIMM/dut/Column">
-      <obj_property name="ElementShortName">Column[3:0][3:0][9:0]</obj_property>
-      <obj_property name="ObjectShortName">Column[3:0][3:0][9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbnch_DIMM/dut/Burst">
-      <obj_property name="ElementShortName">Burst[3:0][3:0]</obj_property>
-      <obj_property name="ObjectShortName">Burst[3:0][3:0]</obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[3]">
+         <obj_property name="ElementShortName">[3][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][3:0][16:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[2]">
+         <obj_property name="ElementShortName">[2][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][3:0][16:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[1]">
+         <obj_property name="ElementShortName">[1][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][3:0][16:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[0]">
+         <obj_property name="ElementShortName">[0][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][3:0][16:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/BankFSM">
       <obj_property name="ElementShortName">BankFSM[3:0][3:0][4:0]</obj_property>
       <obj_property name="ObjectShortName">BankFSM[3:0][3:0][4:0]</obj_property>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/BankFSM[3]">
-         <obj_property name="ElementShortName">[3][3:0][4:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][3:0][4:0]</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group224">
+      <obj_property name="label">BanksStates</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[0].MT[0].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state00[4:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/BankFSM[2]">
-         <obj_property name="ElementShortName">[2][3:0][4:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][3:0][4:0]</obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[0].MT[1].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state01[4:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/BankFSM[1]">
-         <obj_property name="ElementShortName">[1][3:0][4:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][3:0][4:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[0].MT[2].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state02[4:0]</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/BankFSM[0]">
-         <obj_property name="ElementShortName">[0][3:0][4:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][3:0][4:0]</obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[0].MT[3].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state03[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[1].MT[0].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state10[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[1].MT[1].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state11[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[1].MT[2].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state12[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[1].MT[3].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state13[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[2].MT[0].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state20[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[2].MT[1].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state21[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[2].MT[2].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state22[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[2].MT[3].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state23[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[3].MT[0].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state30[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[3].MT[1].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state31[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[3].MT[2].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state32[4:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[3].MT[3].MTi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[4:0]</obj_property>
+         <obj_property name="ObjectShortName">state[4:0]</obj_property>
+         <obj_property name="label">state33[4:0]</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[1].MT[1].MTi /state">
-      <obj_property name="ElementShortName">state[4:0]</obj_property>
-      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+   <wvobject type="group" fp_name="group282">
+      <obj_property name="label">MEMSyncStates</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[0].B[0].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state00[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[0].B[1].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state01[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[0].B[2].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state02[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[0].B[3].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state03[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[1].B[0].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state10[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[1].B[1].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state11[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[1].B[2].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state12[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[1].B[3].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state13[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[2].B[0].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state20[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[2].B[1].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state21[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[2].B[2].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state22[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[2].B[3].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state23[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[3].B[0].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state30[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[3].B[1].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state31[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[3].B[2].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state32[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[3].B[3].Mi /state">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+         <obj_property name="label">state33[2:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/cRowId">
       <obj_property name="ElementShortName">cRowId[3:0][3:0][5:0]</obj_property>
@@ -180,33 +372,8 @@
       <obj_property name="ObjectShortName">chipdqo[15:0][3:0][3:0][3:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/rd_o_wr">
-      <obj_property name="ElementShortName">rd_o_wr[3:0][3:0][0:0]</obj_property>
-      <obj_property name="ObjectShortName">rd_o_wr[3:0][3:0][0:0]</obj_property>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/rd_o_wr[3]">
-         <obj_property name="ElementShortName">[3][3:0][0:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][3:0][0:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/rd_o_wr[2]">
-         <obj_property name="ElementShortName">[2][3:0][0:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][3:0][0:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/rd_o_wr[1]">
-         <obj_property name="ElementShortName">[1][3:0][0:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][3:0][0:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/rd_o_wr[0]">
-         <obj_property name="ElementShortName">[0][3:0][0:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][3:0][0:0]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbnch_DIMM/dut/hold">
-      <obj_property name="ElementShortName">hold</obj_property>
-      <obj_property name="ObjectShortName">hold</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbnch_DIMM/dut/sync">
-      <obj_property name="ElementShortName">sync[3:0][3:0]</obj_property>
-      <obj_property name="ObjectShortName">sync[3:0][3:0]</obj_property>
+      <obj_property name="ElementShortName">rd_o_wr[3:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_o_wr[3:0][3:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/RDENORs">
       <obj_property name="ElementShortName">RDENORs[16:0]</obj_property>
