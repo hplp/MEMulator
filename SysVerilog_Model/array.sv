@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
-// this sram module is based on widely used Verilog designs for 2D memory array
+// this array module is based on widely used Verilog designs for 2D memory array
 // parameter WIDTH sets the word width (how many bits are written/read in 1 clk)
 // parameter DEPTH sets the number of words
-module sram #(parameter WIDTH = 8, DEPTH = 2048) (
+module array #(parameter WIDTH = 8, DEPTH = 2048) (
   input logic clk, // clock
   input logic [$clog2(DEPTH)-1:0] addr, // which word is read/written
   input logic rd_o_wr, // is the data read or written (0=read, 1=write)

@@ -172,6 +172,7 @@ module testbnch_DIMM(
               bg = 1;
               ba = 1;
               A = 17'b00000000000000001;
+              sync[1][1] = 1;
               #tCK;
               act_n = 1;
               A = 17'b00000000000000000;
