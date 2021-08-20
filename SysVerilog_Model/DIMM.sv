@@ -135,7 +135,7 @@ module DIMM // top MEMulator module with DIMM interface
   // Write Enable bit
   wire rd_o_wr [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
   
-  // Command decoding, updates RowId
+  // Command decoding, updates RowId, ColId, other control logic
   wire ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
   CMD #(
   .ADDRWIDTH(ADDRWIDTH),
@@ -157,7 +157,7 @@ module DIMM // top MEMulator module with DIMM interface
   .ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA)
   );
   
-  // Bank Timing FSMs
+  // Bank Timing FSMs accounts for the state of each bank and the latencies
   wire [4:0] BankFSM [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
   TimingFSM #(.BGWIDTH(BGWIDTH),
   .BAWIDTH(BAWIDTH))
@@ -172,7 +172,7 @@ module DIMM // top MEMulator module with DIMM interface
   .BankFSM(BankFSM)
   );
   
-  // Emulation Memory Cache
+  // Memory Emulation Model Data Sync engines (todo: also model row subarray belonging)
   wire [CHWIDTH-1:0] cRowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
   MEMSyncTop #(.BGWIDTH(BGWIDTH),
   .BAWIDTH(BAWIDTH),
@@ -200,18 +200,17 @@ module DIMM // top MEMulator module with DIMM interface
   wire [CHIPS-1:0] dqs_ti;
   wire [CHIPS-1:0] dqs_to;
   wire RDEN;
-  wire RDENORs [BANKGROUPS*BANKSPERGROUP:0];
+  wire [BANKGROUPS-1:0][BANKSPERGROUP-1:0] RDENs;
   generate
-    assign RDENORs[0] = 0;
     for (bgi=0; bgi<BANKGROUPS; bgi=bgi+1)
     begin
       for (bi=0; bi<BANKSPERGROUP; bi=bi+1)
       begin
-        assign RDENORs[bgi*BANKSPERGROUP+bi+1] = (BankFSM[bgi][bi]==5'b01011) || RDENORs[bgi*BANKSPERGROUP+bi];
+        assign RDENs[bgi][bi] = (BankFSM[bgi][bi]==5'b01011);
       end
     end
   endgenerate
-  assign RDEN = RDENORs[BANKGROUPS*BANKSPERGROUP];
+  assign RDEN = |RDENs;
   
   tristate #(.W(DQWIDTH)) dqtr (.dqi(dqo),.dqo(dqi),.dq(dq),.enable(RDEN)); // todo: enable must come from FSM
   tristate #(.W(CHIPS)) dqsctr (.dqi(dqs_co),.dqo(dqs_ci),.dq(dqs_c),.enable(RD || RDA));
@@ -234,7 +233,7 @@ module DIMM // top MEMulator module with DIMM interface
     end
   endgenerate
   
-  // Rank and Chip instances todo: multi rank logic
+  // Rank and Chip instances that model the shared bus and data placement todo: multi rank logic
   generate
     for (ri = 0; ri < RANKS ; ri=ri+1)
     begin:R
@@ -244,18 +243,11 @@ module DIMM // top MEMulator module with DIMM interface
         .BAWIDTH(BAWIDTH),
         .COLWIDTH(COLWIDTH),
         .DEVICE_WIDTH(DEVICE_WIDTH),
-        // .BL(BL),
         .CHWIDTH(CHWIDTH)) Ci (
         .clk(clk),
-        //  .reset_n(reset_n),
         .rd_o_wr(rd_o_wr),
-        //  .commands((!cs_n[ri])? commands : {19{1'b0}}),
-        //  .bg(bg),
-        //  .ba(ba),
         .dqin(chipdqi[ci]),
         .dqout(chipdqo[ci]),
-        //  .dqs_c(dqs_c[ci]),
-        //  .dqs_t(dqs_t[ci]),
         .row(cRowId),
         .column(ColId)
         );

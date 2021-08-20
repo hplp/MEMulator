@@ -12,12 +12,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="55501fs"></ZoomEndTime>
-      <Cursor1Time time="33000fs"></Cursor1Time>
+      <ZoomEndTime time="25337fs"></ZoomEndTime>
+      <Cursor1Time time="5250fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="185"></NameColumnWidth>
-      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="32" />
    <wvobject type="logic" fp_name="/testbnch_DIMM/dut/ck_t">
@@ -111,32 +111,16 @@
       <obj_property name="ElementShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="ObjectShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[3]">
-         <obj_property name="ElementShortName">[3][3:0][16:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][3:0][16:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[2]">
-         <obj_property name="ElementShortName">[2][3:0][16:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][3:0][16:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[1]">
-         <obj_property name="ElementShortName">[1][3:0][16:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][3:0][16:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/testbnch_DIMM/dut/RowId[0]">
-         <obj_property name="ElementShortName">[0][3:0][16:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][3:0][16:0]</obj_property>
-      </wvobject>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/BankFSM">
       <obj_property name="ElementShortName">BankFSM[3:0][3:0][4:0]</obj_property>
       <obj_property name="ObjectShortName">BankFSM[3:0][3:0][4:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group224">
       <obj_property name="label">BanksStates</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/testbnch_DIMM/dut/TimingFSMi/\BG[0].MT[0].MTi /state">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">state[4:0]</obj_property>
@@ -237,7 +221,6 @@
    <wvobject type="group" fp_name="group282">
       <obj_property name="label">MEMSyncStates</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/testbnch_DIMM/dut/MEMSyncTopi/\BG[0].B[0].Mi /state">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">state[2:0]</obj_property>
@@ -338,6 +321,7 @@
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/cRowId">
       <obj_property name="ElementShortName">cRowId[3:0][3:0][5:0]</obj_property>
       <obj_property name="ObjectShortName">cRowId[3:0][3:0][5:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/dqi">
       <obj_property name="ElementShortName">dqi[63:0]</obj_property>
@@ -366,18 +350,197 @@
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi">
       <obj_property name="ElementShortName">chipdqi[15:0][3:0][3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">chipdqi[15:0][3:0][3:0][3:0]</obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[15]">
+         <obj_property name="ElementShortName">[15][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[14]">
+         <obj_property name="ElementShortName">[14][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[13]">
+         <obj_property name="ElementShortName">[13][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[12]">
+         <obj_property name="ElementShortName">[12][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[11]">
+         <obj_property name="ElementShortName">[11][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[10]">
+         <obj_property name="ElementShortName">[10][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[9]">
+         <obj_property name="ElementShortName">[9][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[8]">
+         <obj_property name="ElementShortName">[8][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[7]">
+         <obj_property name="ElementShortName">[7][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[6]">
+         <obj_property name="ElementShortName">[6][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[5]">
+         <obj_property name="ElementShortName">[5][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[4]">
+         <obj_property name="ElementShortName">[4][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[3]">
+         <obj_property name="ElementShortName">[3][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[2]">
+         <obj_property name="ElementShortName">[2][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[1]">
+         <obj_property name="ElementShortName">[1][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][3:0][3:0][3:0]</obj_property>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[1][3]">
+            <obj_property name="ElementShortName">[3][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][3:0][3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[1][2]">
+            <obj_property name="ElementShortName">[2][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][3:0][3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[1][1]">
+            <obj_property name="ElementShortName">[1][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][3:0][3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[1][0]">
+            <obj_property name="ElementShortName">[0][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][3:0][3:0]</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqi[0]">
+         <obj_property name="ElementShortName">[0][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][3:0][3:0][3:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo">
       <obj_property name="ElementShortName">chipdqo[15:0][3:0][3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">chipdqo[15:0][3:0][3:0][3:0]</obj_property>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[15]">
+         <obj_property name="ElementShortName">[15][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[14]">
+         <obj_property name="ElementShortName">[14][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[13]">
+         <obj_property name="ElementShortName">[13][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[12]">
+         <obj_property name="ElementShortName">[12][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[11]">
+         <obj_property name="ElementShortName">[11][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[10]">
+         <obj_property name="ElementShortName">[10][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[9]">
+         <obj_property name="ElementShortName">[9][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[8]">
+         <obj_property name="ElementShortName">[8][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[7]">
+         <obj_property name="ElementShortName">[7][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[6]">
+         <obj_property name="ElementShortName">[6][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[5]">
+         <obj_property name="ElementShortName">[5][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[4]">
+         <obj_property name="ElementShortName">[4][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[3]">
+         <obj_property name="ElementShortName">[3][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[2]">
+         <obj_property name="ElementShortName">[2][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[1]">
+         <obj_property name="ElementShortName">[1][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][3:0][3:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0]">
+         <obj_property name="ElementShortName">[0][3:0][3:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][3:0][3:0][3:0]</obj_property>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][3]">
+            <obj_property name="ElementShortName">[3][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][3:0][3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][2]">
+            <obj_property name="ElementShortName">[2][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][3:0][3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][1]">
+            <obj_property name="ElementShortName">[1][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][3:0][3:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][0]">
+            <obj_property name="ElementShortName">[0][3:0][3:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][3:0][3:0]</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+            <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][0][3]">
+               <obj_property name="ElementShortName">[3][3:0]</obj_property>
+               <obj_property name="ObjectShortName">[3][3:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][0][2]">
+               <obj_property name="ElementShortName">[2][3:0]</obj_property>
+               <obj_property name="ObjectShortName">[2][3:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][0][1]">
+               <obj_property name="ElementShortName">[1][3:0]</obj_property>
+               <obj_property name="ObjectShortName">[1][3:0]</obj_property>
+            </wvobject>
+            <wvobject type="array" fp_name="/testbnch_DIMM/dut/chipdqo[0][0][0]">
+               <obj_property name="ElementShortName">[0][3:0]</obj_property>
+               <obj_property name="ObjectShortName">[0][3:0]</obj_property>
+               <obj_property name="isExpanded"></obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_DIMM/dut/rd_o_wr">
       <obj_property name="ElementShortName">rd_o_wr[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">rd_o_wr[3:0][3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbnch_DIMM/dut/RDENORs">
-      <obj_property name="ElementShortName">RDENORs[16:0]</obj_property>
-      <obj_property name="ObjectShortName">RDENORs[16:0]</obj_property>
+   <wvobject type="array" fp_name="/testbnch_DIMM/dut/RDENs">
+      <obj_property name="ElementShortName">RDENs[3:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">RDENs[3:0][3:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/testbnch_DIMM/dut/RDEN">
       <obj_property name="ElementShortName">RDEN</obj_property>
