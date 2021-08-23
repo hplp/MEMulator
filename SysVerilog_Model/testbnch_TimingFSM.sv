@@ -8,7 +8,9 @@ module testbnch_TimingFSM(
        parameter BGWIDTH = 2; // set to 0 for DDR3
        parameter BAWIDTH = 2;
        parameter BL = 8; // Burst Length
-       
+       parameter T_WR = 14;
+       parameter T_ABA = 24;
+       parameter T_RTP = 7;
        localparam BANKGROUPS = 2**BGWIDTH;
        localparam BANKSPERGROUP = 2**BAWIDTH;
        
@@ -82,35 +84,28 @@ module testbnch_TimingFSM(
               
               // write
               #tCK;
-              for (i = 0; i < BL; i = i + 1)
+
+             // WRA = 1;
+              //#tCK;
+             // WRA = 0;
+              //#(tCK*BL-1);
+
+
+              for (i = 0; i <T_WR ; i = i + 1)
               begin
                      WR = (i==0)? 1 : 0;
                      #tCK;
               end
                #tCK;
-              //`ifdef RowClone
-              //#(tCK*5); // activating again for RowClone
-              //ACT = 1;
-              //#tCK;
-              //ACT = 0;
-              //#(tCK*15); // tRCD
-              //`endif
-              
-              // read
-              for (i = 0; i < BL; i = i + 1)
-              begin
-                     #tCK;
-                     RD = (i==0)? 1 : 0;
-              end
-           
+               
+             // precharge and back to idle
+               #tCK;
+               PR = 1;
+               #tCK;
+               PR = 0;
+               #(16*tCK)
 
-              // precharge and back to idle
-              #tCK;
-              PR = 1;
-              #tCK;
-              PR = 0;
-              #(16*tCK)
-              // refresh
+               // refresh
               REF = 1;
               #tCK;
               REF = 0;
@@ -119,12 +114,40 @@ module testbnch_TimingFSM(
               bg = 0;
               ba = 0;
               #(4*tCK);
+
               // precharge and back to idle
               #tCK;
               PR = 1;
               #tCK;
               PR = 0;
               #(16*tCK)
+
+              // activating a row in bank 1 in bank group 1
+               ACT = 1;
+               bg = 1;
+               ba = 1;
+               #tCK;
+               ACT = 0;
+               #(tCK*15); // tRCD
+               #(tCK*18); // tCL
+
+               // write Auto-Precharge
+               #tCK;
+               for (i = 0; i < T_WR; i = i + 1)
+               begin
+                      WRA = (i==0)? 1 : 0;
+                      #tCK;
+               end
+            
+              //`ifdef RowClone
+              //#(tCK*5); // activating again for RowClone
+              //ACT = 1;
+              //#tCK;
+              //ACT = 0;
+              //#(tCK*15); // tRCD
+              //`endif
+              
+              #(18*tCK)
               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
@@ -133,20 +156,22 @@ module testbnch_TimingFSM(
               ACT = 0;
               #(tCK*15); // tRCD
               #(tCK*18); // tCL
-              // write Auto-Precharge
-              #tCK;
-              for (i = 0; i < BL; i = i + 1)
-              begin
-                     WRA = (i==0)? 1 : 0;
-                     #tCK;
-              end
-              // precharge and back to idle
-              #tCK;
-              PR = 1;
-              #tCK;
-              PR = 0;
-              #(16*tCK)
- 	      // activating a row in bank 1 in bank group 1
+
+             // read
+             for (i = 0; i < BL; i = i + 1)
+             begin
+                    #tCK;
+                    RD = (i==0)? 1 : 0;
+             end
+          
+
+             // precharge and back to idle
+             #tCK;
+             PR = 1;
+             #tCK;
+             PR = 0;
+             #(16*tCK)
+               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
               ba = 1;
@@ -160,7 +185,25 @@ module testbnch_TimingFSM(
                      #tCK;
                      RDA = (i==0)? 1 : 0;
               end
-           
+
+              #(18*tCK) // need to wait for the precharge tinme period before attempting any command
+             // refresh
+              REF = 1;
+              #tCK;
+              REF = 0;
+              #(34*tCK);
+
+              bg = 0;
+              ba = 0;
+              #(4*tCK);
+
+              // precharge and back to idle
+              #tCK;
+              PR = 1;
+              #tCK;
+              PR = 0;
+              #(16*tCK)
+ 	               
               $stop;
        end;
        
