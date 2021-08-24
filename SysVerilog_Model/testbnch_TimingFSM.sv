@@ -150,6 +150,16 @@ module testbnch_TimingFSM(
                       #tCK;
                       RD = (i==0)? 1 : 0;
                end
+
+               // write
+               #tCK;
+                      for (i = 0; i <T_WR ; i = i + 1)
+                begin
+                       WR = (i==0)? 1 : 0;
+                       #tCK;
+                end
+                 #tCK;
+                 
              // precharge and back to idle
                #tCK;
                PR = 1;
