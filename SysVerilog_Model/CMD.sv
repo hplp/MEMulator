@@ -5,6 +5,9 @@
 
 // references: www.systemverilog.io
 
+// the native DIMM channel interface signals are passed to this module to be decoded into memory commands
+// additionally, RAS and CAS controls are implemented
+
 module CMD
   #(parameter ADDRWIDTH = 17,
   parameter COLWIDTH = 10,
@@ -46,7 +49,7 @@ module CMD
   wire A14 = A[ADDRWIDTH-3]; // WE_n
   wire A10 = A[ADDRWIDTH-4]; // AP
   
-  // implement ddr logic // todo: implement all commands not just a few
+  // implement ddr command decoding logic using truth table // todo: implement all commands not just a few
   assign ACT  = (!cs_n && !act_n); // entire A is the Row Address at this time
   assign BST  = 0;//(act_n && A[ADDRWIDTH-2]); // todo:
   assign CFG  = 0;
@@ -68,6 +71,8 @@ module CMD
   assign WRA  = (!cs_n && act_n &&  A16 && !A15 && !A14 &&  A10);
 
 // RAS = Row Address Strobe
+// the idea here is to store the address A during an activate command
+// thus keep track of which row is active at each Bank
 always@(posedge clk)
 begin
   if(!cs_n && !act_n) begin // if ACT
@@ -76,6 +81,7 @@ begin
 end
 
 // CAS = Column Address Strobe
+// 
 logic Burst [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
 always@(posedge clk)
 begin
@@ -97,6 +103,7 @@ begin
 end
 
 // Write Enable bit
+// will determine the read or write (in or out state of the inout data pins)
 always@(posedge clk)
 begin
   if(WR || WRA) rd_o_wr[bg][ba] <= 1;
@@ -106,11 +113,10 @@ end
 
 `ifndef SYNTHESIS
 // initialize RowId, Column, Burst to values 0 for simulation runs
-integer i, j;
 initial
 begin
-  for (i=0;i<=BANKGROUPS;i=i+1) begin
-    for (j=0;j<=BANKSPERGROUP;j=j+1) begin
+  for (integer i=0;i<=BANKGROUPS;i=i+1) begin
+    for (integer j=0;j<=BANKSPERGROUP;j=j+1) begin
       RowId[i][j] = {ADDRWIDTH{1'b0}};
       ColId[i][j] = {COLWIDTH{1'b0}};
       Burst[i][j] = 0;
