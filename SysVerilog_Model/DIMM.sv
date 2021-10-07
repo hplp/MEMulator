@@ -17,7 +17,7 @@ module DIMM // top MEMulator module with DIMM interface
   parameter COLWIDTH = 10, // address width for number of columns in array
   parameter DEVICE_WIDTH = 4, // data bits per Chip; x4, x8, x16 -> DQWIDTH = DEVICE_WIDTH x CHIPS
   parameter BL = 8, // Burst Length
-  parameter CHWIDTH = 6, // address width for number of rows in Memory Emulation Model local BRAM-based array
+  parameter CHWIDTH = 5, //6, // address width for number of rows in Memory Emulation Model local BRAM-based array
   
   // Width of AXI data bus in bits
   parameter AXI_DATA_WIDTH = 32,
@@ -124,7 +124,7 @@ module DIMM // top MEMulator module with DIMM interface
   
   genvar ri, ci, bgi, bi; // rank, chip, bank group and bank identifiers
   
-  wire clk = ck2x && cke; // clk enabled by cke; todo: possible source of slack
+  wire clk = ck2x; // && cke; // clk enabled by cke; todo: possible source of slack
   // todo: do not create another clock but use cke directly at value update
   // todo: figurehow to use ck_c, if needed with the memory controller
   

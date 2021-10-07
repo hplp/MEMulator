@@ -176,7 +176,7 @@ module testbnch_DIMM();
               act_n = 1;
               A = 17'b00000000000000000;
               #(tCK*15); // tRCD
-              #(tCK*15); // tCL
+              #(tCK*10); // tCL
               
               // write
               #tCK;
@@ -190,6 +190,8 @@ module testbnch_DIMM();
                      #tCK;
               end
               writing = 0;
+
+              #(tCK*20); // no actions
               
               `ifdef RowClone
               #(tCK*5); // activating again for RowClone
