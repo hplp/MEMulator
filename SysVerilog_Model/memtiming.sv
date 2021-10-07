@@ -1,6 +1,4 @@
-// Created by fizzim.pl version 5.20 on 2021:08:19 at 17:01:06 (www.fizzim.com)
-
-// Created by fizzim.pl version 5.20 on 2021:08:17 at 19:03:53 (www.fizzim.com)
+// Created by fizzim.pl version 5.20 on 2021:08:23 at 19:50:19 (www.fizzim.com)
 module memtiming
   #(parameter T_CL = 17,
     parameter T_RCD = 17,
@@ -10,21 +8,23 @@ module memtiming
     parameter T_RTP = 7,
     parameter T_CWL = 10,
     parameter T_ABA = 24,
-    parameter T_RAS =32,
+    parameter T_ABAR = 24,
+    parameter T_RAS = 32,
     parameter BL = 8
     )
     (
     output state,
-  output logic [7:0] BSTct,  // Burst counter
-  output logic [7:0] tRASct, // RAS counter
-  output logic [7:0] tABAct, // Automatic Bank Active Counter
-  output logic [7:0] tCLct,  // CAS latency counter
-  output logic [7:0] tCWLct, // CAS write latency counter
-  output logic [7:0] tRCDct,
-  output logic [7:0] tRFCct, // Refresh counter
-  output logic [7:0] tRPct,  // Precharge counter
-  output logic [7:0] tRTPct, // Reead to Precharge Delay counter
-  output logic [7:0] tWRct,  // Write to precharge delay counter
+  output logic [7:0] BSTct,   // Burst counter
+  output logic [7:0] tABARct,
+  output logic [7:0] tABAct,  // Automatic Bank Active latency counter
+  output logic [7:0] tCLct,   // CAS latency counter
+  output logic [7:0] tCWLct,  // CAS write latency counter
+  output logic [7:0] tRASct,  // RAS latency counter
+  output logic [7:0] tRCDct,  // RCD latency counter
+  output logic [7:0] tRFCct,  // Refresh counter
+  output logic [7:0] tRPct,   // Precharge counter
+  output logic [7:0] tRTPct,  // Reead to Precharge Delay counter
+  output logic [7:0] tWRct,   // Write to precharge delay counter
   input logic ACT,
   input logic BST,
   input logic CFG,
@@ -47,6 +47,7 @@ module memtiming
   input logic clk,
   input logic rst
 );
+
   // state bits
   enum logic [4:0] {
     Idle           = 5'b00000, 
@@ -183,7 +184,7 @@ module memtiming
         else if (WR) begin
           nextstate = Writing;
         end
-        else if (BST||(BSTct==0)) begin
+        else if ((tABARct==0)) begin
           nextstate = BankActive;
         end
         else if (WRA) begin
@@ -271,6 +272,7 @@ module memtiming
   always_ff @(posedge clk) begin
     if (rst) begin
       BSTct[7:0] <= BL;
+      tABARct[7:0] <= T_ABAR;
       tABAct[7:0] <= T_ABA;
       tCLct[7:0] <= T_CL;
       tCWLct[7:0] <= T_CWL;
@@ -283,6 +285,7 @@ module memtiming
     end
     else begin
       BSTct[7:0] <= BL; // default
+      tABARct[7:0] <= T_ABAR; // default
       tABAct[7:0] <= T_ABA; // default
       tCLct[7:0] <= T_CL; // default
       tCWLct[7:0] <= T_CWL; // default
@@ -307,7 +310,7 @@ module memtiming
         end
         Reading       : begin
           BSTct[7:0] <= (BSTct>0)?BSTct-1:BSTct;
-          tABAct[7:0] <= (tABAct>0)?tABAct-1:tABAct;
+          tABARct[7:0] <= (tABARct>0)?tABARct-1:tABARct;
           tCLct[7:0] <= tCLct;
           tCWLct[7:0] <= tCWLct;
           tRASct[7:0] <= (tRASct>0)?tRASct-1:tRASct;

@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="193500fs"></ZoomEndTime>
-      <Cursor1Time time="51563fs"></Cursor1Time>
+      <ZoomEndTime time="335251fs"></ZoomEndTime>
+      <Cursor1Time time="121343fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="243"></NameColumnWidth>
-      <ValueColumnWidth column_width="117"></ValueColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="30" />
+   <WVObjectSize size="31" />
    <wvobject type="logic" fp_name="/testbnch_TimingFSM/dut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -121,6 +121,11 @@
    <wvobject type="array" fp_name="/testbnch_TimingFSM/dut/\BG[1].MT[1].MTi /tABAct">
       <obj_property name="ElementShortName">tABAct[7:0]</obj_property>
       <obj_property name="ObjectShortName">tABAct[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbnch_TimingFSM/dut/\BG[1].MT[1].MTi /tABARct">
+      <obj_property name="ElementShortName">tABARct[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tABARct[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_TimingFSM/dut/\BG[1].MT[1].MTi /nextstate">
       <obj_property name="ElementShortName">nextstate[4:0]</obj_property>
