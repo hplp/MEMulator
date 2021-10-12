@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 ## File last modified by Fizzim: 4:53:38 PM on 8/26/21
+=======
+>>>>>>> b2718ec54bd98545e8086bfbd20c20991ba1d8b9
 <version>
    14.02.26
 </version>
@@ -4731,10 +4734,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -1
+         -7
          </x2Obj>
          <y2Obj>
-         1
+         0
          </y2Obj>
          <page>
          1
@@ -5011,7 +5014,7 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         15
+         2
          </x2Obj>
          <y2Obj>
          -13
@@ -5123,7 +5126,7 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         62
+         58
          </x2Obj>
          <y2Obj>
          34
@@ -5179,10 +5182,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         58
+         59
          </x2Obj>
          <y2Obj>
-         -26
+         -27
          </y2Obj>
          <page>
          1
@@ -5388,7 +5391,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tCLct
+         (tCLct>1)?tCLct-1:tCLct
             <status>
             LOCAL
             </status>
@@ -5430,7 +5433,7 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -152
+         -102
          </x2Obj>
          <y2Obj>
          -1
@@ -17144,7 +17147,7 @@ fzm_globalTable
          </useratts>
          <resetval>
          8'd20
-            <status>
+            <status>>>>>>>> main
             GLOBAL_VAR
             </status>
          </resetval>

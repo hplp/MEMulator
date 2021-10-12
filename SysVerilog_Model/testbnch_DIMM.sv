@@ -5,8 +5,7 @@
 
 // `define RowClone
 
-module testbnch_DIMM(
-       );
+module testbnch_DIMM();
        
        parameter RANKS = 1;
        parameter CHIPS = 16;
@@ -79,7 +78,7 @@ module testbnch_DIMM(
        assign dqs_c = (writing) ? dqs_c_reg:{CHIPS{1'bZ}};
        assign dqs_t = (writing) ? dqs_t_reg:{CHIPS{1'bZ}};
        
-       dimm #(.RANKS(RANKS),
+       DIMM #(.RANKS(RANKS),
        .CHIPS(CHIPS),
        .BGWIDTH(BGWIDTH),
        .BAWIDTH(BAWIDTH),
@@ -137,13 +136,13 @@ module testbnch_DIMM(
        initial
        begin
               // initialize all inputs
-              reset_n = 0;
+              reset_n = 0; // DRAM is active only when this signal is HIGH
               ck_t = 1;
               ck_c = 0;
               ck2x = 1;
               cke = 1;
-              cs_n = {RANKS{1'b1}};
-              act_n = 1;
+              cs_n = {RANKS{1'b1}}; // LOW makes rank active
+              act_n = 1; // no ACT
               A = {ADDRWIDTH{1'b0}};
               bg = 0;
               ba = 0;
@@ -172,11 +171,12 @@ module testbnch_DIMM(
               bg = 1;
               ba = 1;
               A = 17'b00000000000000001;
+              sync[1][1] = 1;
               #tCK;
               act_n = 1;
               A = 17'b00000000000000000;
               #(tCK*15); // tRCD
-              #(tCK*15); // tCL
+              #(tCK*10); // tCL
               
               // write
               #tCK;
@@ -190,6 +190,8 @@ module testbnch_DIMM(
                      #tCK;
               end
               writing = 0;
+
+              #(tCK*20); // no actions
               
               `ifdef RowClone
               #(tCK*5); // activating again for RowClone
@@ -223,7 +225,8 @@ module testbnch_DIMM(
               bg = 0;
               ba = 0;
               A = 17'b00000000000000000;
-              #(16*tCK);
+              sync[1][1] = 0;
+              #(20*tCK);
               $stop;
        end;
        
