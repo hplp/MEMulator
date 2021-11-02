@@ -17,7 +17,9 @@ module DIMM // top MEMulator module with DIMM interface
   parameter COLWIDTH = 10, // address width for number of columns in array
   parameter DEVICE_WIDTH = 4, // data bits per Chip; x4, x8, x16 -> DQWIDTH = DEVICE_WIDTH x CHIPS
   parameter BL = 8, // Burst Length
-  parameter CHWIDTH = 5, //6, // address width for number of rows in Memory Emulation Model local BRAM-based array
+  parameter CHWIDTH = 5, //6, // address width for number of rows in Memory Emulation Model local BRAM-based array,
+  // parameter tRPRE = 1, // Read and Write Preamble on the DQS strobe signals
+  // parameter WPRE = 1, // Read and Write Preamble on the DQS strobe signals
   
   // Width of AXI data bus in bits
   parameter AXI_DATA_WIDTH = 32,
@@ -29,8 +31,8 @@ module DIMM // top MEMulator module with DIMM interface
   parameter AXI_ID_WIDTH = 8,
   
   parameter DQWIDTH = DEVICE_WIDTH*CHIPS, // data width, ECC pins are also accounted as data
-  parameter BANKGROUPS = 2**BGWIDTH, // number of Bank Groups
-  parameter BANKSPERGROUP = 2**BAWIDTH, // number of Banks per Bank Group
+  localparam BANKGROUPS = 2**BGWIDTH, // number of Bank Groups
+  localparam BANKSPERGROUP = 2**BAWIDTH, // number of Banks per Bank Group
   localparam ROWS = 2**ADDRWIDTH, // number of Rows in array
   localparam COLS = 2**COLWIDTH // number of Columns in array
   )
@@ -245,6 +247,7 @@ module DIMM // top MEMulator module with DIMM interface
         .DEVICE_WIDTH(DEVICE_WIDTH),
         .CHWIDTH(CHWIDTH)) Ci (
         .clk(clk),
+        // all the information on the data bus is in these wire bundles below
         .rd_o_wr(rd_o_wr),
         .dqin(chipdqi[ci]),
         .dqout(chipdqo[ci]),

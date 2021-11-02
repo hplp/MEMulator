@@ -3,8 +3,8 @@ from migen import *
 from migen.fhdl import verilog
 
 
-# Create migen wrapper for sram.sv
-class dimmW(Module):
+# Create migen wrapper for DIMM.sv
+class WrappedDIMM(Module):
     def __init__(self):
         RANKS = 1
         CHIPS = 16
@@ -12,13 +12,13 @@ class dimmW(Module):
         BAWIDTH = 2
         ADDRWIDTH = 17
         COLWIDTH = 10
-        # // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
         DEVICE_WIDTH = 4
-        BL = 8  # // Burst Length
-        CHWIDTH = 5  # // Emulation Memory Cache Width
+        BL = 8
+        CHWIDTH = 5
 
         BANKGROUPS = 2**BGWIDTH
         BANKSPERGROUP = 2**BAWIDTH
+        DQWIDTH = DEVICE_WIDTH*CHIPS
 
         self.act_n = Signal()
         self.addr = Signal(ADDRWIDTH)
@@ -35,13 +35,15 @@ class dimmW(Module):
         self.dqs_t = Signal(CHIPS)
         self.odt = Signal()
         self.parity = Signal()
-        self.cachesync = Signal(BANKGROUPS*BANKSPERGROUP)
+        # self.cachesync = Signal(BANKGROUPS*BANKSPERGROUP)
+        self.stall = Signal()
 
         self.io = {self.act_n, self.addr, self.bg, self.ba,
                    self.ck2x, self.ck_c, self.ck_t, self.reset_n, self.cke, self.cs_n,
-                   self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, self.cachesync}
+                   self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, # self.cachesync,
+                   self.stall}
 
-        dimm = Instance("dimm",
+        DIMMi = Instance("DIMM", name="WrappedDIMMi",
                         p_RANKS=RANKS,
                         p_CHIPS=CHIPS,
                         p_BGWIDTH=BGWIDTH,
@@ -49,6 +51,7 @@ class dimmW(Module):
                         p_ADDRWIDTH=ADDRWIDTH,
                         p_COLWIDTH=COLWIDTH,
                         p_DEVICE_WIDTH=DEVICE_WIDTH,
+                        p_DQWIDTH=DQWIDTH,
                         p_BL=BL,
                         p_CHWIDTH=CHWIDTH,
 
@@ -59,9 +62,9 @@ class dimmW(Module):
                         i_ck2x=self.ck2x,
                         i_ck_c=self.ck_c,
                         i_ck_t=self.ck_t,
-                        i_reset_n=self.reset_n,
                         i_cke=self.cke,
                         i_cs_n=self.cs_n,
+                        i_reset_n=self.reset_n,
 
                         io_dq=self.dq,
                         io_dqs_c=self.dqs_c,
@@ -69,14 +72,16 @@ class dimmW(Module):
 
                         i_odt=self.odt,
                         i_parity=self.parity,
-                        i_sync=self.cachesync)
+                        # i_sync=self.cachesync,
+                        o_stall=self.stall
+                        )
 
-        self.specials += dimm
+        self.specials += DIMMi
 
 
 def test_instance_module():
-    dimm0 = dimmW()
-    verilog.convert(dimm0, dimm0.io, name="dimmW").write("dimmW.sv")
+    WD = WrappedDIMM()
+    verilog.convert(WD, WD.io, name="WrappedDIMM").write("WrappedDIMM.sv")
 
 
 if __name__ == "__main__":
