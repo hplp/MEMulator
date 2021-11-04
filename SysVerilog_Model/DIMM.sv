@@ -30,7 +30,7 @@ module DIMM // top MEMulator module with DIMM interface
   // Width of AXI ID signal
   parameter AXI_ID_WIDTH = 8,
   
-  parameter DQWIDTH = DEVICE_WIDTH*CHIPS, // data width, ECC pins are also accounted as data
+  localparam DQWIDTH = DEVICE_WIDTH*CHIPS, // data width, ECC pins are also accounted as data
   localparam BANKGROUPS = 2**BGWIDTH, // number of Bank Groups
   localparam BANKSPERGROUP = 2**BAWIDTH, // number of Banks per Bank Group
   localparam ROWS = 2**ADDRWIDTH, // number of Rows in array

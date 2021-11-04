@@ -2,19 +2,56 @@ import math
 from migen import *
 from migen.fhdl import verilog
 
+import configparser
 
 # Create migen wrapper for DIMM.sv
 class WrappedDIMM(Module):
-    def __init__(self):
-        RANKS = 1
-        CHIPS = 16
-        BGWIDTH = 2
-        BAWIDTH = 2
-        ADDRWIDTH = 17
-        COLWIDTH = 10
-        DEVICE_WIDTH = 4
-        BL = 8
+    def __init__(self, configFile):
+        config = configparser.ConfigParser()
+        config.sections()
+        config.read(configFile)
+
+        PROTOCOL = config['dram_structure']['protocol']
+        RANKS = 10
+        CHIPS = int(int(config['system']['bus_width']) / int(config['dram_structure']['device_width']))
+        BGWIDTH = int(config['dram_structure']['bankgroups']).bit_length()-1
+        BAWIDTH = int(config['dram_structure']['banks_per_group']).bit_length()-1
+        ADDRWIDTH = int(config['dram_structure']['rows']).bit_length()-1
+        COLWIDTH = int(config['dram_structure']['columns']).bit_length()-1
+        DEVICE_WIDTH = int(config['dram_structure']['device_width'])
+        BL = int(config['dram_structure']['BL'])
         CHWIDTH = 5
+        print(PROTOCOL, CHIPS, BGWIDTH, BAWIDTH, ADDRWIDTH, COLWIDTH, DEVICE_WIDTH, BL)
+
+        tCK    = config['timing']['tCK']
+        AL     = int(config['timing']['AL'])
+        CL     = int(config['timing']['CL'])
+        CWL    = int(config['timing']['CWL'])
+        tRCD   = int(config['timing']['tRCD'])
+        tRP    = int(config['timing']['tRP'])
+        tRAS   = int(config['timing']['tRAS'])
+        tRFC   = int(config['timing']['tRFC'])
+        tRFC2  = int(config['timing']['tRFC2'])
+        tRFC4  = int(config['timing']['tRFC4'])
+        tREFI  = int(config['timing']['tREFI'])
+        tRPRE  = int(config['timing']['tRPRE'])
+        tWPRE  = int(config['timing']['tWPRE'])
+        tRRD_S = int(config['timing']['tRRD_S'])
+        tRRD_L = int(config['timing']['tRRD_L'])
+        tWTR_S = int(config['timing']['tWTR_S'])
+        tWTR_L = int(config['timing']['tWTR_L'])
+        tFAW   = int(config['timing']['tFAW'])
+        tWR    = int(config['timing']['tWR'])
+        tWR2   = int(config['timing']['tWR2'])
+        tRTP   = int(config['timing']['tRTP'])
+        tCCD_S = int(config['timing']['tCCD_S'])
+        tCCD_L = int(config['timing']['tCCD_L'])
+        tCKE   = int(config['timing']['tCKE'])
+        tCKESR = int(config['timing']['tCKESR'])
+        tXS    = int(config['timing']['tXS'])
+        tXP    = int(config['timing']['tXP'])
+        tRTRS  = int(config['timing']['tRTRS'])
+        print(tCK, AL, CL, CWL, tRCD, tRP, tRAS, tRFC, tRFC2, tRFC4, tREFI, tRPRE, tWPRE, tRRD_S, tRRD_L, tWTR_S, tWTR_L, tFAW, tWR, tWR2, tRTP, tCCD_S, tCCD_L, tCKE, tCKESR, tXS, tXP, tRTRS)
 
         BANKGROUPS = 2**BGWIDTH
         BANKSPERGROUP = 2**BAWIDTH
@@ -44,16 +81,15 @@ class WrappedDIMM(Module):
                    self.stall}
 
         DIMMi = Instance("DIMM", name="WrappedDIMMi",
-                        p_RANKS=RANKS,
-                        p_CHIPS=CHIPS,
-                        p_BGWIDTH=BGWIDTH,
-                        p_BAWIDTH=BAWIDTH,
-                        p_ADDRWIDTH=ADDRWIDTH,
-                        p_COLWIDTH=COLWIDTH,
-                        p_DEVICE_WIDTH=DEVICE_WIDTH,
-                        p_DQWIDTH=DQWIDTH,
-                        p_BL=BL,
-                        p_CHWIDTH=CHWIDTH,
+                        p_RANKS=Instance.PreformattedParam(RANKS),
+                        p_CHIPS=Instance.PreformattedParam(CHIPS),
+                        p_BGWIDTH=Instance.PreformattedParam(BGWIDTH),
+                        p_BAWIDTH=Instance.PreformattedParam(BAWIDTH),
+                        p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH),
+                        p_COLWIDTH=Instance.PreformattedParam(COLWIDTH),
+                        p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH),
+                        p_BL=Instance.PreformattedParam(BL),
+                        p_CHWIDTH=Instance.PreformattedParam(CHWIDTH),
 
                         i_act_n=self.act_n,
                         i_A=self.addr,
@@ -80,7 +116,8 @@ class WrappedDIMM(Module):
 
 
 def test_instance_module():
-    WD = WrappedDIMM()
+    configFile = '../DRAMsim3/configs/DDR4_8Gb_x4_2666.ini'
+    WD = WrappedDIMM(configFile)
     verilog.convert(WD, WD.io, name="WrappedDIMM").write("WrappedDIMM.sv")
 
 
