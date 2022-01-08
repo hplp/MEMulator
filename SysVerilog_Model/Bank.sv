@@ -21,7 +21,7 @@ module Bank
   input  wire [DEVICE_WIDTH-1:0] dqin,
   output wire [DEVICE_WIDTH-1:0] dqout,
   input  wire [CHWIDTH-1:0]      row,
-  input  wire [COLWIDTH-1:0] column
+  input  wire [COLWIDTH-1:0]     column
   );
   
   array #(.WIDTH(DEVICE_WIDTH), .DEPTH(DEPTH)) arrayi (
