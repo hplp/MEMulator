@@ -8,12 +8,15 @@ module testbnch_TimingFSM(
        parameter BGWIDTH = 2; // set to 0 for DDR3
        parameter BAWIDTH = 2;
        parameter BL = 8; // Burst Length
-       parameter T_WR = 14;
-       parameter T_ABA = 24;
-       parameter T_ABAR = 24;
-       parameter T_RTP = 7;
+
        localparam BANKGROUPS = 2**BGWIDTH;
        localparam BANKSPERGROUP = 2**BAWIDTH;
+       
+       localparam T_RCD = 17;
+       localparam T_WR = 14;
+       // parameter T_ABA = 24;
+       // parameter T_ABAR = 24;
+       // parameter T_RTP = 7;
        
        localparam tCK = 0.75;
        
@@ -73,7 +76,56 @@ module testbnch_TimingFSM(
               // reset
               reset_n = 1;
               #(tCK*3);
-
+              
+              // activating a row in bank 1 in bank group 1
+              ACT = 1;
+              bg = 1;
+              ba = 1;
+              #tCK;
+              ACT = 0;
+              #tCK;
+              assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]);
+              $stop();
+              #(tCK*(T_RCD-1)); // tRCD
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]);
+              $stop();
+              #(tCK*18); // tCL
+              $stop();
+              
+              // write
+              #tCK;
+              
+              // WRA = 1;
+              //#tCK;
+              // WRA = 0;
+              //#(tCK*BL-1);
+              
+              
+              for (i = 0; i <T_WR ; i = i + 1)
+              begin
+                     WR = (i==0)? 1 : 0;
+                     #tCK;
+              end
+              #tCK;
+              
+              // precharge and back to idle
+              #tCK;
+              PR = 1;
+              #tCK;
+              PR = 0;
+              #(16*tCK)
+              
+              // refresh
+              REF = 1;
+              #tCK;
+              REF = 0;
+              #(34*tCK);
+              
+              bg = 0;
+              ba = 0;
+              #(4*tCK);
+              
+              
               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
@@ -83,107 +135,64 @@ module testbnch_TimingFSM(
               #(tCK*15); // tRCD
               #(tCK*18); // tCL
               
+              
               // write
               #tCK;
-
-             // WRA = 1;
+              
+              // WRA = 1;
               //#tCK;
-             // WRA = 0;
+              // WRA = 0;
               //#(tCK*BL-1);
-
-
+              
+              
               for (i = 0; i <T_WR ; i = i + 1)
               begin
                      WR = (i==0)? 1 : 0;
                      #tCK;
               end
-               #tCK;
-               
-             // precharge and back to idle
-               #tCK;
-               PR = 1;
-               #tCK;
-               PR = 0;
-               #(16*tCK)
-
-               // refresh
-              REF = 1;
               #tCK;
-              REF = 0;
-              #(34*tCK);
-
-              bg = 0;
-              ba = 0;
-              #(4*tCK);
-
+              
+              
+              // read
+              for (i = 0; i < BL; i = i + 1)
+              begin
+                     #tCK;
+                     RD = (i==0)? 1 : 0;
+              end
+              
+              // write
+              #tCK;
+              for (i = 0; i <T_WR ; i = i + 1)
+              begin
+                     WR = (i==0)? 1 : 0;
+                     #tCK;
+              end
+              #tCK;
+              
+              // precharge and back to idle
+              #tCK;
+              PR = 1;
+              #tCK;
+              PR = 0;
+              #(16*tCK);
               
               // activating a row in bank 1 in bank group 1
-               ACT = 1;
-               bg = 1;
-               ba = 1;
-               #tCK;
-               ACT = 0;
-               #(tCK*15); // tRCD
-               #(tCK*18); // tCL
-
-
-// write
-               #tCK;
-
-               // WRA = 1;
-                //#tCK;
-               // WRA = 0;
-                //#(tCK*BL-1);
-  
-  
-                for (i = 0; i <T_WR ; i = i + 1)
-                begin
-                       WR = (i==0)? 1 : 0;
-                       #tCK;
-                end
-                 #tCK;
-                 
-
-             // read
-               for (i = 0; i < BL; i = i + 1)
-               begin
-                      #tCK;
-                      RD = (i==0)? 1 : 0;
-               end
-
-               // write
-               #tCK;
-                      for (i = 0; i <T_WR ; i = i + 1)
-                begin
-                       WR = (i==0)? 1 : 0;
-                       #tCK;
-                end
-                 #tCK;
-                 
-             // precharge and back to idle
-               #tCK;
-               PR = 1;
-               #tCK;
-               PR = 0;
-               #(16*tCK);
-
-              // activating a row in bank 1 in bank group 1
-               ACT = 1;
-               bg = 1;
-               ba = 1;
-               #tCK;
-               ACT = 0;
-               #(tCK*15); // tRCD
-               #(tCK*18); // tCL
-               
-               // write Auto-Precharge
-               #tCK;
-               for (i = 0; i < T_WR; i = i + 1)
-               begin
-                      WRA = (i==0)? 1 : 0;
-                      #tCK;
-               end
-            
+              ACT = 1;
+              bg = 1;
+              ba = 1;
+              #tCK;
+              ACT = 0;
+              #(tCK*15); // tRCD
+              #(tCK*18); // tCL
+              
+              // write Auto-Precharge
+              #tCK;
+              for (i = 0; i < T_WR; i = i + 1)
+              begin
+                     WRA = (i==0)? 1 : 0;
+                     #tCK;
+              end
+              
               //`ifdef RowClone
               //#(tCK*5); // activating again for RowClone
               //ACT = 1;
@@ -201,21 +210,21 @@ module testbnch_TimingFSM(
               ACT = 0;
               #(tCK*15); // tRCD
               #(tCK*18); // tCL
-
-             // read
-             for (i = 0; i < BL; i = i + 1)
-             begin
-                    #tCK;
-                    RD = (i==0)? 1 : 0;
-             end
-          
-
-             // precharge and back to idle
-             #tCK;
-             PR = 1;
-             #tCK;
-             PR = 0;
-             #(16*tCK)
+              
+              // read
+              for (i = 0; i < BL; i = i + 1)
+              begin
+                     #tCK;
+                     RD = (i==0)? 1 : 0;
+              end
+              
+              
+              // precharge and back to idle
+              #tCK;
+              PR = 1;
+              #tCK;
+              PR = 0;
+              #(16*tCK)
               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
@@ -230,26 +239,26 @@ module testbnch_TimingFSM(
                      #tCK;
                      RDA = (i==0)? 1 : 0;
               end
-
+              
               #(18*tCK) // need to wait for the precharge time period before attempting any command
-             // refresh
+              // refresh
               REF = 1;
               #tCK;
               REF = 0;
               #(34*tCK);
-
+              
               bg = 0;
               ba = 0;
               #(4*tCK);
-
+              
               // precharge and back to idle
               #tCK;
               PR = 1;
               #tCK;
               PR = 0;
               #(16*tCK)
- 	               
-              $stop;
+              
+              $finish();
        end;
        
 endmodule
