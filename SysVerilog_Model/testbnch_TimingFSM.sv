@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
 
 //`define RowClone
+//`define TestWrite
+//`define TestRefresh
 
 module testbnch_TimingFSM(
        );
@@ -8,12 +10,15 @@ module testbnch_TimingFSM(
        parameter BGWIDTH = 2; // set to 0 for DDR3
        parameter BAWIDTH = 2;
        parameter BL = 8; // Burst Length
-
+       
        localparam BANKGROUPS = 2**BGWIDTH;
        localparam BANKSPERGROUP = 2**BAWIDTH;
        
+       localparam T_CL = 17;
        localparam T_RCD = 17;
        localparam T_WR = 14;
+       localparam T_RP = 17;
+       localparam T_RFC  = 34;
        // parameter T_ABA = 24;
        // parameter T_ABAR = 24;
        // parameter T_RTP = 7;
@@ -77,6 +82,7 @@ module testbnch_TimingFSM(
               reset_n = 1;
               #(tCK*3);
               
+              `ifdef TestWrite
               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
@@ -84,42 +90,45 @@ module testbnch_TimingFSM(
               #tCK;
               ACT = 0;
               #tCK;
-              assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]);
-              $stop();
+              assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
               #(tCK*(T_RCD-1)); // tRCD
-              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]);
-              $stop();
-              #(tCK*18); // tCL
-              $stop();
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
+              #(tCK*(T_CL-1)); // tCL
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
               
               // write
-              #tCK;
-              
-              // WRA = 1;
-              //#tCK;
-              // WRA = 0;
-              //#(tCK*BL-1);
-              
-              
               for (i = 0; i <T_WR ; i = i + 1)
               begin
                      WR = (i==0)? 1 : 0;
                      #tCK;
+                     assert ((BankFSM[bg][bg] == 5'h12) || (i==0)) else $display(BankFSM[bg][bg]); // writing
               end
               #tCK;
+              assert (BankFSM[bg][bg] == 5'h12) else $display(BankFSM[bg][bg]); // writing
               
               // precharge and back to idle
-              #tCK;
               PR = 1;
               #tCK;
               PR = 0;
-              #(16*tCK)
+              #tCK;
+              assert (BankFSM[bg][bg] == 5'h0a) else $display(BankFSM[bg][bg]); // precharge
+              #((T_RP-1)*tCK)
+              assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
+              $stop();
+              `endif
               
+              `ifdef TestRefresh
               // refresh
               REF = 1;
               #tCK;
               REF = 0;
-              #(34*tCK);
+              #tCK;
+              assert (BankFSM[bg][bg] == 5'h0d) else $display(BankFSM[bg][bg]); // refreshing
+              $stop();
+              #((T_RFC-1)*tCK);
+              assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
+              $stop();
+              `endif
               
               bg = 0;
               ba = 0;
