@@ -17,4 +17,4 @@ CMakeLists.txt.cpp
 
 SysVerilog_Model/vscratch/
 SysVerilog_Model/vsim/
-vscratch/
+SysVerilog_Model/scratch/
