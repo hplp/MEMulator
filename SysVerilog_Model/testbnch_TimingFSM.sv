@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 
 //`define RowClone
-//`define TestWrite
+`define TestWrite
+`define TestWriteReadWrite // needs TestWrite
 //`define TestRefresh
 
 module testbnch_TimingFSM(
@@ -90,10 +91,13 @@ module testbnch_TimingFSM(
               #tCK;
               ACT = 0;
               #tCK;
+              $display("activating");
               assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
               #(tCK*(T_RCD-1)); // tRCD
+              $display("bank active");
               assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
               #(tCK*(T_CL-1)); // tCL
+              $display("bank active");
               assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
               
               // write
@@ -101,89 +105,73 @@ module testbnch_TimingFSM(
               begin
                      WR = (i==0)? 1 : 0;
                      #tCK;
+                     $display("writing");
                      assert ((BankFSM[bg][bg] == 5'h12) || (i==0)) else $display(BankFSM[bg][bg]); // writing
               end
               #tCK;
+              $display("writing");
               assert (BankFSM[bg][bg] == 5'h12) else $display(BankFSM[bg][bg]); // writing
+              
+              `ifdef TestWriteReadWrite
+              // read
+              for (i = 0; i < BL; i = i + 1)
+              begin
+                     RD = (i==0)? 1 : 0;
+                     #tCK;
+                     $display("reading");
+                     assert ((BankFSM[bg][bg] == 5'h0b) || (i==0)) else $display(BankFSM[bg][bg]); // reading
+              end
+              #tCK;
+              $display("reading");
+              assert ((BankFSM[bg][bg] == 5'h0b) || (i==0)) else $display(BankFSM[bg][bg]); // reading
+              $stop();
+              
+              // write
+              for (i = 0; i <T_WR ; i = i + 1)
+              begin
+                     WR = (i==0)? 1 : 0;
+                     #tCK;
+                     $display("writing");
+                     assert ((BankFSM[bg][bg] == 5'h12) || (i==0)) else $display(BankFSM[bg][bg]); // writing
+              end
+              #tCK;
+              $display("writing");
+              assert (BankFSM[bg][bg] == 5'h12) else $display(BankFSM[bg][bg]); // writing
+              $stop();
+              `endif
               
               // precharge and back to idle
               PR = 1;
               #tCK;
               PR = 0;
               #tCK;
+              $display("precharge");
               assert (BankFSM[bg][bg] == 5'h0a) else $display(BankFSM[bg][bg]); // precharge
               #((T_RP-1)*tCK)
+              $display("idle");
               assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
-              $stop();
+              bg = 0;
+              ba = 0;
+              #(2*tCK);
               `endif
               
               `ifdef TestRefresh
               // refresh
+              bg = 1;
+              ba = 1;
               REF = 1;
               #tCK;
               REF = 0;
               #tCK;
+              $display("refreshing");
               assert (BankFSM[bg][bg] == 5'h0d) else $display(BankFSM[bg][bg]); // refreshing
-              $stop();
               #((T_RFC-1)*tCK);
+              $display("idle");
               assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
-              $stop();
-              `endif
-              
               bg = 0;
               ba = 0;
-              #(4*tCK);
-              
-              
-              // activating a row in bank 1 in bank group 1
-              ACT = 1;
-              bg = 1;
-              ba = 1;
-              #tCK;
-              ACT = 0;
-              #(tCK*15); // tRCD
-              #(tCK*18); // tCL
-              
-              
-              // write
-              #tCK;
-              
-              // WRA = 1;
-              //#tCK;
-              // WRA = 0;
-              //#(tCK*BL-1);
-              
-              
-              for (i = 0; i <T_WR ; i = i + 1)
-              begin
-                     WR = (i==0)? 1 : 0;
-                     #tCK;
-              end
-              #tCK;
-              
-              
-              // read
-              for (i = 0; i < BL; i = i + 1)
-              begin
-                     #tCK;
-                     RD = (i==0)? 1 : 0;
-              end
-              
-              // write
-              #tCK;
-              for (i = 0; i <T_WR ; i = i + 1)
-              begin
-                     WR = (i==0)? 1 : 0;
-                     #tCK;
-              end
-              #tCK;
-              
-              // precharge and back to idle
-              #tCK;
-              PR = 1;
-              #tCK;
-              PR = 0;
-              #(16*tCK);
+              #(2*tCK);
+              `endif
               
               // activating a row in bank 1 in bank group 1
               ACT = 1;
