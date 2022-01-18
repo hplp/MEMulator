@@ -1,9 +1,10 @@
 `timescale 1ns / 1ps
 
-//`define RowClone
 `define TestWrite
 `define TestWriteReadWrite // needs TestWrite
-//`define TestRefresh
+`define TestRefresh
+`define WRAutoPrecharge
+`define RDAutoPrecharge
 
 module testbnch_TimingFSM(
        );
@@ -124,7 +125,6 @@ module testbnch_TimingFSM(
               #tCK;
               $display("reading");
               assert ((BankFSM[bg][bg] == 5'h0b) || (i==0)) else $display(BankFSM[bg][bg]); // reading
-              $stop();
               
               // write
               for (i = 0; i <T_WR ; i = i + 1)
@@ -137,7 +137,6 @@ module testbnch_TimingFSM(
               #tCK;
               $display("writing");
               assert (BankFSM[bg][bg] == 5'h12) else $display(BankFSM[bg][bg]); // writing
-              $stop();
               `endif
               
               // precharge and back to idle
@@ -173,87 +172,88 @@ module testbnch_TimingFSM(
               #(2*tCK);
               `endif
               
+              `ifdef WRAutoPrecharge
               // activating a row in bank 1 in bank group 1
               ACT = 1;
               bg = 1;
               ba = 1;
               #tCK;
               ACT = 0;
-              #(tCK*15); // tRCD
-              #(tCK*18); // tCL
-              
-              // write Auto-Precharge
               #tCK;
-              for (i = 0; i < T_WR; i = i + 1)
+              $display("activating");
+              assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
+              #(tCK*(T_RCD-1)); // tRCD
+              $display("bank active");
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
+              #(tCK*(T_CL-1)); // tCL
+              $display("bank active");
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
+
+              // write Auto-Precharge
+              for (i = 0; i <T_WR ; i = i + 1)
               begin
                      WRA = (i==0)? 1 : 0;
                      #tCK;
+                     $display("writingAP");
+                     assert ((BankFSM[bg][bg] == 5'h13) || (i==0)) else $display(BankFSM[bg][bg]); // writingAP
               end
-              
-              //`ifdef RowClone
-              //#(tCK*5); // activating again for RowClone
-              //ACT = 1;
-              //#tCK;
-              //ACT = 0;
-              //#(tCK*15); // tRCD
-              //`endif
-              
-              #(18*tCK)
-              // activating a row in bank 1 in bank group 1
-              ACT = 1;
-              bg = 1;
-              ba = 1;
               #tCK;
-              ACT = 0;
-              #(tCK*15); // tRCD
-              #(tCK*18); // tCL
-              
-              // read
-              for (i = 0; i < BL; i = i + 1)
-              begin
-                     #tCK;
-                     RD = (i==0)? 1 : 0;
-              end
-              
+              $display("writingAP");
+              assert (BankFSM[bg][bg] == 5'h13) else $display(BankFSM[bg][bg]); // writingAP
               
               // precharge and back to idle
               #tCK;
-              PR = 1;
-              #tCK;
-              PR = 0;
-              #(16*tCK)
-              // activating a row in bank 1 in bank group 1
-              ACT = 1;
-              bg = 1;
-              ba = 1;
-              #tCK;
-              ACT = 0;
-              #(tCK*15); // tRCD
-              #(tCK*18); // tCL
-              // read Auto-Precharge
-              for (i = 0; i < BL; i = i + 1)
-              begin
-                     #tCK;
-                     RDA = (i==0)? 1 : 0;
-              end
-              
-              #(18*tCK) // need to wait for the precharge time period before attempting any command
-              // refresh
-              REF = 1;
-              #tCK;
-              REF = 0;
-              #(34*tCK);
-              
+              $display("precharge");
+              assert (BankFSM[bg][bg] == 5'h0a) else $display(BankFSM[bg][bg]); // precharge
+              #((T_RP-1)*tCK)
+              $display("idle");
+              assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
               bg = 0;
               ba = 0;
-              #(4*tCK);
+              #(2*tCK);
+              `endif
+              
+              `ifdef RDAutoPrecharge
+              // activating a row in bank 1 in bank group 1
+              ACT = 1;
+              bg = 1;
+              ba = 1;
+              #tCK;
+              ACT = 0;
+              #tCK;
+              $display("activating");
+              assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
+              #(tCK*(T_RCD-1)); // tRCD
+              $display("bank active");
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
+              #(tCK*(T_CL-1)); // tCL
+              $display("bank active");
+              assert (BankFSM[bg][bg] == 5'h03) else $display(BankFSM[bg][bg]); // bank active
+              
+              
+              // read Auto-Precharge
+              for (i = 0; i <BL ; i = i + 1)
+              begin
+                     RDA = (i==0)? 1 : 0;
+                     #tCK;
+                     $display("readingAP");
+                     assert ((BankFSM[bg][bg] == 5'h0c) || (i==0)) else $display(BankFSM[bg][bg]); // readingAP
+              end
+              #tCK;
+              $display("readingAP");
+              assert (BankFSM[bg][bg] == 5'h0c) else $display(BankFSM[bg][bg]); // readingAP
               
               // precharge and back to idle
               #tCK;
-              PR = 1;
-              #tCK;
-              PR = 0;
-              #(16*tCK)
+              $display("precharge");
+              assert (BankFSM[bg][bg] == 5'h0a) else $display(BankFSM[bg][bg]); // precharge
+              #((T_RP-1)*tCK)
+              $display("idle");
+              assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
+              bg = 0;
+              ba = 0;
+              #(2*tCK);
+              `endif
               
               $finish();
        end;
