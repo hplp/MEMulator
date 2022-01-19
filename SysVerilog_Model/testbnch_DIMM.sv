@@ -227,7 +227,7 @@ module testbnch_DIMM();
               A = 17'b00000000000000000;
               sync[1][1] = 0;
               #(20*tCK);
-              $stop;
+              $finish();
        end;
        
 endmodule
