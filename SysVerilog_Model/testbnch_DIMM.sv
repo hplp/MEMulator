@@ -15,7 +15,7 @@ module testbnch_DIMM();
        parameter COLWIDTH = 10;
        parameter DEVICE_WIDTH = 4; // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
        parameter BL = 8; // Burst Length
-       parameter CHWIDTH = 6; // Emulation Memory Cache Width
+       parameter CHWIDTH = 5; // Emulation Memory Cache Width
        
        localparam DQWIDTH = DEVICE_WIDTH*CHIPS; // 64 bits + 8 bits for ECC
        localparam BANKGROUPS = 2**BGWIDTH;
@@ -227,7 +227,7 @@ module testbnch_DIMM();
               A = 17'b00000000000000000;
               sync[1][1] = 0;
               #(20*tCK);
-              $stop;
+              $finish();
        end;
        
 endmodule
