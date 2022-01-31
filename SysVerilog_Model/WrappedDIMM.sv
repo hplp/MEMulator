@@ -2,14 +2,14 @@
 module WrappedDIMM(
 	input act_n,
 	input [16:0] addr,
-	input [1:0] bg,
+	input [1:0] wrappeddimm,
 	input [1:0] ba,
 	input ck2x,
 	input ck_c,
 	input ck_t,
 	input reset_n,
 	input cke,
-	input [9:0] cs_n,
+	input cs_n,
 	inout [63:0] dq,
 	inout [15:0] dqs_c,
 	inout [15:0] dqs_t,
@@ -29,12 +29,12 @@ DIMM #(
 	.CHWIDTH(5),
 	.COLWIDTH(10),
 	.DEVICE_WIDTH(4),
-	.RANKS(10)
+	.RANKS(1)
 ) WrappedDIMMi (
 	.A(addr),
 	.act_n(act_n),
 	.ba(ba),
-	.bg(bg),
+	.bg(wrappeddimm),
 	.ck2x(ck2x),
 	.ck_c(ck_c),
 	.ck_t(ck_t),
