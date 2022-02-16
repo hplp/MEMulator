@@ -31,7 +31,7 @@ module bank_array #(parameter WIDTH = 8, DEPTH = 2048) (
             begin
                 memory_array[addr] <= i_data;
             end
-        else // rd_o_wr=1 read memory_array[addr] to o_data
+        else // rd_o_wr=0 read memory_array[addr] to o_data
             begin
                 o_data <= memory_array[addr];
             end
