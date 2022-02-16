@@ -3,13 +3,18 @@ from migen import *
 from migen.fhdl import verilog
 
 import configparser
+import os.path
 
 # Create migen wrapper for DIMM.sv
 class WrappedDIMM(Module):
     def __init__(self, configFile):
         config = configparser.ConfigParser(inline_comment_prefixes=';')
         config.sections()
-        config.read(configFile)
+        if os.path.isfile(configFile):
+            config.read(configFile)
+        else:
+            print("Error: file " + configFile + " not found!")
+            exit()
 
         PROTOCOL = config['dram_structure']['protocol']
         CHIPS = int(int(config['system']['bus_width']) / int(config['dram_structure']['device_width']))
@@ -64,7 +69,8 @@ class WrappedDIMM(Module):
 
         self.act_n = Signal()
         self.addr = Signal(ADDRWIDTH)
-        self.bg = Signal(BGWIDTH) if (BGWIDTH>0) else Signal()
+        if (BGWIDTH>0):
+            self.bg = Signal(BGWIDTH)
         self.ba = Signal(BAWIDTH)
         self.ck2x = Signal()
         self.ck_c = Signal()
@@ -77,45 +83,75 @@ class WrappedDIMM(Module):
         self.dqs_t = Signal(CHIPS)
         self.odt = Signal()
         self.parity = Signal()
-        # self.cachesync = Signal(BANKGROUPS*BANKSPERGROUP)
         self.stall = Signal()
 
-        self.io = {self.act_n, self.addr, self.bg, self.ba,
-                   self.ck2x, self.ck_c, self.ck_t, self.reset_n, self.cke, self.cs_n,
-                   self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, # self.cachesync,
-                   self.stall}
+        if (BGWIDTH>0):
+            self.io = {self.act_n, self.addr, self.bg, self.ba, self.ck2x, self.ck_c, self.ck_t, self.reset_n, self.cke, self.cs_n,
+                    self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, self.stall}
+            DIMMi = Instance("DIMM", name="WrappedDIMMi",
+                            p_PROTOCOL=PROTOCOL, # parse ok
+                            p_RANKS=Instance.PreformattedParam(RANKS), # parse ok
+                            p_CHIPS=Instance.PreformattedParam(CHIPS), # parse ok
+                            p_BGWIDTH=Instance.PreformattedParam(BGWIDTH), # parse ok
+                            p_BAWIDTH=Instance.PreformattedParam(BAWIDTH), # parse ok
+                            p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH), # parse ok
+                            p_COLWIDTH=Instance.PreformattedParam(COLWIDTH), # parse ok
+                            p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH), # parse ok
+                            p_BL=Instance.PreformattedParam(BL), # parse ok
+                            p_CHWIDTH=Instance.PreformattedParam(CHWIDTH), # FPGA host specific
 
-        DIMMi = Instance("DIMM", name="WrappedDIMMi",
-                        p_RANKS=Instance.PreformattedParam(RANKS), # parse ok
-                        p_CHIPS=Instance.PreformattedParam(CHIPS), # parse ok
-                        p_BGWIDTH=Instance.PreformattedParam(BGWIDTH), # parse ok
-                        p_BAWIDTH=Instance.PreformattedParam(BAWIDTH), # parse ok
-                        p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH), # parse ok
-                        p_COLWIDTH=Instance.PreformattedParam(COLWIDTH), # parse ok
-                        p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH), # parse ok
-                        p_BL=Instance.PreformattedParam(BL), # parse ok
-                        p_CHWIDTH=Instance.PreformattedParam(CHWIDTH), # FPGA host specific
+                            i_act_n=self.act_n,
+                            i_A=self.addr,
+                            i_bg=self.bg,
+                            i_ba=self.ba,
+                            i_ck2x=self.ck2x,
+                            i_ck_c=self.ck_c,
+                            i_ck_t=self.ck_t,
+                            i_cke=self.cke,
+                            i_cs_n=self.cs_n,
+                            i_reset_n=self.reset_n,
 
-                        i_act_n=self.act_n,
-                        i_A=self.addr,
-                        i_bg=self.bg,
-                        i_ba=self.ba,
-                        i_ck2x=self.ck2x,
-                        i_ck_c=self.ck_c,
-                        i_ck_t=self.ck_t,
-                        i_cke=self.cke,
-                        i_cs_n=self.cs_n,
-                        i_reset_n=self.reset_n,
+                            io_dq=self.dq,
+                            io_dqs_c=self.dqs_c,
+                            io_dqs_t=self.dqs_t,
 
-                        io_dq=self.dq,
-                        io_dqs_c=self.dqs_c,
-                        io_dqs_t=self.dqs_t,
+                            i_odt=self.odt,
+                            i_parity=self.parity,
+                            o_stall=self.stall
+                            )
+        else:
+            self.io = {self.act_n, self.addr, self.ba, self.ck2x, self.ck_c, self.ck_t, self.reset_n, self.cke, self.cs_n,
+                    self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, self.stall}
+            DIMMi = Instance("DIMM", name="WrappedDIMMi",
+                            p_PROTOCOL=PROTOCOL, # parse ok
+                            p_RANKS=Instance.PreformattedParam(RANKS), # parse ok
+                            p_CHIPS=Instance.PreformattedParam(CHIPS), # parse ok
+                            p_BGWIDTH=Instance.PreformattedParam(BGWIDTH), # parse ok
+                            p_BAWIDTH=Instance.PreformattedParam(BAWIDTH), # parse ok
+                            p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH), # parse ok
+                            p_COLWIDTH=Instance.PreformattedParam(COLWIDTH), # parse ok
+                            p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH), # parse ok
+                            p_BL=Instance.PreformattedParam(BL), # parse ok
+                            p_CHWIDTH=Instance.PreformattedParam(CHWIDTH), # FPGA host specific
 
-                        i_odt=self.odt,
-                        i_parity=self.parity,
-                        # i_sync=self.cachesync,
-                        o_stall=self.stall
-                        )
+                            i_act_n=self.act_n,
+                            i_A=self.addr,
+                            i_ba=self.ba,
+                            i_ck2x=self.ck2x,
+                            i_ck_c=self.ck_c,
+                            i_ck_t=self.ck_t,
+                            i_cke=self.cke,
+                            i_cs_n=self.cs_n,
+                            i_reset_n=self.reset_n,
+
+                            io_dq=self.dq,
+                            io_dqs_c=self.dqs_c,
+                            io_dqs_t=self.dqs_t,
+
+                            i_odt=self.odt,
+                            i_parity=self.parity,
+                            o_stall=self.stall
+                            )
 
         self.specials += DIMMi
 
@@ -128,3 +164,20 @@ def test_instance_module():
 
 if __name__ == "__main__":
     test_instance_module()
+
+# DDR3_1Gb_x8_1333 DDR3_4Gb_x16_1600 DDR3_4Gb_x16_1866 DDR3_4Gb_x4_1600 DDR3_4Gb_x4_1866 DDR3_4Gb_x8_1600 DDR3_4Gb_x8_1866
+# DDR3_8Gb_x16_1600 DDR3_8Gb_x16_1866 DDR3_8Gb_x4_1600 DDR3_8Gb_x4_1866 DDR3_8Gb_x8_1600 DDR3_8Gb_x8_1866 ddr3_debug
+
+# DDR4_4Gb_x16_1866 DDR4_4Gb_x16_2133_2 DDR4_4Gb_x16_2133 DDR4_4Gb_x16_2400_2 DDR4_4Gb_x16_2400 DDR4_4Gb_x16_2666_2 DDR4_4Gb_x16_2666
+# DDR4_4Gb_x4_1866 DDR4_4Gb_x4_2133_2 DDR4_4Gb_x4_2133 DDR4_4Gb_x4_2400_2 DDR4_4Gb_x4_2400 DDR4_4Gb_x4_2666_2 DDR4_4Gb_x4_2666
+# DDR4_4Gb_x8_1866 DDR4_4Gb_x8_2133_2 DDR4_4Gb_x8_2133 DDR4_4Gb_x8_2400_2 # DDR4_4Gb_x8_2400 DDR4_4Gb_x8_2666_2 DDR4_4Gb_x8_2666
+# DDR4_8Gb_x16_1866 DDR4_8Gb_x16_2133_2 DDR4_8Gb_x16_2133 # DDR4_8Gb_x16_2400_2 DDR4_8Gb_x16_2400 DDR4_8Gb_x16_2666_2 DDR4_8Gb_x16_2666
+# DDR4_8Gb_x16_2933_2 DDR4_8Gb_x16_2933 # DDR4_8Gb_x16_3200 DDR4_8Gb_x4_1866 DDR4_8Gb_x4_2133_2 DDR4_8Gb_x4_2133 DDR4_8Gb_x4_2400_2
+# DDR4_8Gb_x4_2400 DDR4_8Gb_x4_2666_2 DDR4_8Gb_x4_2666 DDR4_8Gb_x4_2933_2 DDR4_8Gb_x4_2933 DDR4_8Gb_x4_3200 DDR4_8Gb_x8_1866 DDR4_8Gb_x8_2133_2
+# DDR4_8Gb_x8_2133 DDR4_8Gb_x8_2400_2 DDR4_8Gb_x8_2400 DDR4_8Gb_x8_2666_2 DDR4_8Gb_x8_2666 DDR4_8Gb_x8_2933_2 DDR4_8Gb_x8_2933 DDR4_8Gb_x8_3200 ddr4_debug
+
+# GDDR5_1Gb_x32 GDDR5_8Gb_x32 GDDR5X_8Gb_x32 GDDR6_8Gb_x16
+# HBM1_4Gb_x128 HBM2_4Gb_x128 HBM2_8Gb_x128 HBM_4Gb_x128
+# HMC2_8GB_4Lx16 HMC_2GB_4Lx16_dummy HMC_2GB_4Lx16 HMC_4GB_4Lx16
+# lpddr_2Gb_x16 LPDDR3_8Gb_x32_1333 LPDDR3_8Gb_x32_1600 LPDDR3_8Gb_x32_1866 LPDDR4_8Gb_x16_2400
+# ST-1.2x ST-1.5x ST-2.0x
