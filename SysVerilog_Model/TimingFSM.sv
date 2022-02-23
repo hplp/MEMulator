@@ -17,7 +17,7 @@ module TimingFSM
     input [BGWIDTH-1:0]bg, // bankgroup address, BG0-BG1 in x4/8 and BG0 in x16
     `endif
     input [BAWIDTH-1:0]ba, // bank address
-    input ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA,
+    input [18:0] commands,
     output [4:0] BankFSM [BANKGROUPS-1:0][BANKSPERGROUP-1:0]
 );
 
@@ -33,6 +33,28 @@ module TimingFSM
     logic [7:0] T_ABAR = 24;
     logic [7:0] T_RAS  = 32;
     logic [15:0] T_REFI = 9360;
+
+    wire ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
+
+    assign ACT = commands[18];
+    assign BST = commands[17];
+    assign CFG = commands[16];
+    assign CKEH= commands[15];
+    assign CKEL= commands[14];
+    assign DPD = commands[13];
+    assign DPDX= commands[12];
+    assign MRR = commands[11];
+    assign MRW = commands[10];
+    assign PD  = commands[9];
+    assign PDX = commands[8];
+    assign PR  = commands[7];
+    assign PRA = commands[6];
+    assign RD  = commands[5];
+    assign RDA = commands[4];
+    assign REF = commands[3];
+    assign SRF = commands[2];
+    assign WR  = commands[1];
+    assign WRA = commands[0];
 
     genvar bgi, bi; // bank group and bank identifiers
     generate

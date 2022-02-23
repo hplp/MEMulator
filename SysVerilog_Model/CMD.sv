@@ -43,13 +43,15 @@ module CMD
     output logic [ADDRWIDTH-1:0] RowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
     output logic [COLWIDTH-1:0] ColId [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
     output logic rd_o_wr [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
-    output ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA
+    output [18:0] commands
 );
 
     wire A16 = A[ADDRWIDTH-1]; // RAS_n
     wire A15 = A[ADDRWIDTH-2]; // CAS_n
     wire A14 = A[ADDRWIDTH-3]; // WE_n
     wire A10 = A[ADDRWIDTH-4]; // AP
+
+    wire ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
 
     // implement ddr command decoding logic using truth table // todo: implement all commands not just a few
     assign ACT  = (!cs_n && !act_n); // entire A is the Row Address at this time
@@ -71,6 +73,8 @@ module CMD
     assign SRF  = (!cs_n && act_n && !A16 && !A15 &&  A14         && !cke); // SRE
     assign WR   = (!cs_n && act_n &&  A16 && !A15 && !A14 && !A10);
     assign WRA  = (!cs_n && act_n &&  A16 && !A15 && !A14 &&  A10);
+
+    assign commands = {ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA};
 
     // RAS = Row Address Strobe
     // the idea here is to store the address A during an activate command

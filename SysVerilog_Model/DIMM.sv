@@ -139,7 +139,7 @@ module DIMM // top MEMulator module with DIMM interface
     wire rd_o_wr [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
 
     // Command decoding, updates RowId, ColId, other control logic
-    wire ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
+    wire [18:0] commands; // ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA
     CMD #(
     .ADDRWIDTH(ADDRWIDTH),
     .COLWIDTH(COLWIDTH),
@@ -157,7 +157,7 @@ module DIMM // top MEMulator module with DIMM interface
         .clk(clk),
         .bg(bg), .ba(ba),
         .A(A), .RowId(RowId), .ColId(ColId), .rd_o_wr(rd_o_wr),
-        .ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA)
+        .commands(commands)
     );
 
     // Bank Timing FSMs accounts for the state of each bank and the latencies
@@ -171,7 +171,7 @@ module DIMM // top MEMulator module with DIMM interface
   .bg(bg),
   `endif
   .ba(ba),
-        .ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA),
+        .commands(commands),
         .BankFSM(BankFSM)
     );
 
