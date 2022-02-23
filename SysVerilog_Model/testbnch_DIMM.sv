@@ -28,6 +28,12 @@ module testbnch_DIMM();
 
     localparam tCK = 0.75;
 
+    localparam T_CL = 17;
+    localparam T_RCD = 17;
+    localparam T_WR = 14;
+    localparam T_RP = 17;
+    localparam T_RFC  = 34;
+
     logic reset_n;
     logic ck2x;
        `ifdef DDR4
@@ -50,7 +56,7 @@ module testbnch_DIMM();
        logic [ADDRWIDTH-1:0]A;
     logic [BAWIDTH-1:0]ba;
        `ifdef DDR4
-       logic [BGWIDTH-1:0]bg;
+       logic [BGWIDTH-1:0]bg; // todo: explore adding one bit that is always ignored
        `endif
        wire [DQWIDTH-1:0]dq;
     logic [DQWIDTH-1:0]dq_reg;
@@ -163,7 +169,7 @@ module testbnch_DIMM();
 
         // reset high
         reset_n = 1;
-        cs_n = 1'b0;
+        cs_n = 1'b0; // LOW makes rank active
         #(tCK*5);
 
         // activating
@@ -175,11 +181,14 @@ module testbnch_DIMM();
         #tCK;
         act_n = 1;
         A = 17'b00000000000000000;
-        #(tCK*15); // tRCD
-        #(tCK*10); // tCL
-
-        // write
         #tCK;
+        assert (dut.TimingFSMi.BankFSM[bg][ba] == 5'h01) $display("OK: activating"); else $display(dut.TimingFSMi.BankFSM[bg][ba]);
+        #(tCK*(T_RCD-1)); // tRCD
+        assert (dut.TimingFSMi.BankFSM[bg][ba] == 5'h03) $display("OK: bank active"); else $display(dut.TimingFSMi.BankFSM[bg][ba]);
+        #(tCK*(T_CL-1)); // tCL
+        assert (dut.TimingFSMi.BankFSM[bg][ba] == 5'h03) $display("OK: bank active"); else $display(dut.TimingFSMi.BankFSM[bg][ba]);
+
+        // write test
         for (i = 0; i < BL; i = i + 1)
             begin
                 A = (i==0)? 17'b10000000000000010 : 17'b00000000000000000;
@@ -188,8 +197,12 @@ module testbnch_DIMM();
                 dqs_t_reg = {CHIPS{1'b1}};
                 dqs_c_reg = {CHIPS{1'b0}};
                 #tCK;
+                assert ((dut.TimingFSMi.BankFSM[bg][ba] == 5'h12) || (i==0)) $display("OK: writing"); else $display(dut.TimingFSMi.BankFSM[bg][ba]);
             end
+        #(tCK*(T_WR-BL));
+        assert ((dut.TimingFSMi.BankFSM[bg][ba] == 5'h12) || (i==0)) $display("OK: writing"); else $display(dut.TimingFSMi.BankFSM[bg][ba]);
         writing = 0;
+        $finish();
 
         #(tCK*20); // no actions
               
@@ -218,6 +231,16 @@ module testbnch_DIMM();
             end
 
             // precharge and back to idle
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
+        #tCK;
         #tCK;
         #tCK;
         A = 17'b01000000000000000;

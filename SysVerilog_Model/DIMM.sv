@@ -5,7 +5,8 @@
 // todo: DDR3 interface is only declared at this time but not fully tested
 
 module DIMM // top MEMulator module with DIMM interface
-  #(parameter RANKS = 1, // number of Ranks
+  #(parameter PROTOCOL = "DDR4",
+    parameter RANKS = 1, // number of Ranks
     parameter CHIPS = 16, // number of Chips per Rank
   `ifdef DDR4
   parameter BGWIDTH = 2, // width of Bank Groups
