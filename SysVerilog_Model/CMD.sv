@@ -29,7 +29,9 @@ module CMD
   input cke, // Clock Enable; HIGH activates internal clock signals and device input buffers and output drivers
     input cs_n, // Chip select; The memory looks at all the other inputs only if this is LOW todo: scale to more than 1 rank
     input clk,
+    `ifdef DDR4
     input [BGWIDTH-1:0] bg,
+    `endif
     input [BAWIDTH-1:0] ba,
     input [ADDRWIDTH-1:0] A,
     // ras_n -> A16, cas_n -> A15, we_n -> A14
@@ -108,7 +110,7 @@ module CMD
     begin
         if(WR || WRA) rd_o_wr[bg][ba] <= 1;
         else if (PR || RD || RDA) rd_o_wr[bg][ba] <= 0;
-        else rd_o_wr[bg][ba] <= 0;
+        // else rd_o_wr[bg][ba] <= 0;
     end
 
 `ifndef SYNTHESIS
