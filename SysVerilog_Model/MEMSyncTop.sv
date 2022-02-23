@@ -60,6 +60,8 @@ module MEMSyncTop #(
                     .cRowId(cRowId[bgi][bi]),
                     .ready(ready[bgi][bi]),
                     .stall(stalls[bgi][bi]),
+                    .ACT(BankFSM[bgi][bi]==5'b00001), // Activating from memtiming FSM
+                    .PR(BankFSM[bgi][bi]==5'b01010), // Precharging from memtiming FSM
                     .RD((BankFSM[bgi][bi]==5'b01011)||(BankFSM[bgi][bi]==5'b01100)), // Read from memtiming FSM
                     .RowId(RowId[bgi][bi]),
                     .WR((BankFSM[bgi][bi]==5'b10010)||(BankFSM[bgi][bi]==5'b10011)), // Write from memtiming FSM
