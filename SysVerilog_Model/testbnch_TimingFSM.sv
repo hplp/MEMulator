@@ -34,6 +34,9 @@ module testbnch_TimingFSM(
     logic [BAWIDTH-1:0]ba; // bank address
     logic ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
     logic [4:0] BankFSM [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
+    
+    wire [18:0] commands;
+    assign commands = {ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA};
 
     // Bank Timing FSMs instance dut
     TimingFSM #(.BGWIDTH(BGWIDTH),
@@ -43,7 +46,8 @@ module testbnch_TimingFSM(
         .reset_n(reset_n),
         .bg(bg),
         .ba(ba),
-        .ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA),
+        //.ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA),
+        .commands(commands),
         .BankFSM(BankFSM)
     );
 

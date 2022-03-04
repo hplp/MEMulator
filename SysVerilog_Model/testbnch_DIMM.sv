@@ -231,18 +231,7 @@ module testbnch_DIMM();
             end
 
             // precharge and back to idle
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
-        #tCK;
+        #(20*tCK);
         A = 17'b01000000000000000;
         #tCK;
         bg = 0;
