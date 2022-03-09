@@ -34,7 +34,7 @@ module testbnch_TimingFSM(
     logic [BAWIDTH-1:0]ba; // bank address
     logic ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
     logic [4:0] BankFSM [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
-    
+
     wire [18:0] commands;
     assign commands = {ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA};
 
@@ -46,7 +46,6 @@ module testbnch_TimingFSM(
         .reset_n(reset_n),
         .bg(bg),
         .ba(ba),
-        //.ACT(ACT), .BST(BST), .CFG(CFG), .CKEH(CKEH), .CKEL(CKEL), .DPD(DPD), .DPDX(DPDX), .MRR(MRR), .MRW(MRW), .PD(PD), .PDX(PDX), .PR(PR), .PRA(PRA), .RD(RD), .RDA(RDA), .REF(REF), .SRF(SRF), .WR(WR), .WRA(WRA),
         .commands(commands),
         .BankFSM(BankFSM)
     );
@@ -95,6 +94,8 @@ module testbnch_TimingFSM(
         ba = 1;
         #tCK;
         ACT = 0;
+        bg = 0;
+        ba = 0;
         #tCK;
         $display("activating");
         assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
@@ -109,6 +110,8 @@ module testbnch_TimingFSM(
         for (i = 0; i <T_WR ; i = i + 1)
             begin
                 WR = (i==0)? 1 : 0;
+                bg = (i==0)? 1 : 0;
+                ba = (i==0)? 1 : 0;
                 #tCK;
                 $display("writing");
                 assert ((BankFSM[bg][bg] == 5'h12) || (i==0)) else $display(BankFSM[bg][bg]); // writing
@@ -122,6 +125,8 @@ module testbnch_TimingFSM(
         for (i = 0; i < BL; i = i + 1)
             begin
                 RD = (i==0)? 1 : 0;
+                bg = (i==0)? 1 : 0;
+                ba = (i==0)? 1 : 0;
                 #tCK;
                 $display("reading");
                 assert ((BankFSM[bg][bg] == 5'h0b) || (i==0)) else $display(BankFSM[bg][bg]); // reading
@@ -134,6 +139,8 @@ module testbnch_TimingFSM(
         for (i = 0; i <T_WR ; i = i + 1)
             begin
                 WR = (i==0)? 1 : 0;
+                bg = (i==0)? 1 : 0;
+                ba = (i==0)? 1 : 0;
                 #tCK;
                 $display("writing");
                 assert ((BankFSM[bg][bg] == 5'h12) || (i==0)) else $display(BankFSM[bg][bg]); // writing
@@ -145,16 +152,18 @@ module testbnch_TimingFSM(
               
               // precharge and back to idle
         PR = 1;
+        bg = 1;
+        ba = 1;
         #tCK;
         PR = 0;
+        bg = 0;
+        ba = 0;
         #tCK;
         $display("precharge");
         assert (BankFSM[bg][bg] == 5'h0a) else $display(BankFSM[bg][bg]); // precharge
         #((T_RP-1)*tCK)
         $display("idle");
         assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
-        bg = 0;
-        ba = 0;
         #(2*tCK);
               `endif
               
@@ -165,14 +174,14 @@ module testbnch_TimingFSM(
         REF = 1;
         #tCK;
         REF = 0;
+        bg = 0;
+        ba = 0;
         #tCK;
         $display("refreshing");
         assert (BankFSM[bg][bg] == 5'h0d) else $display(BankFSM[bg][bg]); // refreshing
         #((T_RFC-1)*tCK);
         $display("idle");
         assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
-        bg = 0;
-        ba = 0;
         #(2*tCK);
               `endif
               
@@ -183,6 +192,8 @@ module testbnch_TimingFSM(
         ba = 1;
         #tCK;
         ACT = 0;
+        bg = 0;
+        ba = 0;
         #tCK;
         $display("activating");
         assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
@@ -197,6 +208,8 @@ module testbnch_TimingFSM(
         for (i = 0; i <T_WR ; i = i + 1)
             begin
                 WRA = (i==0)? 1 : 0;
+                bg = (i==0)? 1 : 0;
+                ba = (i==0)? 1 : 0;
                 #tCK;
                 $display("writingAP");
                 assert ((BankFSM[bg][bg] == 5'h13) || (i==0)) else $display(BankFSM[bg][bg]); // writingAP
@@ -212,8 +225,6 @@ module testbnch_TimingFSM(
         #((T_RP-1)*tCK)
         $display("idle");
         assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
-        bg = 0;
-        ba = 0;
         #(2*tCK);
               `endif
               
@@ -224,6 +235,8 @@ module testbnch_TimingFSM(
         ba = 1;
         #tCK;
         ACT = 0;
+        bg = 0;
+        ba = 0;
         #tCK;
         $display("activating");
         assert (BankFSM[bg][bg] == 5'h01) else $display(BankFSM[bg][bg]); // activating
@@ -239,6 +252,8 @@ module testbnch_TimingFSM(
         for (i = 0; i <BL ; i = i + 1)
             begin
                 RDA = (i==0)? 1 : 0;
+                bg = (i==0)? 1 : 0;
+                ba = (i==0)? 1 : 0;
                 #tCK;
                 $display("readingAP");
                 assert ((BankFSM[bg][bg] == 5'h0c) || (i==0)) else $display(BankFSM[bg][bg]); // readingAP
@@ -254,8 +269,6 @@ module testbnch_TimingFSM(
         #((T_RP-1)*tCK)
         $display("idle");
         assert (BankFSM[bg][bg] == 5'h00) else $display(BankFSM[bg][bg]); // idle
-        bg = 0;
-        ba = 0;
         #(2*tCK);
               `endif
               

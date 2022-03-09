@@ -4,7 +4,7 @@ module memtiming
   #(parameter BL = 8
 )
   (
-    output state,
+    output logic [4:0] stateout,
     output logic [7:0] BSTct, // Burst counter
     output logic [7:0] tABARct,
     output logic [7:0] tABAct, // Automatic Bank Active latency counter
@@ -74,6 +74,7 @@ module memtiming
         Writing        = 5'b10010,
         WritingAPR     = 5'b10011
     } state, nextstate;
+    assign stateout = state;
 
 
     // comb always block

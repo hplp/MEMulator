@@ -63,7 +63,7 @@ module TimingFSM
             for (bi = 0; bi < BANKSPERGROUP; bi=bi+1)
             begin:MT // todo: send latencies as inputs
                 memtiming #(.BL(BL))  MTi (
-                    .state(BankFSM[bgi][bi]),
+                    .stateout(BankFSM[bgi][bi]),
                     .ACT( ((bg==bgi)&&(ba==bi))? ACT  : 1'b0),
                     .BST( ((bg==bgi)&&(ba==bi))? BST  : 1'b0),
                     .CFG( ((bg==bgi)&&(ba==bi))? CFG  : 1'b0),
