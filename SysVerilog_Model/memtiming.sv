@@ -1,4 +1,5 @@
 // Created by fizzim.pl version 5.20 on 2022:01:10 at 16:58:22 (www.fizzim.com)
+`timescale 1ns / 1ps
 
 module memtiming
   #(parameter BL = 8

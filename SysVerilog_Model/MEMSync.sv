@@ -1,4 +1,5 @@
 // Created by fizzim.pl version 5.20 on 2022:02:22 at 19:23:10 (www.fizzim.com)
+`timescale 1ns / 1ps
 
 module MEMSync #(
     parameter CHWIDTH = 6,
