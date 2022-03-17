@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
 
+// This module instatiates a MEMSync module for each memory Bank.
 module MEMSyncTop #(
     parameter BGWIDTH = 2,
     parameter BAWIDTH = 2,
