@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
-// this array module is based on widely used Verilog designs for 2D memory array
-// parameter WIDTH sets the word width (how many bits are written/read in 1 clk)
-// parameter DEPTH sets the number of words
+// This array module is based on widely used Verilog designs for a 2D memory array.
+// Parameter `WIDTH` sets the word width (how many bits are written/read in 1 `clk`).
+// Parameter `DEPTH` sets the number of words in the array.
 module bank_array #(parameter WIDTH = 8, DEPTH = 2048) (
     input logic clk, // clock
     input logic [$clog2(DEPTH)-1:0] addr, // which word is read/written
     input logic rd_o_wr, // is the data read or written (0=read, 1=write)
     input logic [WIDTH-1:0] i_data, // data being written
-    output logic [WIDTH-1:0] o_data // data being read, wire
+    output logic [WIDTH-1:0] o_data // data being read
     );
     
     (* ram_style = "block" *) logic [WIDTH-1:0] memory_array [0:DEPTH-1];
@@ -25,6 +25,8 @@ module bank_array #(parameter WIDTH = 8, DEPTH = 2048) (
     end
     `endif
     
+    // Either write `i_data` in `memory_array` at `addr`
+    // or read from `memory_array[addr]` to `o_data`
     always @ (posedge clk)
     begin
         if(rd_o_wr) // rd_o_wr=1 write i_data to memory_array[addr]

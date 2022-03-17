@@ -1,8 +1,6 @@
 `timescale 1ns / 1ps
 
-// A memory Chip module model that bundles multiple BankGroups
-// parameter BGWIDTH determines the number of Bank Groups
-//     BGWIDTH=0 is equivalent to a single Bank Group
+// A memory Chip module model that bundles multiple BankGroups.
 // Notice that the Chip model interface is nothing like the real DRAM Chip
 // interface, which is much narrower, with the addressing logic performed
 // inside the Chip. Doing the addressing logic, the state and time management,
@@ -10,6 +8,8 @@
 // of resource utilization and allows having the relevant control data all in
 // one place while still achieving the goal of slicing and hierarchically
 // placing the data.
+// * parameter `BGWIDTH` determines the number of Bank Groups, and
+//     `BGWIDTH=0` is equivalent to a single Bank Group
 module Chip
     #(parameter BGWIDTH = 2,
     parameter BAWIDTH = 2,

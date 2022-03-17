@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
-// A BankGroup module model that bundles multiple Bank modules
-// parameter BAWIDTH determines the number of Banks
+// A BankGroup module model that bundles multiple Bank modules.
+// parameter `BAWIDTH` determines the number of Banks
 module BankGroup
     #(parameter BAWIDTH = 2,
     parameter COLWIDTH = 10,
