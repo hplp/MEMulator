@@ -3,6 +3,7 @@
 `define DDR4
 // `define DDR3
 
+// This module instantiates a memtiming (state and timing) module for each Bank
 module TimingFSM
     #(parameter BL = 8,
     parameter BGWIDTH = 2,
@@ -22,17 +23,19 @@ module TimingFSM
     );
     
     // TODO: make memory timings registers writeable by the memory controller
-    logic [7:0] T_CL   = 17;
-    logic [7:0] T_RCD  = 17;
-    logic [7:0] T_RP   = 17;
-    logic [7:0] T_RFC  = 34;
-    logic [7:0] T_WR   = 14;
-    logic [7:0] T_RTP  = 7;
-    logic [7:0] T_CWL  = 10;
-    logic [7:0] T_ABA  = 24;
-    logic [7:0] T_ABAR = 24;
-    logic [7:0] T_RAS  = 32;
-    logic [15:0] T_REFI = 9360;
+    logic [7:0] T_CL, T_RCD, T_RP, T_RFC, T_WR, T_RTP, T_CWL, T_ABA, T_ABAR, T_RAS;
+    logic [15:0] T_REFI;
+    assign T_CL   = 8'd17;
+    assign T_RCD  = 8'd17;
+    assign T_RP   = 8'd17;
+    assign T_RFC  = 8'd34;
+    assign T_WR   = 8'd14;
+    assign T_RTP  = 8'd7;
+    assign T_CWL  = 8'd10;
+    assign T_ABA  = 8'd24;
+    assign T_ABAR = 8'd24;
+    assign T_RAS  = 8'd32;
+    assign T_REFI = 16'd9360;
     
     logic ACT, BST, CFG, CKEH, CKEL, DPD, DPDX, MRR, MRW, PD, PDX, PR, PRA, RD, RDA, REF, SRF, WR, WRA;
     
@@ -94,7 +97,9 @@ module TimingFSM
                 .T_ABAR(T_ABAR),
                 .T_RAS(T_RAS),
                 .T_REFI(T_REFI),
-                .clk(clk), // TODO put eclk
+                .BSTct(), .tABARct(), .tABAct(), .tCLct(), .tCWLct(), .tRASct(),
+                .tRCDct(), .tREFIct(), .tRFCct(), .tRPct(), .tRTPct(), .tWRct(),
+                .clk(clk),
                 .rst(!reset_n)
                 );
             end
