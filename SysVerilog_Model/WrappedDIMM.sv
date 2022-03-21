@@ -9,7 +9,7 @@ module WrappedDIMM(
 	input ck_t,
 	input reset_n,
 	input cke,
-	input [9:0] cs_n,
+	input cs_n,
 	inout [63:0] dq,
 	inout [15:0] dqs_c,
 	inout [15:0] dqs_t,
@@ -29,7 +29,8 @@ DIMM #(
 	.CHWIDTH(5),
 	.COLWIDTH(10),
 	.DEVICE_WIDTH(4),
-	.RANKS(10)
+	.PROTOCOL("DDR4"),
+	.RANKS(1)
 ) WrappedDIMMi (
 	.A(addr),
 	.act_n(act_n),
