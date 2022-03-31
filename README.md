@@ -1,8 +1,9 @@
-# Memory Emulation
-This framework enables emulation of existing and emerging memories on FPGA boards.
+# MEMulator: FPGA-based Memory Emulation Model
+
+This framework enables emulation of existing and emerging memories on FPGA boards. A soft core parameterizable and FPGA synthesizable memory prototype is provided. The memory model implements the memory components and accurately models their function and behavior.
 
 ## SystemVerilog Model
-The SystemVerilog model is located in the *SysVerilog_Model* directory. It includes finite state machines for timing and emulation memory cache, a ddr interface, hierarchy, command decoding and testbenches.
+The SystemVerilog model is located in the `SysVerilog_Model` directory. The SystemVerilog files implement the memory components and model their behavior, such as state and timing. The model is synthesizable and can be thought of as a memory soft core. The `testbnch_*` and `wtestbnch_*` files implement test benches and preformatted waveform configurations allowing for easy testing.
 
 ## HLS DRAM Emulation Code: 
 
@@ -21,3 +22,15 @@ tested in Software.
 
 ### Reading_Information:
 Reference Literature and also information on DDR3 / Command Timing
+
+## Usage
+
+At this stage the files can be simulated in Vivado or ModelSim, synthesized (out of context). The development for integration into a full system is in progress.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+Please see the license file
