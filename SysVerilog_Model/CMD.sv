@@ -11,10 +11,10 @@ module CMD
     #(parameter ADDRWIDTH = 17,
     parameter COLWIDTH = 10,
     parameter BGWIDTH = 2,
+    parameter BANKGROUPS = 2**BGWIDTH,
     parameter BAWIDTH = 2,
     parameter BL = 8, // Burst Length
     
-    localparam BANKGROUPS = 2**BGWIDTH,
     localparam BANKSPERGROUP = 2**BAWIDTH
     )
     (
@@ -102,7 +102,7 @@ module CMD
         end
         else begin
             for (int i = 0; i < BANKGROUPS; i++) begin
-                for (int j = 0; j < BANKGROUPS; j++) begin
+                for (int j = 0; j < BANKSPERGROUP; j++) begin
                     if(Burst[i][j]) ColId[i][j] <= ColId[i][j] + 1;
                 end
             end
