@@ -53,9 +53,7 @@ module testbnch_CMD(
     .cas_n(cas_n),
     .we_n(we_n),
     `endif
-    `ifdef DDR4
     .bg(bg),
-    `endif
     .ba(ba), .A(A),
     .RowId(RowId), .ColId(ColId), .rd_o_wr(rd_o_wr), .commands(commands)
     );

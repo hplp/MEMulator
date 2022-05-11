@@ -29,9 +29,7 @@ module CMD
     input logic cas_n,
     input logic we_n,
     `endif
-    `ifdef DDR4
     input logic [BGWIDTH-1:0] bg,
-    `endif
     input logic [BAWIDTH-1:0] ba,
     input logic [ADDRWIDTH-1:0] A,
     output logic [ADDRWIDTH-1:0] RowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
