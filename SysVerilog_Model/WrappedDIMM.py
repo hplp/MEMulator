@@ -71,87 +71,55 @@ class WrappedDIMM(Module):
         self.addr = Signal(ADDRWIDTH)
         if (BGWIDTH>0):
             self.bg = Signal(BGWIDTH)
+        else:
+            self.bg = Signal()
         self.ba = Signal(BAWIDTH)
         self.ck2x = Signal()
-        self.ck_c = Signal()
-        self.ck_t = Signal()
+        self.ck_cn = Signal()
+        self.ck_tp = Signal()
         self.reset_n = Signal()
         self.cke = Signal()
         self.cs_n = Signal(RANKS)
         self.dq = Signal(DEVICE_WIDTH*CHIPS)
-        self.dqs_c = Signal(CHIPS)
-        self.dqs_t = Signal(CHIPS)
+        self.dqs_cn = Signal(CHIPS)
+        self.dqs_tp = Signal(CHIPS)
         self.odt = Signal()
         self.parity = Signal()
         self.stall = Signal()
 
-        if (BGWIDTH>0):
-            self.io = {self.act_n, self.addr, self.bg, self.ba, self.ck2x, self.ck_c, self.ck_t, self.reset_n, self.cke, self.cs_n,
-                    self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, self.stall}
-            DIMMi = Instance("DIMM", name="WrappedDIMMi",
-                            p_PROTOCOL=PROTOCOL, # parse ok
-                            p_RANKS=Instance.PreformattedParam(RANKS), # parse ok
-                            p_CHIPS=Instance.PreformattedParam(CHIPS), # parse ok
-                            p_BGWIDTH=Instance.PreformattedParam(BGWIDTH), # parse ok
-                            p_BAWIDTH=Instance.PreformattedParam(BAWIDTH), # parse ok
-                            p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH), # parse ok
-                            p_COLWIDTH=Instance.PreformattedParam(COLWIDTH), # parse ok
-                            p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH), # parse ok
-                            p_BL=Instance.PreformattedParam(BL), # parse ok
-                            p_CHWIDTH=Instance.PreformattedParam(CHWIDTH), # FPGA host specific
+        self.io = {self.act_n, self.addr, self.bg, self.ba, self.ck2x, self.ck_cn, self.ck_tp, self.reset_n, self.cke, self.cs_n,
+                self.dq, self.dqs_cn, self.dqs_tp, self.odt, self.parity, self.stall}
+        DIMMi = Instance("DIMM", name="WrappedDIMMi",
+                        p_PROTOCOL=PROTOCOL, # parse ok
+                        p_RANKS=Instance.PreformattedParam(RANKS), # parse ok
+                        p_CHIPS=Instance.PreformattedParam(CHIPS), # parse ok
+                        p_BGWIDTH=Instance.PreformattedParam(BGWIDTH), # parse ok
+                        p_BANKGROUPS=Instance.PreformattedParam(BANKGROUPS),
+                        p_BAWIDTH=Instance.PreformattedParam(BAWIDTH), # parse ok
+                        p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH), # parse ok
+                        p_COLWIDTH=Instance.PreformattedParam(COLWIDTH), # parse ok
+                        p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH), # parse ok
+                        p_BL=Instance.PreformattedParam(BL), # parse ok
+                        p_CHWIDTH=Instance.PreformattedParam(CHWIDTH), # FPGA host specific
 
-                            i_act_n=self.act_n,
-                            i_A=self.addr,
-                            i_bg=self.bg,
-                            i_ba=self.ba,
-                            i_ck2x=self.ck2x,
-                            i_ck_c=self.ck_c,
-                            i_ck_t=self.ck_t,
-                            i_cke=self.cke,
-                            i_cs_n=self.cs_n,
-                            i_reset_n=self.reset_n,
+                        i_act_n=self.act_n,
+                        i_A=self.addr,
+                        i_bg=self.bg,
+                        i_ba=self.ba,
+                        i_ck2x=self.ck2x,
+                        i_ck_cn=self.ck_cn,
+                        i_ck_tp=self.ck_tp,
+                        i_cke=self.cke,
+                        i_cs_n=self.cs_n,
+                        i_reset_n=self.reset_n,
 
-                            io_dq=self.dq,
-                            io_dqs_c=self.dqs_c,
-                            io_dqs_t=self.dqs_t,
+                        io_dq=self.dq,
+                        io_dqs_cn=self.dqs_cn,
+                        io_dqs_tp=self.dqs_tp,
 
-                            i_odt=self.odt,
-                            i_parity=self.parity,
-                            o_stall=self.stall
-                            )
-        else:
-            self.io = {self.act_n, self.addr, self.ba, self.ck2x, self.ck_c, self.ck_t, self.reset_n, self.cke, self.cs_n,
-                    self.dq, self.dqs_c, self.dqs_t, self.odt, self.parity, self.stall}
-            DIMMi = Instance("DIMM", name="WrappedDIMMi",
-                            p_PROTOCOL=PROTOCOL, # parse ok
-                            p_RANKS=Instance.PreformattedParam(RANKS), # parse ok
-                            p_CHIPS=Instance.PreformattedParam(CHIPS), # parse ok
-                            p_BGWIDTH=Instance.PreformattedParam(BGWIDTH), # parse ok
-                            p_BAWIDTH=Instance.PreformattedParam(BAWIDTH), # parse ok
-                            p_ADDRWIDTH=Instance.PreformattedParam(ADDRWIDTH), # parse ok
-                            p_COLWIDTH=Instance.PreformattedParam(COLWIDTH), # parse ok
-                            p_DEVICE_WIDTH=Instance.PreformattedParam(DEVICE_WIDTH), # parse ok
-                            p_BL=Instance.PreformattedParam(BL), # parse ok
-                            p_CHWIDTH=Instance.PreformattedParam(CHWIDTH), # FPGA host specific
-
-                            i_act_n=self.act_n,
-                            i_A=self.addr,
-                            i_ba=self.ba,
-                            i_ck2x=self.ck2x,
-                            i_ck_c=self.ck_c,
-                            i_ck_t=self.ck_t,
-                            i_cke=self.cke,
-                            i_cs_n=self.cs_n,
-                            i_reset_n=self.reset_n,
-
-                            io_dq=self.dq,
-                            io_dqs_c=self.dqs_c,
-                            io_dqs_t=self.dqs_t,
-
-                            i_odt=self.odt,
-                            i_parity=self.parity,
-                            o_stall=self.stall
-                            )
+                        i_odt=self.odt,
+                        i_parity=self.parity,
+                        o_stall=self.stall)
 
         self.specials += DIMMi
 

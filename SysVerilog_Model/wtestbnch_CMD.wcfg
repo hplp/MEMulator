@@ -11,30 +11,65 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2498fs"></ZoomStartTime>
-      <ZoomEndTime time="17491fs"></ZoomEndTime>
-      <Cursor1Time time="14992fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="17243fs"></ZoomEndTime>
+      <Cursor1Time time="17242fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="243"></NameColumnWidth>
-      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+      <ValueColumnWidth column_width="93"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
-   <wvobject type="array" fp_name="/testbnch_CMD/bg_o">
-      <obj_property name="ElementShortName">bg_o[1:0]</obj_property>
-      <obj_property name="ObjectShortName">bg_o[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbnch_CMD/ba_o">
-      <obj_property name="ElementShortName">ba_o[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ba_o[1:0]</obj_property>
-   </wvobject>
+   <WVObjectSize size="18" />
    <wvobject type="array" fp_name="/testbnch_CMD/RowId">
       <obj_property name="ElementShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="ObjectShortName">RowId[3:0][3:0][16:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject type="array" fp_name="/testbnch_CMD/RowId[3]">
+         <obj_property name="ElementShortName">[3][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/RowId[2]">
+         <obj_property name="ElementShortName">[2][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/RowId[1]">
+         <obj_property name="ElementShortName">[1][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/RowId[0]">
+         <obj_property name="ElementShortName">[0][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/ColId">
       <obj_property name="ElementShortName">ColId[3:0][3:0][9:0]</obj_property>
       <obj_property name="ObjectShortName">ColId[3:0][3:0][9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/testbnch_CMD/ColId[3]">
+         <obj_property name="ElementShortName">[3][3:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][3:0][9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/ColId[2]">
+         <obj_property name="ElementShortName">[2][3:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][3:0][9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/ColId[1]">
+         <obj_property name="ElementShortName">[1][3:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][3:0][9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/ColId[0]">
+         <obj_property name="ElementShortName">[0][3:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][3:0][9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/rd_o_wr">
       <obj_property name="ElementShortName">rd_o_wr[3:0][3:0]</obj_property>
@@ -67,10 +102,12 @@
    <wvobject type="array" fp_name="/testbnch_CMD/dut/bg">
       <obj_property name="ElementShortName">bg[1:0]</obj_property>
       <obj_property name="ObjectShortName">bg[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/dut/ba">
       <obj_property name="ElementShortName">ba[1:0]</obj_property>
       <obj_property name="ObjectShortName">ba[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/dut/A">
       <obj_property name="ElementShortName">A[16:0]</obj_property>
@@ -81,11 +118,32 @@
       <obj_property name="ElementShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="ObjectShortName">RowId[3:0][3:0][16:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject type="array" fp_name="/testbnch_CMD/dut/RowId[3]">
+         <obj_property name="ElementShortName">[3][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/dut/RowId[2]">
+         <obj_property name="ElementShortName">[2][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/dut/RowId[1]">
+         <obj_property name="ElementShortName">[1][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbnch_CMD/dut/RowId[0]">
+         <obj_property name="ElementShortName">[0][3:0][16:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][3:0][16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/dut/ColId">
       <obj_property name="ElementShortName">ColId[3:0][3:0][9:0]</obj_property>
       <obj_property name="ObjectShortName">ColId[3:0][3:0][9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/testbnch_CMD/dut/ColId[3]">
          <obj_property name="ElementShortName">[3][3:0][9:0]</obj_property>
          <obj_property name="ObjectShortName">[3][3:0][9:0]</obj_property>
@@ -100,7 +158,6 @@
          <obj_property name="ElementShortName">[1][3:0][9:0]</obj_property>
          <obj_property name="ObjectShortName">[1][3:0][9:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/testbnch_CMD/dut/ColId[0]">
          <obj_property name="ElementShortName">[0][3:0][9:0]</obj_property>
@@ -111,15 +168,17 @@
    <wvobject type="array" fp_name="/testbnch_CMD/dut/rd_o_wr">
       <obj_property name="ElementShortName">rd_o_wr[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">rd_o_wr[3:0][3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/dut/Burst">
       <obj_property name="ElementShortName">Burst[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">Burst[3:0][3:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/testbnch_CMD/dut/commands">
       <obj_property name="ElementShortName">commands[18:0]</obj_property>
       <obj_property name="ObjectShortName">commands[18:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group906">
       <obj_property name="label">wires</obj_property>
