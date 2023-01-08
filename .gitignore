@@ -18,3 +18,4 @@ CMakeLists.txt.cpp
 SysVerilog_Model/vscratch/
 SysVerilog_Model/vsim/
 SysVerilog_Model/scratch/
+SysVerilog_Model/obj_dir/
