@@ -44,7 +44,7 @@ static VWrappedDIMM *ptop;                      // Instantiation of module
 static vluint64_t main_time = 0;       // Current simulation time
 static VerilatedVcdC* tfp = 0;
 
-#define PERIOD  (5)
+#define PERIOD  (2)
 
 /**
 * Called by $time in Verilog
@@ -91,7 +91,10 @@ static void run(uint64_t limit)
 ****************************************************************************/
 static void reset()
 {
-	// this module has nothing to reset
+	ptop->ck_tp = 1;
+    ptop->cke = 1;
+    ptop->cs_n = 1;
+    ptop->act_n = 1;
 }
 
 /**
