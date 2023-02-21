@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 /* Machine-generated using Migen */
 module WrappedDIMM(
 	input act_n,

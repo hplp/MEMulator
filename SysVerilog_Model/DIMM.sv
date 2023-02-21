@@ -65,48 +65,48 @@ module DIMM // top MEMulator module with DIMM interface
   `endif
   input logic reset_n, // DRAM is active only when this signal is HIGH
   
-  output logic stall, // signal to stall system while MEMSync in Allocate or WriteBack state
+  output logic stall//, // signal to stall system while MEMSync in Allocate or WriteBack state
   
-  // AXI Port to Synchronize Emulation Memory Cache with Board Memory
-  input logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
-  /*
-  * AXI master interface
-  */
-  output logic [AXI_ID_WIDTH-1:0]    m_axi_awid,
-  output logic [AXI_ADDR_WIDTH-1:0]  m_axi_awaddr,
-  output logic [7:0]                 m_axi_awlen,
-  output logic [2:0]                 m_axi_awsize,
-  output logic [1:0]                 m_axi_awburst,
-  output logic                       m_axi_awlock,
-  output logic [3:0]                 m_axi_awcache,
-  output logic [2:0]                 m_axi_awprot,
-  output logic                       m_axi_awvalid,
-  input  logic                       m_axi_awready,
-  output logic [AXI_DATA_WIDTH-1:0]  m_axi_wdata,
-  output logic [AXI_STRB_WIDTH-1:0]  m_axi_wstrb,
-  output logic                       m_axi_wlast,
-  output logic                       m_axi_wvalid,
-  input  logic                       m_axi_wready,
-  input  logic [AXI_ID_WIDTH-1:0]    m_axi_bid,
-  input  logic [1:0]                 m_axi_bresp,
-  input  logic                       m_axi_bvalid,
-  output logic                       m_axi_bready,
-  output logic [AXI_ID_WIDTH-1:0]    m_axi_arid,
-  output logic [AXI_ADDR_WIDTH-1:0]  m_axi_araddr,
-  output logic [7:0]                 m_axi_arlen,
-  output logic [2:0]                 m_axi_arsize,
-  output logic [1:0]                 m_axi_arburst,
-  output logic                       m_axi_arlock,
-  output logic [3:0]                 m_axi_arcache,
-  output logic [2:0]                 m_axi_arprot,
-  output logic                       m_axi_arvalid,
-  input  logic                       m_axi_arready,
-  input  logic [AXI_ID_WIDTH-1:0]    m_axi_rid,
-  input  logic [AXI_DATA_WIDTH-1:0]  m_axi_rdata,
-  input  logic [1:0]                 m_axi_rresp,
-  input  logic                       m_axi_rlast,
-  input  logic                       m_axi_rvalid,
-  output logic                       m_axi_rready
+//  // AXI Port to Synchronize Emulation Memory Cache with Board Memory
+//  input logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
+//  /*
+//  * AXI master interface
+//  */
+//  output logic [AXI_ID_WIDTH-1:0]    m_axi_awid,
+//  output logic [AXI_ADDR_WIDTH-1:0]  m_axi_awaddr,
+//  output logic [7:0]                 m_axi_awlen,
+//  output logic [2:0]                 m_axi_awsize,
+//  output logic [1:0]                 m_axi_awburst,
+//  output logic                       m_axi_awlock,
+//  output logic [3:0]                 m_axi_awcache,
+//  output logic [2:0]                 m_axi_awprot,
+//  output logic                       m_axi_awvalid,
+//  input  logic                       m_axi_awready,
+//  output logic [AXI_DATA_WIDTH-1:0]  m_axi_wdata,
+//  output logic [AXI_STRB_WIDTH-1:0]  m_axi_wstrb,
+//  output logic                       m_axi_wlast,
+//  output logic                       m_axi_wvalid,
+//  input  logic                       m_axi_wready,
+//  input  logic [AXI_ID_WIDTH-1:0]    m_axi_bid,
+//  input  logic [1:0]                 m_axi_bresp,
+//  input  logic                       m_axi_bvalid,
+//  output logic                       m_axi_bready,
+//  output logic [AXI_ID_WIDTH-1:0]    m_axi_arid,
+//  output logic [AXI_ADDR_WIDTH-1:0]  m_axi_araddr,
+//  output logic [7:0]                 m_axi_arlen,
+//  output logic [2:0]                 m_axi_arsize,
+//  output logic [1:0]                 m_axi_arburst,
+//  output logic                       m_axi_arlock,
+//  output logic [3:0]                 m_axi_arcache,
+//  output logic [2:0]                 m_axi_arprot,
+//  output logic                       m_axi_arvalid,
+//  input  logic                       m_axi_arready,
+//  input  logic [AXI_ID_WIDTH-1:0]    m_axi_rid,
+//  input  logic [AXI_DATA_WIDTH-1:0]  m_axi_rdata,
+//  input  logic [1:0]                 m_axi_rresp,
+//  input  logic                       m_axi_rlast,
+//  input  logic                       m_axi_rvalid,
+//  output logic                       m_axi_rready
   );
   
   genvar ri, ci, bgi, bi; // rank, chip, bank group and bank identifiers
@@ -163,6 +163,7 @@ module DIMM // top MEMulator module with DIMM interface
   
   // Memory Emulation Model Data Sync engines (todo: also model row subarray belonging)
   logic [CHWIDTH-1:0] cRowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
+  logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0]; // TODO: this has to be an input from AXI-2-BoardMemory
   MEMSyncTop #(.BGWIDTH(BGWIDTH),
   .BANKGROUPS(BANKGROUPS),
   .BAWIDTH(BAWIDTH),
@@ -178,13 +179,13 @@ module DIMM // top MEMulator module with DIMM interface
   .stall(stall)
   );
   
-  // dq, dqs_t and dqs_c tristate split as inputs or outputs
+  // dq, dqs_tp and dqs_cn tristate split as inputs or outputs
   logic [DQWIDTH-1:0] dqi;
   logic [DQWIDTH-1:0] dqo;
-  logic [CHIPS-1:0] dqs_ci;
-  logic [CHIPS-1:0] dqs_co;
-  logic [CHIPS-1:0] dqs_ti;
-  logic [CHIPS-1:0] dqs_to;
+  logic [CHIPS-1:0] dqs_cni;
+  logic [CHIPS-1:0] dqs_cno;
+  logic [CHIPS-1:0] dqs_tpi;
+  logic [CHIPS-1:0] dqs_tpo;
   logic RDEN;
   logic [BANKGROUPS-1:0][BANKSPERGROUP-1:0] RDENs;
   generate
@@ -199,8 +200,8 @@ module DIMM // top MEMulator module with DIMM interface
   assign RDEN = |RDENs;
   
   tristate #(.W(DQWIDTH)) dqtr (.dqi(dqo),.dqo(dqi),.dq(dq),.enable(RDEN)); // todo: enable must come from FSM
-  tristate #(.W(CHIPS)) dqsctr (.dqi(dqs_co),.dqo(dqs_ci),.dq(dqs_c),.enable(commands[5] || commands[4]));
-  tristate #(.W(CHIPS)) dqsttr (.dqi(dqs_to),.dqo(dqs_ti),.dq(dqs_t),.enable(commands[5] || commands[4]));
+  tristate #(.W(CHIPS)) dqsctr (.dqi(dqs_cno),.dqo(dqs_cni),.dq(dqs_cn),.enable(commands[5] || commands[4]));
+  tristate #(.W(CHIPS)) dqsttr (.dqi(dqs_tpo),.dqo(dqs_tpi),.dq(dqs_tp),.enable(commands[5] || commands[4]));
   
   // dqi is demultiplexed into chipdqi while chipdqo is multiplexed into dqo
   logic [DEVICE_WIDTH-1:0] chipdqi [CHIPS-1:0][BANKGROUPS-1:0][BANKSPERGROUP-1:0];
