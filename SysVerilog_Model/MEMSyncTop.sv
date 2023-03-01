@@ -5,10 +5,10 @@ module MEMSyncTop #(
     parameter BGWIDTH = 2,
     parameter BANKGROUPS = 2**BGWIDTH,
     parameter BAWIDTH = 2,
+    parameter BANKSPERGROUP = 2**BAWIDTH,
     parameter CHWIDTH = 5,
     parameter ADDRWIDTH = 17,
 
-    localparam BANKSPERGROUP = 2**BAWIDTH,
     localparam CHROWS = 2**CHWIDTH,
     localparam ROWS = 2**ADDRWIDTH
     )

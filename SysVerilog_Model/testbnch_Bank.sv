@@ -5,9 +5,9 @@ module testbnch_Bank(
     );
     
     // parameters for Bank module
-    parameter DEVICE_WIDTH = 4;
-    parameter COLWIDTH = 10;
-    parameter CHWIDTH = 5;
+    localparam DEVICE_WIDTH = 4;
+    localparam COLWIDTH = 10;
+    localparam CHWIDTH = 5;
     
     // time for a clk cycle
     localparam tCK = 0.75;
