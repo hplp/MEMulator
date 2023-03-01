@@ -9,13 +9,12 @@
 module testbnch_TimingFSM(
     );
     
-    parameter BGWIDTH = 2; // set to 1 for DDR3
-    parameter BANKGROUPS = 2**BGWIDTH; // set to 1 for DDR3
-    parameter BAWIDTH = 2;
-    parameter BL = 8; // Burst Length
-    
+    localparam BGWIDTH = 2; // set to 1 for DDR3
+    localparam BANKGROUPS = 2**BGWIDTH; // set to 1 for DDR3
+    localparam BAWIDTH = 2;
     localparam BANKSPERGROUP = 2**BAWIDTH;
-    
+    localparam BL = 8; // Burst Length
+
     localparam T_CL = 17;
     localparam T_RCD = 17;
     localparam T_WR = 14;
