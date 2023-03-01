@@ -4,11 +4,10 @@
 // parameter `BAWIDTH` determines the number of Banks
 module BankGroup
     #(parameter BAWIDTH = 2,
+    parameter BANKSPERGROUP = 2**BAWIDTH,
     parameter COLWIDTH = 10,
     parameter DEVICE_WIDTH = 4,
-    parameter CHWIDTH = 5,
-    
-    localparam BANKSPERGROUP = 2**BAWIDTH
+    parameter CHWIDTH = 5
     )
     (
     input logic clk,

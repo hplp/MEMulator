@@ -3,15 +3,15 @@
 module testbnch_Chip(
     );
     
-    parameter BGWIDTH = 2;
-    parameter BANKGROUPS = 2**BGWIDTH; // set to 1 for DDR3 and prior gen
-    parameter BAWIDTH = 2;
-    parameter COLWIDTH = 10;
-    parameter DEVICE_WIDTH = 4;
-    parameter BL = 8;
-    parameter CHWIDTH = 5;
-    
+    localparam BGWIDTH = 2;
+    localparam BANKGROUPS = 2**BGWIDTH; // set to 1 for DDR3 and prior gen
+    localparam BAWIDTH = 2;
     localparam BANKSPERGROUP = 2**BAWIDTH;
+    localparam COLWIDTH = 10;
+    localparam DEVICE_WIDTH = 4;
+    localparam BL = 8;
+    localparam CHWIDTH = 5;
+
     localparam COLS = 2**COLWIDTH;
     
     localparam tCK = 0.75;
