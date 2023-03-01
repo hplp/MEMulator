@@ -11,6 +11,7 @@ module DIMM // top MEMulator module with DIMM interface
   parameter BGWIDTH = 2, // width of Bank Groups, set to 1 for DDR3 and prior gen
   parameter BANKGROUPS = 2**BGWIDTH, // number of Bank Groups, set to 1 for DDR3 and prior gen
   parameter BAWIDTH = 2, // width of Banks per Bank Group
+  parameter BANKSPERGROUP = 2**BAWIDTH, // number of Banks per Bank Group
   parameter ADDRWIDTH = 17, // address width for number of rows in array
   parameter COLWIDTH = 10, // address width for number of columns in array
   parameter DEVICE_WIDTH = 4, // data bits per Chip; x4, x8, x16 -> DQWIDTH = DEVICE_WIDTH x CHIPS
@@ -29,7 +30,6 @@ module DIMM // top MEMulator module with DIMM interface
   parameter AXI_ID_WIDTH = 8,
   
   localparam DQWIDTH = DEVICE_WIDTH*CHIPS, // data width, ECC pins are also accounted as data
-  localparam BANKSPERGROUP = 2**BAWIDTH, // number of Banks per Bank Group
   localparam ROWS = 2**ADDRWIDTH, // number of Rows in array
   localparam COLS = 2**COLWIDTH // number of Columns in array
   )
@@ -65,10 +65,10 @@ module DIMM // top MEMulator module with DIMM interface
   `endif
   input logic reset_n, // DRAM is active only when this signal is HIGH
   
-  output logic stall//, // signal to stall system while MEMSync in Allocate or WriteBack state
+  output logic stall, // signal to stall system while MEMSync in Allocate or WriteBack state
   
 //  // AXI Port to Synchronize Emulation Memory Cache with Board Memory
-//  input logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0],
+  input logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0]
 //  /*
 //  * AXI master interface
 //  */
@@ -163,7 +163,7 @@ module DIMM // top MEMulator module with DIMM interface
   
   // Memory Emulation Model Data Sync engines (todo: also model row subarray belonging)
   logic [CHWIDTH-1:0] cRowId [BANKGROUPS-1:0][BANKSPERGROUP-1:0];
-  logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0]; // TODO: this has to be an input from AXI-2-BoardMemory
+  // logic sync [BANKGROUPS-1:0][BANKSPERGROUP-1:0]; // TODO: this has to be an input from AXI-2-BoardMemory
   MEMSyncTop #(.BGWIDTH(BGWIDTH),
   .BANKGROUPS(BANKGROUPS),
   .BAWIDTH(BAWIDTH),
