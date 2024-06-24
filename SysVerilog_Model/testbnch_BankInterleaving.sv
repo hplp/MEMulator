@@ -6,15 +6,15 @@
 module testbnch_BankInterleaving(
 );
 
-    parameter RANKS = 1;
-    parameter CHIPS = 18;
-    parameter BGWIDTH = 2;
-    parameter BAWIDTH = 2;
-    parameter ADDRWIDTH = 17;
-    parameter COLWIDTH = 10;
-    parameter DEVICE_WIDTH = 4; // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
-    parameter BL = 8; // Burst Length
-    parameter CHWIDTH = 5; // Emulation Memory Cache Width
+    localparam RANKS = 1;
+    localparam CHIPS = 18;
+    localparam BGWIDTH = 2;
+    localparam BAWIDTH = 2;
+    localparam ADDRWIDTH = 17;
+    localparam COLWIDTH = 10;
+    localparam DEVICE_WIDTH = 4; // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
+    localparam BL = 8; // Burst Length
+    localparam CHWIDTH = 5; // Emulation Memory Cache Width
 
     localparam DQWIDTH = DEVICE_WIDTH*CHIPS; // 64 bits + 8 bits for ECC
     localparam BANKGROUPS = 2**BGWIDTH;

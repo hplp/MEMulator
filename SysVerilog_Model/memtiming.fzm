@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 7:11:44 PM on 1/11/22
+## File last modified by Fizzim: 3:19:13 PM on 3/16/22
 <version>
    14.02.26
 </version>
@@ -2078,6 +2078,62 @@
          -1
          </page>
       </T_REFI[15:0]>
+      <stall>
+            <status>
+            GLOBAL_FIXED
+            </status>
+         <value>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </value>
+         <vis>
+         0
+            <status>
+            GLOBAL_VAR
+            </status>
+         </vis>
+         <type>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </type>
+         <comment>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </comment>
+         <color>
+         -16777216
+            <status>
+            GLOBAL_VAR
+            </status>
+         </color>
+         <useratts>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </useratts>
+         <resetval>
+         
+            <status>
+            GLOBAL_VAR
+            </status>
+         </resetval>
+         <x2Obj>
+         0
+         </x2Obj>
+         <y2Obj>
+         0
+         </y2Obj>
+         <page>
+         -1
+         </page>
+      </stall>
    </inputs>
    <outputs>
       <tCLct[7:0]>
@@ -4531,7 +4587,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         (tCLct>1)?tCLct-1:tCLct
+         (tCLct>1)&&~stall?tCLct-1:tCLct
             <status>
             LOCAL
             </status>
@@ -4811,7 +4867,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         (tCWLct>1)?tCWLct-1:tCWLct
+         (tCWLct>1)&&~stall?tCWLct-1:tCWLct
             <status>
             LOCAL
             </status>
@@ -5035,7 +5091,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         (tRASct>0)?tRASct-1:tRASct
+         (tRASct>0)&&~stall?tRASct-1:tRASct
             <status>
             LOCAL
             </status>
@@ -5147,7 +5203,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         (tREFIct>1)?tREFIct-1:tREFIct
+         (tREFIct>1)&&~stall?tREFIct-1:tREFIct
             <status>
             LOCAL
             </status>
@@ -12631,7 +12687,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tRFCct-1
+         stall?tRFCct:tRFCct-1
             <status>
             LOCAL
             </status>
@@ -14003,7 +14059,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tRCDct-1
+         stall?tRCDct:tRCDct-1
             <status>
             LOCAL
             </status>
@@ -14451,7 +14507,7 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         tRASct-1
+         stall?tRASct:tRASct-1
             <status>
             LOCAL
             </status>

@@ -5,20 +5,20 @@ module testbnch_Bank(
     );
     
     // parameters for Bank module
-    parameter DEVICE_WIDTH = 4;
-    parameter COLWIDTH = 10;
-    parameter CHWIDTH = 5;
+    localparam DEVICE_WIDTH = 4;
+    localparam COLWIDTH = 10;
+    localparam CHWIDTH = 5;
     
     // time for a clk cycle
     localparam tCK = 0.75;
     
     // registers and wire for in and out of Bank module
     logic clk;
-    logic  [0:0]             rd_o_wr;
-    logic  [DEVICE_WIDTH-1:0]dqin;
+    logic [0:0]rd_o_wr;
+    logic [DEVICE_WIDTH-1:0]dqin;
     logic [DEVICE_WIDTH-1:0]dqout;
-    logic  [CHWIDTH-1:0]row;
-    logic  [COLWIDTH-1:0]column;
+    logic [CHWIDTH-1:0]row;
+    logic [COLWIDTH-1:0]column;
     
     logic  [DEVICE_WIDTH-1:0]data[8-1:0];
     

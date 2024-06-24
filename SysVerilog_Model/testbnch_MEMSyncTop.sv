@@ -3,13 +3,13 @@
 module testbnch_MEMSyncTop(
     );
     
-    parameter BGWIDTH = 2;
-    parameter BANKGROUPS = 2**BGWIDTH;
-    parameter BAWIDTH = 2;
-    parameter CHWIDTH = 6;
-    parameter ADDRWIDTH = 17;
-    
+    localparam BGWIDTH = 2;
+    localparam BANKGROUPS = 2**BGWIDTH;
+    localparam BAWIDTH = 2;
     localparam BANKSPERGROUP = 2**BAWIDTH;
+    localparam CHWIDTH = 6;
+    localparam ADDRWIDTH = 17;
+
     localparam CHROWS = 2**CHWIDTH;
     localparam ROWS = 2**ADDRWIDTH;
     

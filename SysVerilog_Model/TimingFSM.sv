@@ -6,7 +6,7 @@ module TimingFSM
     parameter BGWIDTH = 2,
     parameter BANKGROUPS = 2**BGWIDTH,
     parameter BAWIDTH = 2,
-    localparam BANKSPERGROUP = 2**BAWIDTH
+    parameter BANKSPERGROUP = 2**BAWIDTH
     )
     (
     input logic clk,

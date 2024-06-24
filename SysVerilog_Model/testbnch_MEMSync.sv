@@ -3,8 +3,8 @@
 module testbnch_MEMSync(
     );
     
-    parameter CHWIDTH = 6;
-    parameter ADDRWIDTH = 17;
+    localparam CHWIDTH = 6;
+    localparam ADDRWIDTH = 17;
     
     localparam CHROWS = 2**CHWIDTH;
     localparam ROWS = 2**ADDRWIDTH;

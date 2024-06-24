@@ -7,19 +7,19 @@
 
 module testbnch_DIMM();
     
-    parameter RANKS = 1;
-    parameter CHIPS = 16;
-    parameter BGWIDTH = 2;
-    parameter BANKGROUPS = 2**BGWIDTH;
-    parameter BAWIDTH = 2;
-    parameter ADDRWIDTH = 17;
-    parameter COLWIDTH = 10;
-    parameter DEVICE_WIDTH = 4; // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
-    parameter BL = 8; // Burst Length
-    parameter CHWIDTH = 5; // Emulation Memory Cache Width
-    
-    localparam DQWIDTH = DEVICE_WIDTH*CHIPS; // 64 bits + 8 bits for ECC
+    localparam RANKS = 1;
+    localparam CHIPS = 16;
+    localparam BGWIDTH = 2;
+    localparam BANKGROUPS = 2**BGWIDTH;
+    localparam BAWIDTH = 2;
     localparam BANKSPERGROUP = 2**BAWIDTH;
+    localparam ADDRWIDTH = 17;
+    localparam COLWIDTH = 10;
+    localparam DEVICE_WIDTH = 4; // x4, x8, x16 -> DQ width = Device_Width x BankGroups (Chips)
+    localparam BL = 8; // Burst Length
+    localparam CHWIDTH = 5; // Emulation Memory Cache Width
+
+    localparam DQWIDTH = DEVICE_WIDTH*CHIPS; // 64 bits + 8 bits for ECC
     localparam ROWS = 2**ADDRWIDTH;
     localparam COLS = 2**COLWIDTH;
     
@@ -188,6 +188,7 @@ module testbnch_DIMM();
             dqs_cn_reg = {CHIPS{1'b0}};
             #tCK;
             assert ((dut.TimingFSMi.BankFSM[0][1] == 5'h12) || (i==0)) $display("OK: writing"); else $display(dut.TimingFSMi.BankFSM[0][1]);
+            $display(" i=%d, dq=0x%h", i, dq_reg);
         end
         dq_reg = {DQWIDTH{1'b0}};
         ba = 0;
@@ -217,6 +218,7 @@ module testbnch_DIMM();
             dqs_cn_reg = {CHIPS{1'b1}};
             #tCK;
             assert ((dut.TimingFSMi.BankFSM[0][1] == 5'h0b) || (i==0)) $display("OK: reading"); else $display(dut.TimingFSMi.BankFSM[0][1]);
+            $display(" i=%d, dq=0x%h", i, dq);
         end
         ba = 0;
         #(tCK*(T_ABAR-BL));
